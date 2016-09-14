@@ -9,6 +9,7 @@ public class
 
 ## Tipus de dades i variables
 ### Tipus de dades
+|
 Name |	.NET Type 	   |Description 	               |Range (min:max)|
 sbyte 	|System.SByte 	|8-bit signed integer    	|-128:127 (-27:27–1)|
 short 	|System.Int16 	|16-bit signed integer 	|-32,768:32,767 (-215:215–1)|
@@ -18,7 +19,7 @@ byte 	|System.Byte 	   |8-bit unsigned integer 	|  0:255 (0:28–1)|
 ushort 	|System.UInt16 |16-bit unsigned integer |  0:65,535 (0:216–1)|
 uint 	   |System.UInt32 	|32-bit unsigned integer|	0:4,294,967,295 (0:232–1)|
 ulong 	|System.UInt64 |64-bit unsigned integer |   0:18,446,744,073,709,551,615 (0:264–1)|
-
+|
 
 ### Declaració i inicialització de variables
 ### Inferència de tipus: usant _var_
