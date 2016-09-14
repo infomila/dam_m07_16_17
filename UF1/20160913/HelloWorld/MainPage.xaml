@@ -26,6 +26,21 @@
             </Button.Background>
         </Button>
         <TextBox x:Name="txtMissatge" HorizontalAlignment="Left" Margin="136,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="110" Width="167"/>
+        <CheckBox x:Name="checkBox" 
+                  Content="CheckBox" 
+                  IsChecked="true"
+                  HorizontalAlignment="Left" 
+                  Margin="417,142,0,0" 
+                  VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="136,96,0,0" TextWrapping="Wrap" Text="Això és una etiqueta !" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" 
+                  TextWrapping="Wrap" AcceptsReturn="True"
+                 Margin="417,229,0,0"  Text="TextBox Multilínia." VerticalAlignment="Top" Height="110" Width="350"/>
+        <StackPanel HorizontalAlignment="Left" Height="678" Margin="797,42,0,0" VerticalAlignment="Top" Width="451">
+            <Button x:Name="button" Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Button x:Name="button1" Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Rectangle Fill="#FFF4F4F5" Height="100" Stroke="Black"/>
+        </StackPanel>
 
     </Grid>
 </Page>
