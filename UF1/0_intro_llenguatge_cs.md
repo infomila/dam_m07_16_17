@@ -54,13 +54,13 @@ Les variables de tipus primitius es desen a la pila.
 ### Declaració i inicialització de variables
 
 Sintaxi idèntica a C:
-
+```
 [tipus de dades] [nom variable];
-
+```
 o usant  inicialització directa:
-
+```
 [tipus de dades] [nom variable] = [valor inicial];
-
+```
 
 ### Literals
 ```c#
@@ -78,13 +78,13 @@ o usant  inicialització directa:
 ```
 ### Coma flotant o coma fixa 
 
-Si useu double o float, useu representació en coma flotant. Aquesta representació permet treballar amb magnituds arbitràriament grans o petites, però duu associada una precisió, que pot fer que el valor que s'emmagatzemi no sigui exactament el valor que voliem desar.
+Si useu _double_o _float_, useu representació en coma flotant. Aquesta representació permet treballar amb magnituds arbitràriament grans o petites, però duu associada una precisió, que pot fer que el valor que s'emmagatzemi no sigui exactament el valor que voliem desar.
 Si usem decimal, treballem an coma fixa. El llenguatge ens garanteix preservar fins a 29 digits sense pèrdua d'informació.
 Aquest tipus de dades és el que farem servir per representar valors monetaris.
 
 ### Inferència de tipus: usant _var_
 Podem "escaquejar-nos" de dir el tipus de dades, i deixar que sigui el compilador qui ho determini.
-Això ho indiquem usant el tipus de dades  "var", que en realitat el que fa és obligar el compilador a decidir automàticament el tipus de dades.
+Això ho indiquem usant el tipus de dades  _var_, que en realitat el que fa és obligar el compilador a decidir automàticament el tipus de dades.
 
 ```c#
     var x = 25; // això és equivalent a : int x = 25;
@@ -114,13 +114,14 @@ La diferència entre un atribut i una variable local és el lloc on es declara:
 
 ```
 Els atributs si que es poden fer servir sense donar un valor inicial, doncs C# els inicialitza amb un valor per defecte segons el seu tipus de dades:
-|     tipus             | valor per defecte |
-|---------------------|----------------------|
-| tipus numèrics  |            0             |
-| tipus bool |            false             |
-| tipus char |            caràcter 0             |
-| tipus string  |            null             |
-| tipus objecte  |            null             |
+
+     tipus             | valor per defecte 
+ --------------------|----------------------
+ tipus numèrics  |            0             
+ tipus bool |            false             
+ tipus char |            caràcter 0         
+ tipus string  |            null             
+ tipus objecte  |            null             
  
 ### 
 ### Conversions
@@ -138,19 +139,24 @@ Concatenem cadenes amb l'operador +
 
  * Salt de línia
  Podem usar els literals "\n" o "\r\n"per representar el salt de línia:
+ 
  ```c#
 	string dosLinies = "Primera Línia\nSegona Línia";
  ```
+ 
  És millor utilitizar la seva representació genèrica _Environment.NewLine_:
+ 
   ```c#
 	string dosLinies = "Primera Línia"+ Environment.NewLine + "Segona Línia";
  ```
  * Autoreemplaçament
  Si prefixem la cadena amb un $, podem incrustar valors de variables dins de la cadena sense haver de fer concatenacions.
+ 
    ```c#
              string cadena = "Món";
             string autoreemplaç = $"Hola {cadena} ! ";
   ```
+  
  * Mètodes de conversió
  Qualsevol tipus primitiu es pot convertir a cadena usant .toString()
  
