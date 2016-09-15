@@ -22,7 +22,7 @@ namespace IntroLlenguatgeCS
     /// </summary>
     public sealed partial class MainPage : Page
     {
-  
+        int id;
 
         public MainPage()
         {
@@ -31,14 +31,13 @@ namespace IntroLlenguatgeCS
 
         private void btnBoto_Click(object sender, RoutedEventArgs e)
         {
-    
 
             // Comentari monolínia
             /*
              * Comentari multilínia 
              */
-
-
+   
+  
 
             // ------------------------- TIPUS SENCERS -------
             int i = 0;
@@ -75,100 +74,72 @@ namespace IntroLlenguatgeCS
             string dosLinies = "Primera Línia\nSegona Línia";
             string dosLinies2 = "Primera Línia"+ Environment.NewLine + "Segona Línia";
 
-            string cadena = "Món";
-            string autoreemplaç = $"Hola {cadena} ! ";
-            txtMissatge.Text += Environment.NewLine;
-            txtMissatge.Text += autoreemplaç;
-            //Console.WriteLine(autoreemplaç);
 
 
 
-            { // inici de l'àmbit
-                int v = 3; // la variable v "viu" dins dels brackets
-                v++;
 
-                //int v = 45;  // Això no compilaria, la variable existeix.
-            } // final de l'ambit ( v desapareix )
+            //exemple de restricció d'àmbit
             {
-                int v = 4; // aquí la puc tornar a declarar, doncs v  no existeix
-                v--;
+                int b1 = 0;
+                b1++;
             }
 
-            // exemple de taula amb inicialització
-            int[] numeros= { 1, 6, 7, 10 };
-
-            // podem fer taules de tipus més complexes, com cadenes
-            string[] persones = { "Maria", "Berta", "Joan" };
-
-
-            // Creació d'una llista dinàmica
-            List<string> people = new List<string>();
-            // Afegir elements a la llista
-            people.Add("Maria");
-            people.Add("Berta");
-            people.Add("Joan");
-            people.Add("Pep");
-            // Accés per índex
-            people[2] = "Josep";
-            // Recorregut per índex
-            string noms = "";
-            for(int n=0;n<people.Count;n++)
             {
-                noms += $" - {people[n]} \n";
+                int b1 = 0;
+                b1++;
             }
-            // Recorregut amb foreach
-            foreach( string p in people )
+
+
+            // Exemple d'utilització de variables 
+            // locals sense inicialitza
+            int kk;
+            kk = 0;
+            kk++;
+
+            id++; //modificació d'un atribut no inicialitzat
+
+            //
+            string nomBuscat = "Paco";
+            string consultaClient = "select * from client where name = 'Paco' ";
+
+            string consultaClient1 = "select * from client where name = '" + nomBuscat +"' ";
+            string consultaClient2 = $"select * from client where name = '{nomBuscat}' ";
+
+            // funcions de les cadenes
+            string missatge = "Manel";
+            missatge = missatge.PadLeft(10, '_');
+            txtMissatge.Text += "\n Exemple de padding:" + missatge + ":";
+
+            string nom = "    Josep Maria ";
+            nom = nom.Trim();
+            txtMissatge.Text += $"\n Exemple de trimming:{nom}:";
+
+            string nomHacker = "  _  Josep    Maria De La oOOOOOOOOO   @# ";
+            char[] caracters = { ' ','_','@','#'};
+            nomHacker = nomHacker.Trim(caracters);
+            txtMissatge.Text += $"\n Exemple de trimming++:{nomHacker}:";
+            //               01234567890
+            /// nomHacker = "Josep   Maria"
+            /// 
+            int posicioEspai;
+            string resultat = "";
+            do
             {
-                noms += $" - {p} \n";
-            }
+                nomHacker = nomHacker.Trim();
+                posicioEspai = nomHacker.IndexOf(' ');
+                if (posicioEspai >= 0)
+                {
+                    resultat += nomHacker.Substring(0, posicioEspai) + " ";
+                    nomHacker = nomHacker.Substring(posicioEspai);
+                }
+            } while (posicioEspai >= 0);
+            resultat += nomHacker;
+
+
+
+            txtMissatge.Text += $"\n Nom tunejat:{resultat}:";
+
             
-
-
-            // creació d'una taula indicant dimensions, que s'omplirà
-            // amb el valor per defecte del tipus de dades ( 0 en aquest cas )
-            double[] temperatures = new double[10];
-
-            foreach( int t in numeros)
-            {
-                txtMissatge.Text += $" - {t}\n";
-            }
-
-            int nota = 5;
-            string notaDescriptiva;
-            switch (nota)
-            {
-                case 5:
-                case 6:
-                    notaDescriptiva = "Aprovat";
-                    break;
-                case 7:
-                case 8:
-                    notaDescriptiva = "Notable";
-                    break;
-                case 9:
-                case 10:
-                    notaDescriptiva = "Excel·lent";
-                    break;
-                default:
-                    notaDescriptiva = "Insuficient";
-                    break;
-            }
-
-            switch (notaDescriptiva)
-            {
-                case "Aprovat":
-                    nota = 5;
-                    break;
-                case "Notable":
-                    nota = 7;
-                    break;
-                case "Excel·lent":
-                    nota = 9;
-                    break;
-                default:
-                    nota = 4;
-                    break;
-            }
         }
     }
 }
