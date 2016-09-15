@@ -1,11 +1,8 @@
 # Introducció al llenguatge C#
 
-##   Hello world
+ 
+## Comentaris
 ```c#
-public class 
-```
-## comentaris
-	```c#
 	 //  comentari monolínea
 	 /*   
 	   comentari multilínia
