@@ -22,6 +22,8 @@ namespace IntroLlenguatgeCS
     /// </summary>
     public sealed partial class MainPage : Page
     {
+  
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -29,10 +31,13 @@ namespace IntroLlenguatgeCS
 
         private void btnBoto_Click(object sender, RoutedEventArgs e)
         {
+    
+
             // Comentari monolínia
             /*
              * Comentari multilínia 
              */
+
 
 
             // ------------------------- TIPUS SENCERS -------
@@ -65,6 +70,17 @@ namespace IntroLlenguatgeCS
             bool certOFals ;
             certOFals = false;
             txtMissatge.Text += "Soc fals? " + certOFals + Environment.NewLine;
+            txtMissatge.Text += "\nMés coses\nI Més";
+
+            string dosLinies = "Primera Línia\nSegona Línia";
+            string dosLinies2 = "Primera Línia"+ Environment.NewLine + "Segona Línia";
+
+            string cadena = "Món";
+            string autoreemplaç = $"Hola {cadena} ! ";
+            txtMissatge.Text += Environment.NewLine;
+            txtMissatge.Text += autoreemplaç;
+            //Console.WriteLine(autoreemplaç);
+            
 
         }
     }
