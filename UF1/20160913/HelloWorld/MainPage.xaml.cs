@@ -31,5 +31,16 @@ namespace HelloWorld
         {
             txtMissatge.Text = "HOLA MÓN";
         }
+
+        private void btnBoto_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            txtMissatge.Text = "Estic entrant.....";
+        }
+
+
+        private void btnBoto_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            txtMissatge.Text = "Estic sortint.....";
+        }
     }
 }
