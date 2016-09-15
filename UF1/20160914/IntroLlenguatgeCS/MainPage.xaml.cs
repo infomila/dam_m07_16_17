@@ -80,6 +80,19 @@ namespace IntroLlenguatgeCS
             txtMissatge.Text += Environment.NewLine;
             txtMissatge.Text += autoreemplaç;
             //Console.WriteLine(autoreemplaç);
+
+
+
+            { // inici de l'àmbit
+                int v = 3; // la variable v "viu" dins dels brackets
+                v++;
+
+                //int v = 45;  // Això no compilaria, la variable existeix.
+            } // final de l'ambit ( v desapareix )
+            {
+                int v = 4; // aquí la puc tornar a declarar, doncs v  no existeix
+                v--;
+            }
             
 
         }
