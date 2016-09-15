@@ -93,8 +93,82 @@ namespace IntroLlenguatgeCS
                 int v = 4; // aquí la puc tornar a declarar, doncs v  no existeix
                 v--;
             }
+
+            // exemple de taula amb inicialització
+            int[] numeros= { 1, 6, 7, 10 };
+
+            // podem fer taules de tipus més complexes, com cadenes
+            string[] persones = { "Maria", "Berta", "Joan" };
+
+
+            // Creació d'una llista dinàmica
+            List<string> people = new List<string>();
+            // Afegir elements a la llista
+            people.Add("Maria");
+            people.Add("Berta");
+            people.Add("Joan");
+            people.Add("Pep");
+            // Accés per índex
+            people[2] = "Josep";
+            // Recorregut per índex
+            string noms = "";
+            for(int n=0;n<people.Count;n++)
+            {
+                noms += $" - {people[n]} \n";
+            }
+            // Recorregut amb foreach
+            foreach( string p in people )
+            {
+                noms += $" - {p} \n";
+            }
             
 
+
+            // creació d'una taula indicant dimensions, que s'omplirà
+            // amb el valor per defecte del tipus de dades ( 0 en aquest cas )
+            double[] temperatures = new double[10];
+
+            foreach( int t in numeros)
+            {
+                txtMissatge.Text += $" - {t}\n";
+            }
+
+            int nota = 5;
+            string notaDescriptiva;
+            switch (nota)
+            {
+                case 5:
+                case 6:
+                    notaDescriptiva = "Aprovat";
+                    break;
+                case 7:
+                case 8:
+                    notaDescriptiva = "Notable";
+                    break;
+                case 9:
+                case 10:
+                    notaDescriptiva = "Excel·lent";
+                    break;
+                default:
+                    notaDescriptiva = "Insuficient";
+                    break;
+            }
+
+            switch (notaDescriptiva)
+            {
+                case "Aprovat":
+                    nota = 5;
+                    break;
+                case "Notable":
+                    nota = 7;
+                    break;
+                case "Excel·lent":
+                    nota = 9;
+                    break;
+                default:
+                    nota = 4;
+                    break;
+            }
         }
     }
 }

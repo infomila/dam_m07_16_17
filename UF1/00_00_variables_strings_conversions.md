@@ -1,6 +1,7 @@
+[ ... back  ]( ../README.md)
+
 # Introducció al llenguatge C# :coffee:
 
- 
 ## Comentaris
 ```c#
 	 //  comentari monolínea
@@ -12,8 +13,9 @@
 
 
 >NOTA: _System.Console_ és la classe que cal utilitzar per escriure a consola.
->  Si useu WPF + .NET Framework  es pot fer servir immediatament.
-> Si use Universal Apps + .NET Core, cal que carregueu el mòdul de consola. Això ho podeu fer editant l'arxiu _project.json_ i afegint la part que es mostra més a sota entre comentaris:
+>
+>   * Si useu WPF + .NET Framework  es pot fer servir immediatament.
+> * Si useu Universal Apps + .NET Core, cal que carregueu el mòdul de consola. Això ho podeu fer editant l'arxiu _project.json_ i afegint la part que es mostra més a sota entre comentaris:
 ```
 {
   "dependencies": {
@@ -112,7 +114,8 @@ o usant  inicialització directa:
 ### Coma flotant o coma fixa 
 
 Si useu _double_o _float_, useu representació en coma flotant. Aquesta representació permet treballar amb magnituds arbitràriament grans o petites, però duu associada una precisió, que pot fer que el valor que s'emmagatzemi no sigui exactament el valor que voliem desar.
-Si usem decimal, treballem an coma fixa. El llenguatge ens garanteix preservar fins a 29 digits sense pèrdua d'informació.
+
+Si usem _decimal_, treballem amb coma fixa. El llenguatge ens garanteix preservar fins a 29 digits sense pèrdua d'informació.
 Aquest tipus de dades és el que farem servir per representar valors monetaris.
 
 ### Inferència de tipus: usant _var_
@@ -156,7 +159,8 @@ Els atributs si que es poden fer servir sense donar un valor inicial, doncs C# e
  tipus _string_  |            null             
  tipus _object_  |            null             
  
- ### Col·lisió de noms entre atributs i variables locals
+### Col·lisió de noms entre atributs i variables locals
+
  Es pot donar el cas de declarar una variable local i un atribut amb el mateix nom. Això COMPILA i és dona per vàlid:
  
  ```c#
@@ -210,10 +214,8 @@ Les variables sempre tenen un àmbit de vida limitat per les claus més internes o
 
 
 
-### Conversions
-Conversions a cadena ( des de qualsevol tipus )
 
-### Treballant amb cadenes
+## Treballant amb cadenes
 Les cadenes són UNICODE ( per tant cada caràcter ocupa 16bits, i permeten representació universal de caràcters de la majoria de llenguatges exisitents ) 
 
  * Concatenació
@@ -250,3 +252,5 @@ Concatenem cadenes amb l'operador +
  
  * Mètodes de cerca, substitució i trimming
 
+### Conversions de cadena a tipus nunèrics
+### Conversions de cadena a tipus data
