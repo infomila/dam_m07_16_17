@@ -251,6 +251,7 @@ Concatenem cadenes amb l'operador +
  
  
  * Mètodes de cerca, substitució i trimming
+ 
      MÈTODE             | FUNCIÓ
  --------------------|----------------------
  .Substring( posició_inicial )  |    retorna la subcadena que comença a posició_inicial(inclosa) fins al final            
@@ -261,6 +262,7 @@ Concatenem cadenes amb l'operador +
  .PadLeft(num_cars),  caracter_de_padding)| omple la cadena per l'esquerra amb caracter_de_padding, fins assolir longitud num_cars
  .Length  | longitud de la cadena
  cadena[i]   | accés directe al ièssim caràcter de la cadena
+ 
  
 ### Conversions de tipus numèric a cadena
 Al convertir a cadena un número, podem especificar el nombre de posicions senceres i decimals, així 
