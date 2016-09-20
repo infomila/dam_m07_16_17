@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -117,6 +118,7 @@ namespace IntroLlenguatgeCS
             string nomHacker = "  _  Josep    Maria De La oOOOOOOOOO   @# ";
             char[] caracters = { ' ','_','@','#'};
             nomHacker = nomHacker.Trim(caracters);
+ 
             txtMissatge.Text += $"\n Exemple de trimming++:{nomHacker}:";
             //               01234567890
             /// nomHacker = "Josep   Maria"
@@ -133,13 +135,8 @@ namespace IntroLlenguatgeCS
                     nomHacker = nomHacker.Substring(posicioEspai);
                 }
             } while (posicioEspai >= 0);
-            resultat += nomHacker;
+            resultat += nomHacker;     
 
-
-
-            txtMissatge.Text += $"\n Nom tunejat:{resultat}:";
-
-            
         }
     }
 }

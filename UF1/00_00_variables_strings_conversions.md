@@ -251,6 +251,114 @@ Concatenem cadenes amb l'operador +
  
  
  * Mètodes de cerca, substitució i trimming
+     MÈTODE             | FUNCIÓ
+ --------------------|----------------------
+ .Substring( posició_inicial )  |    retorna la subcadena que comença a posició_inicial(inclosa) fins al final            
+.Substring( posició_inicial, num_chars ) |       retorna la subcadena que comença a posició_inicial(inclosa), prenent num_chars consecutius a partir de la posició inicial (la posició inicial compta)              
+.Trim()     | Elimina espais en blanc a l'inici i final de la cadena
+.Trim(char[] caracters) | Elimina els caràcters indicats al paràemtre del inici i final de la cadena
+ .PadLeft(num_cars)  | omple la cadena per l'esquerra amb espais en blanc, fins assolir longitud num_cars
+ .PadLeft(num_cars),  caracter_de_padding)| omple la cadena per l'esquerra amb caracter_de_padding, fins assolir longitud num_cars
+ .Length  | longitud de la cadena
+ cadena[i]   | accés directe al ièssim caràcter de la cadena
+ 
+### Conversions de tipus numèric a cadena
+Al convertir a cadena un número, podem especificar el nombre de posicions senceres i decimals, així 
+com la utilització  o no d'un separador de milers.
+```c#
+	double numeroDec = 2321.23;
+	string num = numeroDec.ToString("#####.000"); //2321,230
+ 
+	num = numeroDec.ToString("##,###.000"); //2.321,230
+ 
+	// Utilitzant un indicador de cultura
+	CultureInfo us = new CultureInfo("en-US");
+	num = numeroDec.ToString("##,###.000", us); //2,321.230
+ ```
+### Conversions de tipus data a cadena
+#### Declaració de data
+Les dates es representen amb el tipus DateTime, que permet emmagatzemar la data i la hora ( hores, minuts i segons )
+de forma conjunta.
+Per declarar i inicialitzar una data ho podem fer de diverses maneres:
+```c#
+            
+            DateTime ara = DateTime.Now; // ARA, incloent dia i hora
 
-### Conversions de cadena a tipus nunèrics
-### Conversions de cadena a tipus data
+            DateTime avui = DateTime.Today; // ARA, incloent dia només
+
+            DateTime data = new DateTime(2017, 12, 31); // constructor explícit amb data
+
+            DateTime dataIHora = new DateTime(2017, 12, 31, 22, 30, 59); // constructor explícit amb data i hora
+
+
+```
+#### Conversió a cadena especificant el format
+Podem usar cadenes de format per especificar quina és la representació que volem assolir.
+```c#
+
+            string dataS = data.ToString("dd/MM/yyyy"); //  31/12/2017
+            txtMissatge.Text += ">" + dataS + "\n";
+            dataS = data.ToString("dd-MMM-yy hh:mm:ss"); // 31-dic.-17 12:00:00
+
+            dataS = data.ToString("dddd, dd \\de MMMM \\de yyyy"); //domingo, 31 de diciembre de 2017
+
+            dataS = data.ToString("hh:mm:ss"); //12:00:00
+
+            CultureInfo fr = new CultureInfo("fr-FR");
+            dataS = data.ToString("dddd, dd \\de MMMM \\de yyyy", fr); //dimanche, 31 de décembre de 2017
+```
+### Conversions de cadena a tipus numèrics (Parsing)
+
+Podem treballar de forma "Segura" amb _[TIPUS_DE_DADES].TryParse()_ . 
+Podem usar  Aquest mètode intenta convertir la cadena a un número TIPUS_DE_DADES, on TIPUS_DE_DADES pot ser Int32, Double, etc.
+Si la conversió falla, el mètode retorna false, true altrament.
+Fixeu-vos que el resultat es retorna per un paràmetre de sortida ( marcat com a _out_ )
+```c#
+
+
+            double doubleParsed;
+
+            bool exit = Double.TryParse("123,22", out doubleParsed); //doubleParsed = 123,22,  
+
+            // Compte , per defecte usem els separadors decimals definits a l'idioma actual.
+            exit = Double.TryParse("123.22", out  doubleParsed); //doubleParsed = 12322, exit = true
+            
+
+            // Podem especificar l'idioma i l'estil del número
+            NumberStyles style = NumberStyles.Number | NumberStyles.AllowDecimalPoint;
+            CultureInfo uk = new CultureInfo("en-UK");
+            exit = Double.TryParse("123.22", style, uk, out doubleParsed); //doubleParsed = 123,22, exit = true
+
+            // Si dona error la conversió retorna false
+            exit = Double.TryParse("123,xx", out doubleParsed); //doubleParsed = 0, exit = false
+```
+També podem anar "a l'aventura" usant _[TIPUS_DE_DADES].Parse()_, que funciona retornant directament el nombre
+convertit, però amb el problema de que si la conversió no és correcta, llança una excepció.
+
+```c#
+            double dd = double.Parse("123,2"); // tot va bé dd= 123,2
+            try
+            {
+                dd = double.Parse("xxxxx");
+            }
+            catch (Exception ex)
+            {
+                // Passem per aquí !!!
+                dd = 0;
+            }
+```
+
+### Conversions de cadena a tipus data (Parsing)
+Si coneixem el format de la data dins de la cadena que se'ns proporciona, és senzill usar DateTime.ParseExact
+per fer la conversió a DateTime:
+```c#
+
+            string dataAParsejar = "31-12-2020 14h 12' 55''";
+            DateTime dataParsejada = DateTime.ParseExact(dataAParsejar, "dd-MM-yyyy HH\\h mm\\' ss\\'\\'",
+                                   System.Globalization.CultureInfo.InvariantCulture);
+
+            dataS = dataParsejada.ToString("dddd, dd \\de MMMM \\de yyyy, a le\\s HH:mm:ss tt");
+            txtMissatge.Text += ">" + dataS + "\n";
+```
+
+

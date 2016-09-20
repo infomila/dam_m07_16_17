@@ -3,14 +3,7 @@
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0"
   },
   "frameworks": {
-    "uap10.0": { },
-    //--------------------------------------------------------------
-    "dnxcore50": {
-      "dependencies": {
-        "System.Console": "4.0.0-beta-*"
-      }
-    }
-    //--------------------------------------------------------------
+    "uap10.0": { } 
   },
   "runtimes": {
     "win10-arm": {},
