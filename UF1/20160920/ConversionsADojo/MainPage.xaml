@@ -15,6 +15,7 @@
             <TextBox x:Name="txtNumber4" TextChanged="txtNumber_TextChanged" />
             <TextBox x:Name="txtNumber5" TextChanged="txtNumber_TextChanged" />
             <TextBox x:Name="txtMissatge" Text="EII!" Width="400" Height="200"/>
+            <TextBox x:Name="txtData" TextWrapping="Wrap" Text="TextBox" TextChanged="txtData_TextChanged"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -27,68 +27,102 @@ namespace ConversionsADojo
         public MainPage()
         {
             this.InitializeComponent();
-            proves(); mesProves();
-        }
-        public void mesProves()
+            proves();  
+        } 
+
+        public void ignoram()
         {
-            List<string> people = new List<string>();
-            // Afegir elements a la llista
-            people.Add("Maria");
-            people.Add("Berta");
-            people.Add("Joan");
-            people.Add("Pep");
-            // Accés per índex
-            people[2] = "Josep";
+            int[] llistaNumeros = { 3, 3, 4, 45, 5, 5, 4, 3,7 , 3 , 54};
 
-            bool MariaFound = people.Contains("Maria"); // mariaFound és true
-            bool mariaFound = people.Contains("maria"); // mariaFound és false
-            bool kkFound = people.Contains("kk"); //kkFound false
+            for(int i=0;i< llistaNumeros.Length;i++)
+            {
 
-             
-            Debug.WriteLine(MariaFound);
-            Debug.WriteLine(mariaFound);
+            }
+        }
 
 
-            //    tipus de la clau, tipus del valor
-            Dictionary<string, int> anotacions = new Dictionary<string,int>();
-            // assignem valor a una clau
-            anotacions["Maria"] = 10;
-            anotacions["Pere"] = 8;
-
-            // Buscar valor existent
-            int anotacioMaria = anotacions["Maria"]; //anotacioMaria = 10
-            Debug.WriteLine(anotacioMaria);
-
-            // Buscar valor que potser no hi és ?¿
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"> la data a validar</param>
+        /// <returns>   1 si és una data correcta, 
+        ///             2 si és un fragment vàlid de data, o 
+        ///             -1 si és incorrecta.</returns>
+        private int validaData(string d)
+        {
+            d = d.Replace('-', '/');
             try
             {
-                int anotacioFantasma = anotacions["????"];
-
-            }catch(Exception ex)
-            {
-                Debug.WriteLine("Persona no trobada !!");
+                DateTime dataParsejada = DateTime.ParseExact(d, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                return 1;
             }
-            
-            if(anotacions.ContainsKey("????"))
+            catch (Exception)
+            {}
+            char[] separator = { '/' };
+            StringSplitOptions opcionsSplit = StringSplitOptions.RemoveEmptyEntries;
+            string[] trossos = d.Split(separator, opcionsSplit);
+            int dia;
+            if (trossos.Length == 0)
             {
-                // fer aquí la feina amb la seguretat que la clau existeix
+                return 2;
+            }
+            else if (trossos.Length >= 1)
+            {                
+                bool esNumero = Int32.TryParse(trossos[0], out dia);
+
+                if (trossos[0] == "0") return 2;
+
+                if (esNumero && dia >= 1 && dia < 32)
+                {
+                   if(trossos.Length==1) return 2;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            if (trossos.Length >= 2)
+            {
+                int mes;
+                bool esNumero = Int32.TryParse(trossos[1], out mes);
+        
+                if (trossos[1] == "0") return 2;
+
+                if (esNumero && mes >= 1 && mes < 13)
+                {
+                    //validar dia i mes combinats
+                    string dataFaker = 
+                        trossos[0].PadLeft(2,'0') +
+                        "/" + 
+                        trossos[1].PadLeft(2, '0') +
+                        "/2004";
+                    try
+                    {
+                        DateTime dataParsejada = DateTime.ParseExact(dataFaker, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                        if (trossos.Length == 2) return 2;
+                    }
+                    catch (Exception)
+                    {
+                        return -1;
+                    }                                       
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            if (trossos.Length == 3)
+            {
+                int any;
+                bool esNumero = Int32.TryParse(trossos[2], out any);
+                if (esNumero && any > 0 && any < 1000)
+                {
+                    return 2;
+                }
+                return -1;
             }
 
-            // Primer aconseguim la col·lecció de totes les claus
-            var claus = anotacions.Keys;
-            // Recorrem les claus, i per cada clau demanem el valor
-            foreach( string clau in claus)
-            {
-                Debug.WriteLine($"{clau} ha fet {anotacions[clau]} punts");
-            }
-
-            // Podem fer també un recorregut estrictament pels valors
-            var valors = anotacions.Values;
-            foreach(int anotacio in valors)
-            {
-                Debug.WriteLine($"{anotacio}");
-            }
-
+            return -1;
         }
 
         public void proves()
@@ -122,6 +156,19 @@ namespace ConversionsADojo
             tb.Background = new SolidColorBrush(colorDeFons);
 
             //tb.Background = new SolidColorBrush(Windows.UI.Color.FromArgb(1, 255, 128, 34));
+        }
+
+        private void txtData_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int esValida = validaData(txtData.Text);
+            Windows.UI.Color colorDeFons;
+            switch (esValida)
+            {
+                case 2:     colorDeFons = Windows.UI.Colors.Orange; break;
+                case 1:     colorDeFons = Windows.UI.Colors.Green;  break;
+                default:    colorDeFons = Windows.UI.Colors.Red;    break;
+            }
+            txtData.Background = new SolidColorBrush(colorDeFons);
         }
     }
 }
