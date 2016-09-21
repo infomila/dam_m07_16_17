@@ -30,7 +30,7 @@
 	}
  ```
  ### if condensat
- És una estructura de if molt compacta:
+ És una estructura  if molt compacta:
  ```
  [ condició lògica ] ? [acció si la condició és certa ] : [ acció si és falsa ] ;
  ```

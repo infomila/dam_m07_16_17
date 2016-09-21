@@ -9,6 +9,17 @@
 	   comentari multilínia
 	 */
  ```
+ 
+ 
+## Missatges de depuració
+Per mostrar missatges de debug , que es poden trobar a la finestra _Salida_o _Output_ de Visual Studio ),
+cal usar la comanda _Debug_WriteLine("MISSATGE")_
+
+```c#
+ Debug.WriteLine("Hello world");
+```
+ 
+ 
 ##  Sortida / Entrada per consola
 
 
