@@ -2,6 +2,8 @@
 # Pràctica Copy-Paste detector
 
 __OBJECTIU:__ Donats dos arxius de text, hem de trobar la frase més llarga que tenen un comú.
+L'usuari selecciona amb un File Picker els arxius, un cop seleccionats dos arxius a comparar, el botó _Start_ s'activa. Al prémer _Start_ , el programa busca la frase més llarga compartida als dos arxius, i la mostra a la capsa de text inferior.
+
 ![Captura de pantalla](resources/pac1_screenshot.png "Captura de pantalla")
 
 Arxius de prova proporcionats:
