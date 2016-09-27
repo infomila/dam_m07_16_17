@@ -38,14 +38,29 @@ namespace DemoLlistes
             paraules.Add("Jungle");
             paraules.Add("!!!");
 
-            foreach(string paraula in paraules)
+            paraules.Insert(2, "intruder");
+
+            quinDaltabaix(paraules);
+
+            foreach (string paraula in paraules)
             {
                 Debug.WriteLine(">"+paraula);
             }
 
-            Debug.WriteLine(">" + paraules[2]);  // The
+          //  Debug.WriteLine(">" + paraules[2]);  // The
 
-
+            
         }
+
+        private void quinDaltabaix(List<string> llista)
+        {
+            //llista.Reverse();
+            for(int i=0;i<llista.Count;i++ )
+            {
+                llista.Insert(i, llista.Last());// llista[llista.Count-1]);
+                llista.RemoveAt(llista.Count - 1);
+            }
+        }
+
     }
 }

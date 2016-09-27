@@ -1,0 +1,47 @@
+﻿<Page
+    x:Class="Posicionament.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Posicionament"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid 
+        
+        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" ></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="textBlock" 
+                   Padding="50"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   HorizontalAlignment="Center"            
+                   TextWrapping="Wrap" 
+                   Text="Nom:" 
+                   VerticalAlignment="Center" FontSize="18"/>
+        <TextBox x:Name="txbNom"
+                 Grid.Column="1"
+                  Grid.Row="0"
+                 Height="40">
+            
+        </TextBox>
+        <!-- **************************************************  -->
+        
+        
+        <Button x:Name="button" Content="Button" 
+                Grid.Column="0"
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Left" Margin="120,102,0,0" 
+                 VerticalAlignment="Top"/>
+    </Grid>
+</Page>
