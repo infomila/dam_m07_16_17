@@ -26,5 +26,29 @@ namespace Posicionament
         {
             this.InitializeComponent();
         }
+
+        private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+           // e.
+        }
+
+        private void txbNIF_KeyDown(
+            object sender, 
+            KeyRoutedEventArgs e)
+        {
+            string nomTecla = e.Key.ToString();
+
+            //if ( e.Key != Windows.System.VirtualKey..Number0 )
+            if(!nomTecla.StartsWith("Number"))
+            {
+                e.Handled = true;
+            }
+            
+        }
+
+        private void txbNIF_Paste(object sender, TextControlPasteEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }
