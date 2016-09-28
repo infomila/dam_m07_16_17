@@ -73,13 +73,13 @@
         </TextBox>
         <!-- **************************************************  -->
 
-        <Button x:Name="button" Content="Button" 
+        <Button x:Name="btnGo" Content="Go!" 
                 Grid.Column="0"
                 Grid.Row="3"
                 Grid.ColumnSpan="2"
                 Padding="40"
                 MinHeight="120"
                 HorizontalAlignment="Center"   
-                 VerticalAlignment="Center"/>
+                 VerticalAlignment="Center" Click="btnGo_Click"/>
     </Grid>
 </Page>
