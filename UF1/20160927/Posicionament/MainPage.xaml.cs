@@ -64,7 +64,9 @@ namespace Posicionament
                 e.Handled = true;
                 if (validaNIFParcial(elTextQueVullEscriure))
                 {
+
                     txbNIF.Text = elTextQueVullEscriure;
+                    txbNIF.SelectionStart = posicioCursor + 1;
                 }
 
             } else
@@ -131,7 +133,7 @@ namespace Posicionament
         private bool validaNIFParcial(string elTextQueVullEscriure)
         {
 
-            return Regex.IsMatch(elTextQueVullEscriure, "^[0-9]{0,8}[A-Z]?$");
+            return Regex.IsMatch(elTextQueVullEscriure, "^[0-9]{0,8}[TRWAGMYFPDXBNJZSQVHLCKE]?$");
 
         }
 
