@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text.RegularExpressions;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,12 +27,13 @@ namespace Posicionament
         public MainPage()
         {
             this.InitializeComponent();
+
+            // Validem el form incialment
+            validaForm();
         }
 
-        private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-           // e.
-        }
+    
+
 
         private void txbNIF_KeyDown(
             object sender, 
@@ -144,12 +146,12 @@ namespace Posicionament
 
         private async void btnGo_Click(object sender, RoutedEventArgs e)
         {
-           /* var dialog = new Windows.UI.Popups.MessageDialog(
+           var dialog = new Windows.UI.Popups.MessageDialog(
             "Aquest client és correcte",
             "Felicitats");
 
-            dialog.Commands.Add(new Windows.UI.Popups.UICommand("Ok") { Id = 0 });
-            dialog.Commands.Add(new Windows.UI.Popups.UICommand("Cancel") { Id = 1 });
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand("Quit") { Id = 0 });
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand("Write Another") { Id = 1 });
 
             // Selecció de l'opció per defecte
             dialog.DefaultCommandIndex = 0;
@@ -157,14 +159,98 @@ namespace Posicionament
             dialog.CancelCommandIndex = 1;
 
             var result = await dialog.ShowAsync();
-            if((int)result.Id==0)
+            if((int)result.Id==1)
             {
                 txbNIF.Text = "";
                 txbNom.Text = "";
-                txtCognom.Text = "";
-                Frame.Navigate(typeof(LlistaUsuaris));
-            }
-             */
+                txbCognom.Text = "";
+            }  else
+            {
+                // Sortim
+                Application.Current.Exit();
+            }          
         }
+
+        private void generic_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            validaForm();
+        }
+
+
+
+#region validacions
+
+        /// <summary>
+        ///  Validacions generals
+        /// </summary>          
+        private void validaForm()
+        {
+            bool nomOk =    validaAmbRegEx(txbNom,      false, "^([A-Za-z0-9]+[ ]+)*[A-Za-z0-9]+$");
+            bool cognomOk = validaAmbRegEx(txbCognom,   false, "^([A-Za-z0-9]+[ ]+)*[A-Za-z0-9]+$");
+            bool NIFOk =    validaAmbRegEx(txbNIF,      false, "^[0-9]{8}[A-Z]$");
+            if(NIFOk)
+            {
+                NIFOk = validaLletraNIF(txbNIF.Text);
+                estilTextBox(txbNIF, NIFOk);
+            }
+
+            btnGo.IsEnabled = nomOk && cognomOk && NIFOk;
+        }
+
+        /// <summary>
+        /// Valida la lletra del NIF
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        private bool validaLletraNIF(string text)
+        {
+            // Desem la lletra
+            char lletra = text.Last();
+            // Eliminar la lletra del final
+            text = text.Substring(0, text.Length - 1);
+
+            int numero = Int32.Parse(text);
+            int index = numero % 23;
+            string lletresValides = "TRWAGMYFPDXBNJZSQVHLCKET";
+            return lletresValides[index]==lletra;
+        }
+
+        /// <summary>
+        /// Valida un textbox donada una expressió regular.
+        /// Estilitza el textbox segons el contingut estigui bé o 
+        /// malament.
+        /// </summary>
+        /// <param name="textbox"></param>
+        /// <param name="regexp"></param>
+        /// <returns></returns>
+        private bool validaAmbRegEx(TextBox textbox, bool opcional, string regexp)
+        {
+            // Nota : fem Trim() per permetre que l'usuari pugui posar
+            //        espais davant i darrera
+            string text = textbox.Text.Trim();
+            
+            // cas en el que el camp és opcional
+            if (text.Length == 0 && opcional) return true;
+
+            bool correcte = Regex.IsMatch(text, regexp);
+
+            estilTextBox(textbox, correcte);
+
+            return correcte;
+        }
+
+        /// <summary>
+        /// Estilitzem el textbox en funció de si el contingut és vàlid o no.
+        /// </summary>
+        /// <param name="textbox"></param>
+        /// <param name="correcte"></param>
+        private void estilTextBox(TextBox textbox, bool correcte)
+        {
+            Color backColor = correcte ? Colors.LawnGreen : Colors.Yellow;
+            textbox.Background = new SolidColorBrush(backColor);
+        }
+
+#endregion validacions
+
     }
 }

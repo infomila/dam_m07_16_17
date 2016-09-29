@@ -35,7 +35,7 @@
         <TextBox x:Name="txbNom"                 
                  Grid.Column="1"
                   Grid.Row="0"
-                    Height="40"
+                    Height="40" TextChanged="generic_TextChanged"
                  >
             
         </TextBox>
@@ -48,11 +48,11 @@
                    TextWrapping="Wrap" 
                    Text="Cognom:" 
                    VerticalAlignment="Center" FontSize="18"/>
-        <TextBox x:Name="txtCognom"
+        <TextBox x:Name="txbCognom"
                  Grid.Column="1"
                   Grid.Row="1"
               
-                 Height="40">
+                 Height="40" TextChanged="generic_TextChanged">
 
         </TextBox>
         <!-- **************************************************  -->
@@ -68,7 +68,7 @@
                  Grid.Column="1"
                   Grid.Row="2"
                           
-                 Height="40" KeyDown="txbNIF_KeyDown" Paste="txbNIF_Paste">
+                 Height="40" KeyDown="txbNIF_KeyDown" Paste="txbNIF_Paste" TextChanged="generic_TextChanged">
 
         </TextBox>
         <!-- **************************************************  -->
