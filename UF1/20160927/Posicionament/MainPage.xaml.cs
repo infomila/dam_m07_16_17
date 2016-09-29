@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
+
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text.RegularExpressions;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
+
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+
 
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -157,7 +153,8 @@ namespace Posicionament
             dialog.DefaultCommandIndex = 0;
             // Indiquem quina és la comanda de cancel·lació.
             dialog.CancelCommandIndex = 1;
-
+            // Mostrem una finestra de diàleg, tot esperant a que acabi d'executar-se
+            // i es tanqui.
             var result = await dialog.ShowAsync();
             if((int)result.Id==1)
             {
@@ -173,6 +170,7 @@ namespace Posicionament
 
         private void generic_TextChanged(object sender, TextChangedEventArgs e)
         {
+            // Per qualsevol canvi, validem el form.
             validaForm();
         }
 
@@ -228,11 +226,19 @@ namespace Posicionament
             // Nota : fem Trim() per permetre que l'usuari pugui posar
             //        espais davant i darrera
             string text = textbox.Text.Trim();
+
+            bool correcte;
             
             // cas en el que el camp és opcional
-            if (text.Length == 0 && opcional) return true;
+            if (text.Length == 0 && opcional)
+            {
+                correcte = true;
+            }
+            else
+            {
 
-            bool correcte = Regex.IsMatch(text, regexp);
+                correcte = Regex.IsMatch(text, regexp);
+            }
 
             estilTextBox(textbox, correcte);
 
