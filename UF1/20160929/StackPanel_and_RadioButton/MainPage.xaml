@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+    
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -15,7 +15,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+
         </Grid.RowDefinitions>
+        
         <StackPanel 
             x:Name="stkUp"
                         Orientation="Vertical"
@@ -44,6 +49,37 @@
         <TextBox 
             x:Name="txbOpcioSeleccionadaDinamica"
             Grid.Column="1" Grid.Row="1"  VerticalAlignment="Center"></TextBox>
+        <!-- *************************************************************** -->
+
+
+        <StackPanel 
+            x:Name="stkOpcions"
+            Orientation="Vertical"
+                    Padding="10"
+                    Grid.Column="0"
+                    Grid.Row="2">
+
+        </StackPanel>
+        <TextBox 
+            x:Name="txbOpcionsSeleccionades"
+            Grid.Column="1" Grid.Row="2"  VerticalAlignment="Center"></TextBox>
+
+        <!-- *************************************************************** -->
+
+
+        <StackPanel 
+            x:Name="stkOpcions2"
+            Orientation="Vertical"
+                    Padding="10"
+                    Grid.Column="0"
+                    Grid.Row="3">
+
+        </StackPanel>
+        <TextBox 
+            x:Name="txbOpcionsSeleccionades2"
+            Grid.Column="1" Grid.Row="3"  VerticalAlignment="Center"></TextBox>
+
+
 
 
     </Grid>

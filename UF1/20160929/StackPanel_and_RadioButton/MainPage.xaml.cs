@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,6 +23,12 @@ namespace StackPanel_and_RadioButton
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+
+        List<string> mProvinciesSeleccionades = new List<string>();
+        List<CheckBox> mCheckboxesProvincies = new List<CheckBox>();
+
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -39,7 +46,68 @@ namespace StackPanel_and_RadioButton
                 stkProvincies.Children.Add(rb);
                 rb.Checked += Rb_Checked;
             }
+            //-----------------------------------
+            int index = 0;
+            foreach (string provincia in provincies)
+            {
+                CheckBox cb = new CheckBox();
+                cb.Content = provincia;
+                cb.Tag = index;                    
+                stkOpcions.Children.Add(cb);
+                cb.Checked += Cb_Checked;
+                cb.Unchecked += Cb_Checked;
+                index++;
+            }
+            //---------------------------------------
+            foreach (string provincia in provincies)
+            {
+                CheckBox cb = new CheckBox();
+                mCheckboxesProvincies.Add(cb);
+                cb.Content = provincia;
+                cb.Tag = index;
+                stkOpcions2.Children.Add(cb);
+                cb.Checked   += Cb_Checked1;
+                cb.Unchecked += Cb_Checked1;
+                index++;
+            }
+            //---------------------------------------
+        }
 
+        private void Cb_Checked1(object sender, RoutedEventArgs e)
+        {
+            string cadena = "";
+
+            foreach( CheckBox c in stkOpcions2.Children)
+            //foreach( CheckBox c in mCheckboxesProvincies)
+            {
+                if(c.IsChecked==true) {
+                    cadena += " " + c.Content;
+                }
+            }
+            txbOpcionsSeleccionades2.Text = cadena;
+        }
+
+        private void mostraLlista(List<string> mProvinciesSeleccionades)
+        {
+            string sortida = "";
+            foreach( string provincia in mProvinciesSeleccionades)
+            {
+                sortida += " " + provincia;
+            }
+            txbOpcionsSeleccionades.Text = sortida;
+        }
+
+        private void Cb_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox cb = (CheckBox)sender;
+            if (cb.IsChecked==true)
+            {
+                mProvinciesSeleccionades.Add(cb.Content.ToString());
+            } else
+            {
+                mProvinciesSeleccionades.Remove(cb.Content.ToString());
+            }
+            mostraLlista(mProvinciesSeleccionades);
         }
 
         private void Rb_Checked(object sender, RoutedEventArgs e)
@@ -54,14 +122,6 @@ namespace StackPanel_and_RadioButton
                 txbOpcioSeleccionadaDinamica.Text = rb.Content.ToString();
             }            
         }
-
-   
-        /*
-        private void rdoTots_Checked(object sender, RoutedEventArgs e)
-        {
-            RadioButton rb = (RadioButton)sender;
-            txbOpcioSeleccionada.Text = rb.Content.ToString();
-        }*/
 
     }
 }
