@@ -6,7 +6,27 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.Resources>
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="FontSize" Value="10" />
 
+            <Setter Property="Foreground" Value="Blue" />
+            <Setter Property="Background" >
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="Yellow" Offset="0.0" />
+                        <GradientStop Color="LimeGreen" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+
+
+
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="10" />
+        </Style>
+    </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -14,16 +34,22 @@
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions >
-            <ColumnDefinition Width="auto" ></ColumnDefinition>
             <ColumnDefinition Width="1*" ></ColumnDefinition>
-            <ColumnDefinition Width="1*" ></ColumnDefinition>
+            <ColumnDefinition Width="2*" ></ColumnDefinition>
+            <ColumnDefinition Width="2*" ></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <!-- ******************************************** -->
         <TextBlock Text="Exemple de ComboBox estàtic"
-                   Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="242"></TextBlock>
+                   TextWrapping="Wrap"
+                   Grid.Column="0" Grid.Row="0"                  
+                    ></TextBlock>
         <ComboBox
             Grid.Column="1" Grid.Row="0"
-            x:Name="cboProvincies1" Grid.ColumnSpan="2"  VerticalAlignment="Top" Height="32" SelectionChanged="cboProvincies1_SelectionChanged">
+            PlaceholderText="- Seleccioneu una província -"
+            x:Name="cboProvincies1"   
+            VerticalAlignment="Top"
+            Height="32"
+            SelectionChanged="cboProvincies1_SelectionChanged">
             <ComboBoxItem Content="Barcelona"></ComboBoxItem>
             <ComboBoxItem Content="Tarragona"></ComboBoxItem>
             <ComboBoxItem Content="Lleida"></ComboBoxItem>
