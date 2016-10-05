@@ -59,11 +59,19 @@
         <!-- ******************************************** -->
         <TextBlock Text="Exemple de ComboBox dinàmic"
                    Grid.Column="0" Grid.Row="1"></TextBlock>
+        <ComboBox x:Name="cboProvincies2"
+                  Grid.Column="1" Grid.Row="1" SelectionChanged="cboProvincies2_SelectionChanged"></ComboBox>
         <!-- ******************************************** -->
         <TextBlock Text="Exemple de ComboBox amb Binding "
                    Grid.Column="0" Grid.Row="2"></TextBlock>
         <TextBlock Text="☠"
                    Grid.Column="0" Grid.Row="2" FontSize="72"></TextBlock>
+
+        <ComboBox x:Name="cboProvincies3"
+                  Grid.Column="1" Grid.Row="2" 
+                  ItemsSource="{Binding}" SelectionChanged="cboProvincies3_SelectionChanged"></ComboBox>
+
+
         <!-- ******************************************** -->
         <!-- ******************************************** -->
         <!-- ******************************************** -->

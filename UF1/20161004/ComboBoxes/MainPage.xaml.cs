@@ -25,6 +25,32 @@ namespace ComboBoxes
         public MainPage()
         {
             this.InitializeComponent();
+
+            List<string> provincies = new List<string>()
+                            { "Barcelona", "Lleida", "Tarragona", "Girona" };
+ 
+            foreach( string p in provincies)
+            {
+                cboProvincies2.Items.Add(p);
+            }
+           
+            //---------------------------------------------
+            //               COMBOBOX AMB DATA BINDING
+            // 1) Creació de dades
+            Provincia pBarcelona = new Provincia(1, "Barcelona");
+
+            List<Provincia> provs = new List<Provincia>();
+            provs.Add(pBarcelona);
+            provs.Add(new Provincia(2, "Tarrragona"));
+            provs.Add(new Provincia(3, "Girona"));
+            provs.Add(new Provincia(4, "Lleida"));
+
+            // 2) Binding amb el Combobox
+            cboProvincies3.DataContext = provs;
+            cboProvincies3.DisplayMemberPath = "Nom";
+            cboProvincies3.SelectedValuePath = "Codi";
+
+
         }
 
     
@@ -33,6 +59,22 @@ namespace ComboBoxes
             ComboBox cb = (ComboBox)sender;
             ComboBoxItem item = (ComboBoxItem)cb.SelectedValue;
             txbProvincia1.Text = cb.SelectedIndex + " " + item.Content;
+        }
+
+        private void cboProvincies2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+
+            txbProvincia1.Text = cb.SelectedIndex + " " + cb.SelectedValue;
+
+        }
+
+        private void cboProvincies3_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            Provincia p = (Provincia)cb.SelectedItem;
+            txbProvincia1.Text = cb.SelectedIndex + " " + cb.SelectedValue
+                +" " + p.Nom;
         }
     }
 }
