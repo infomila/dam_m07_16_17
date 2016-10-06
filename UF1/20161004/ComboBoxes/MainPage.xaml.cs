@@ -37,13 +37,13 @@ namespace ComboBoxes
             //---------------------------------------------
             //               COMBOBOX AMB DATA BINDING
             // 1) Creació de dades
-            Provincia pBarcelona = new Provincia(1, "Barcelona");
+            Provincia pBarcelona = new Provincia(1, "Barcelona", 2250000, 300, "Futbol Club");
 
             List<Provincia> provs = new List<Provincia>();
             provs.Add(pBarcelona);
-            provs.Add(new Provincia(2, "Tarrragona"));
-            provs.Add(new Provincia(3, "Girona"));
-            provs.Add(new Provincia(4, "Lleida"));
+            provs.Add(new Provincia(2, "Tarrragona", 500000, 200, "Tarragona m'esborrona"));
+            provs.Add(new Provincia(3, "Girona", 250000, 300, "Eooooooo!"));
+            provs.Add(new Provincia(4, "Lleida", 250000, 300, "From la terra ferma!"));
 
             // 2) Binding amb el Combobox
             cboProvincies3.DataContext = provs;
@@ -75,6 +75,33 @@ namespace ComboBoxes
             Provincia p = (Provincia)cb.SelectedItem;
             txbProvincia1.Text = cb.SelectedIndex + " " + cb.SelectedValue
                 +" " + p.Nom;
+
+
+            txbCodi.Text = p.Codi.ToString();
+            txbNom.Text = p.Nom;
+            txbSup.Text = p.Superficie.ToString();
+            txbPob.Text = p.Poblacio.ToString();
+            txbDesc.Text = p.Desc;
+        }
+
+        private void txbCodi_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txbCamps_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            // IMPORTANT: el desplegable conté la província seleccionada
+            Provincia p = (Provincia)cboProvincies3.SelectedItem;
+            switch(tb.Name)
+            {
+                case "txbNom":              p.Nom = tb.Text; break;
+                case "txbPob":              p.Poblacio = Int32.Parse(tb.Text); break;
+                case "txbSup":              p.Superficie = Int32.Parse(tb.Text); break;
+                case "txbDesc":             p.Desc = tb.Text; break;
+
+            }
         }
     }
 }

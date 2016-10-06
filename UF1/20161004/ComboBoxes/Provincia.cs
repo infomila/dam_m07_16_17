@@ -8,10 +8,14 @@ namespace ComboBoxes
 {
     class Provincia
     {
-        public Provincia(int pCodi, string pNom)
+        public Provincia(int pCodi, string pNom, int pPoblacio, int pSuperficie, string pDesc)
         {
             Codi = pCodi;
             Nom = pNom;
+            Superficie = pSuperficie;
+            Poblacio = pPoblacio;
+            Desc = pDesc;
+
         }
 
         //----------------------------
@@ -33,6 +37,31 @@ namespace ComboBoxes
         {
             get { return mNom; }
             set { mNom = value; }
+        }
+
+
+        private int mPoblacio;
+
+        public int Poblacio
+        {
+            get { return mPoblacio; }
+            set { mPoblacio = value; }
+        }
+
+        private int mSuperficie;
+
+        public int Superficie
+        {
+            get { return mSuperficie; }
+            set { mSuperficie = value; }
+        }
+
+        private string mDesc;
+
+        public string Desc
+        {
+            get { return mDesc; }
+            set { mDesc = value; }
         }
 
 
