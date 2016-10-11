@@ -71,9 +71,10 @@
         <ComboBox x:Name="cboProvincies3"
                   Grid.Column="1" Grid.Row="2" 
                   ItemsSource="{Binding}" SelectionChanged="cboProvincies3_SelectionChanged"></ComboBox>
-        <Grid Grid.Column="2" Grid.Row="2" 
+        <Grid Grid.Column="2" Grid.Row="2" x:Name="grdForm"
               >
             <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
@@ -98,7 +99,21 @@
             <!-- ********************************************************** -->
             <TextBlock Text="Desc:" Grid.Column="0" Grid.Row="4"></TextBlock>
             <TextBox x:Name="txbDesc" Grid.Column="1" Grid.Row="4" TextChanged="txbCamps_TextChanged"></TextBox>
-            <!-- ********************************************************** -->            
+            <!-- ********************************************************** -->
+
+            <StackPanel 
+                Margin="-10,20,10,0"
+                Orientation="Horizontal"
+                Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2">
+            <Button x:Name="btnSaveOrNew"                    
+                    HorizontalAlignment="Center"     
+                    Content="Save" Click="btnSaveOrNew_Click" />
+            <Button x:Name="btnCancel"     
+                    Margin="20,0,0,0"
+                HorizontalAlignment="Center"
+                
+                Content="Cancel" />
+            </StackPanel>
         </Grid>
 
         <!-- ******************************************** -->
