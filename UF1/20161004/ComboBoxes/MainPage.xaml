@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Resources>
-        <Style TargetType="ComboBoxItem">
+        <Style TargetType="ComboBoxItem" >
             <Setter Property="FontSize" Value="10" />
 
             <Setter Property="Foreground" Value="Blue" />
@@ -20,10 +20,8 @@
                 </Setter.Value>
             </Setter>
 
-
-
         </Style>
-        <Style TargetType="TextBlock">
+        <Style TargetType="TextBlock" >
             <Setter Property="FontSize" Value="10" />
         </Style>
     </Page.Resources>
