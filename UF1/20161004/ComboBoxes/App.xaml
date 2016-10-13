@@ -5,4 +5,51 @@
     xmlns:local="using:ComboBoxes"
     RequestedTheme="Light">
 
+    <Application.Resources>
+      
+            <Style TargetType="Button" x:Key="botoBase" >
+                <Setter Property="Background"   Value="LightGray"/>
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+            <Style TargetType="Button" x:Key="botoPositiu" BasedOn="{StaticResource botoBase}" >
+                <Setter Property="Background"   Value="LightGreen"/>
+            </Style>
+
+
+            <Style TargetType="ComboBoxItem" >
+                <Setter Property="FontSize" Value="10" />
+
+                <Setter Property="Foreground" Value="Blue" />
+                <Setter Property="Background" >
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Color="Yellow" Offset="0.0" />
+                            <GradientStop Color="LimeGreen" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+
+            </Style>
+            <Style TargetType="TextBlock" >
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="FontFamily" Value="Impact"/>
+                <Setter Property="FontWeight" Value="Medium"/>
+            </Style>
+            <Style TargetType="TextBox" >
+                <Setter Property="Background"   >
+                    <Setter.Value>
+                        <LinearGradientBrush
+                        StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Color="Yellow" Offset="0.0" />
+                            <GradientStop Color="LimeGreen" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+    
+
+
+
+
+    </Application.Resources>
 </Application>

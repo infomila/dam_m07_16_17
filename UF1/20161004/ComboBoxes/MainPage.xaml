@@ -7,23 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Resources>
-        <Style TargetType="ComboBoxItem" >
-            <Setter Property="FontSize" Value="10" />
-
-            <Setter Property="Foreground" Value="Blue" />
-            <Setter Property="Background" >
-                <Setter.Value>
-                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                        <GradientStop Color="Yellow" Offset="0.0" />
-                        <GradientStop Color="LimeGreen" Offset="1.0" />
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>
-
-        </Style>
-        <Style TargetType="TextBlock" >
-            <Setter Property="FontSize" Value="10" />
-        </Style>
+        
     </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
           Margin="10">
@@ -89,7 +73,7 @@
             <TextBlock Text="Nom:" Grid.Column="0" Grid.Row="1"></TextBlock>
             <TextBox x:Name="txbNom" Grid.Column="1" Grid.Row="1" TextChanged="txbCamps_TextChanged"></TextBox>
             <!-- ********************************************************** -->
-            <TextBlock Text="Població:" Grid.Column="0" Grid.Row="2"></TextBlock>
+            <TextBlock Text="Població:" Grid.Column="0" Grid.Row="2" ></TextBlock>
             <TextBox x:Name="txbPob" Grid.Column="1" Grid.Row="2" TextChanged="txbCamps_TextChanged"></TextBox>
             <!-- ********************************************************** -->
             <TextBlock Text="Superfície:" Grid.Column="0" Grid.Row="3"></TextBlock>
@@ -103,10 +87,12 @@
                 Margin="-10,20,10,0"
                 Orientation="Horizontal"
                 Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2">
-            <Button x:Name="btnSaveOrNew"                    
+            <Button x:Name="btnSaveOrNew"  
+                    Style="{StaticResource botoPositiu}"
                     HorizontalAlignment="Center"     
                     Content="Save" Click="btnSaveOrNew_Click" />
                 <Button x:Name="btnCancel"     
+                        Style="{StaticResource botoBase}"
                     Margin="20,0,0,0"
                 HorizontalAlignment="Center"
                 Click="btnCancel_Click"
