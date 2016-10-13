@@ -106,10 +106,10 @@
             <Button x:Name="btnSaveOrNew"                    
                     HorizontalAlignment="Center"     
                     Content="Save" Click="btnSaveOrNew_Click" />
-            <Button x:Name="btnCancel"     
+                <Button x:Name="btnCancel"     
                     Margin="20,0,0,0"
                 HorizontalAlignment="Center"
-                
+                Click="btnCancel_Click"
                 Content="Cancel" />
             </StackPanel>
         </Grid>

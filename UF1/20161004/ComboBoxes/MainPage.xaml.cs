@@ -77,10 +77,22 @@ namespace ComboBoxes
             cboProvincies3.DisplayMemberPath = "Nom";
             cboProvincies3.SelectedValuePath = "Codi";
 
+            actualitzaBotoCancel();
+
 
         }
 
-    
+        private void actualitzaBotoCancel()
+        {
+            if (mMode == MODE_EDICIO.SENSE_CANVIS)
+            {
+                btnCancel.IsEnabled = cboProvincies3.SelectedIndex != -1;
+            } else
+            {
+                btnCancel.IsEnabled = true;
+            }
+        }
+
         private void cboProvincies1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox cb = (ComboBox)sender;
@@ -97,7 +109,10 @@ namespace ComboBoxes
         }
 
         private void cboProvincies3_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {       
+        {
+
+            actualitzaBotoCancel();
+
             ComboBox cb = (ComboBox)sender;
 
             if (cb.SelectedIndex == -1)
@@ -108,23 +123,25 @@ namespace ComboBoxes
             {
                 grdForm.Visibility = Visibility.Visible;
 
-                Provincia p = (Provincia)cb.SelectedItem;
-                txbProvincia1.Text = cb.SelectedIndex + " " + cb.SelectedValue
-                    + " " + p.Nom;
-
-
-                desactivarTextChanged();
-
-                txbCodi.Text = p.Codi.ToString();
-                txbNom.Text = p.Nom;
-                txbSup.Text = p.Superficie.ToString();
-                txbPob.Text = p.Poblacio.ToString();
-                txbDesc.Text = p.Desc;
-
-                activarTextChanged();
+                mostrarItemActual(cb);
 
                 setMode(MODE_EDICIO.SENSE_CANVIS);
             }
+        }
+
+        private void mostrarItemActual(ComboBox cb)
+        {
+            Provincia p = (Provincia)cb.SelectedItem;
+   
+            desactivarTextChanged();
+
+            txbCodi.Text = p.Codi.ToString();
+            txbNom.Text = p.Nom;
+            txbSup.Text = p.Superficie.ToString();
+            txbPob.Text = p.Poblacio.ToString();
+            txbDesc.Text = p.Desc;
+
+            activarTextChanged();
         }
 
         private void activarTextChanged()
@@ -150,18 +167,23 @@ namespace ComboBoxes
         {
             if(nouMode==MODE_EDICIO.SENSE_CANVIS)
             {
-                btnCancel.Visibility = Visibility.Collapsed;
+                actualitzaBotoCancel();
+                btnCancel.Content = "Delete-";
                 btnSaveOrNew.Content = "New";
                 btnSaveOrNew.IsEnabled = true;
             } else if (nouMode == MODE_EDICIO.AMB_CANVIS)
             {
-                btnCancel.Visibility = Visibility.Visible;
+                btnCancel.IsEnabled = true;
+                btnCancel.Content = "Cancel";
+                //btnCancel.Visibility = Visibility.Visible;
                 btnSaveOrNew.Content = "Save";
                 //btnSaveOrNew.IsEnabled = false;
             } else
             {
+                btnCancel.IsEnabled = true;
                 //NOU
-                btnCancel.Visibility = Visibility.Visible;
+                btnCancel.Content = "Cancel";
+                //btnCancel.Visibility = Visibility.Visible;
                 btnSaveOrNew.Content = "Save";
                 //btnSaveOrNew.IsEnabled = false;
             }
@@ -233,12 +255,9 @@ namespace ComboBoxes
                 setMode(MODE_EDICIO.NOU);
                 // Deseleccionar la província actual
                 cboProvincies3.SelectedIndex = -1;
-                txbNom.Text = "";
-                txbDesc.Text = "";
-                txbPob.Text = "";
-                txbSup.Text = "";
-
-                txbCodi.Text = (provs.Last<Provincia>().Codi + 1).ToString();
+                NetejarTextboxes();
+                 
+                txbCodi.Text = (provs.Count== 0) ? "1" : (provs.Last<Provincia>().Codi + 1).ToString();
 
             }
             else
@@ -267,6 +286,45 @@ namespace ComboBoxes
                 }
                 
                 setMode(MODE_EDICIO.SENSE_CANVIS);
+            }
+        }
+
+        private void NetejarTextboxes()
+        {
+            desactivarTextChanged();
+            txbCodi.Text = "";
+            txbNom.Text = "";
+            txbDesc.Text = "";
+            txbPob.Text = "";
+            txbSup.Text = "";
+            activarTextChanged();
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (mMode == MODE_EDICIO.SENSE_CANVIS)
+            {
+                // Vull esborrar
+                provs.RemoveAt(cboProvincies3.SelectedIndex);
+
+                cboProvincies3.SelectedIndex = -1;    
+                NetejarTextboxes();
+            }
+            else
+            {
+                // Vull cancel·lar
+                if (mMode == MODE_EDICIO.NOU)
+                {
+                    cboProvincies3.SelectedIndex = -1;
+                    NetejarTextboxes();                    
+                }
+                else
+                {
+                    mostrarItemActual(cboProvincies3);
+                }
+                setMode(MODE_EDICIO.SENSE_CANVIS);
+
             }
         }
     }
