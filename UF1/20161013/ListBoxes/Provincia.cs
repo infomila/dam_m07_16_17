@@ -58,7 +58,13 @@ namespace ListBoxes
             set { mPoblacio = value; }
         }
 
- 
+        public int PoblacioDiv
+        {
+            get { return mPoblacio / 10000; }
+        }
+
+
+
         private int mSuperficie;
 
         public int Superficie

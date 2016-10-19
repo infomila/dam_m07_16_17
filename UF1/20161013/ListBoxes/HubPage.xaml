@@ -1,0 +1,80 @@
+﻿<Page
+    x:Class="ListBoxes.HubPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ListBoxes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="itemDataTemplate">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Image Stretch="Fill" Width="80" Height="80" Source="Assets/StoreLogo.png"/>
+                <TextBlock 
+                           Grid.Row="1" Margin="0,10,0,0" TextWrapping="Wrap" 
+                           Text="Lorem ipsum dolor sit nonumy sed consectetuer ising elit, sed diam"/>
+                <TextBlock  Grid.Row="2" Margin="0,10,0,0"
+                           Text="Description text:"/>
+                <TextBlock   Grid.Row="3" 
+                           Text="Lorem ipsum dolor sit amet, consectetuer ising elit... "/>
+            </Grid>
+        </DataTemplate>
+        <Style TargetType="HubSection">
+            <Setter Property="Background" Value="Aquamarine" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="10" />
+        </Style>
+    </Page.Resources>
+    <Grid Background="White">
+        <Hub Header="Informació Demogràfica" SectionHeaderClick="Hub_SectionHeaderClick" Padding="20">
+
+            <HubSection x:Name="hsecPopulation" Header="Població" IsHeaderInteractive="True" 
+                         >
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Image Stretch="UniformToFill"  Height="250" Source="Assets/crowded-street.jpg"/>
+                        <TextBlock 
+                           Grid.Row="1" Margin="0,10,0,0" TextWrapping="Wrap" 
+                           Text="Lorem ipsum dolor sit nonumy sed consectetuer ising elit, sed diam"/>
+                        <TextBlock  Grid.Row="2" Margin="0,10,0,0"
+                           Text="Description text:"/>
+                        <TextBlock   Grid.Row="3" 
+                           Text="Lorem ipsum dolor sit amet, consectetuer ising elit... "/>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+            <HubSection x:Name="hsecEconomy"  Header="Economia" IsHeaderInteractive="True" >
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Image Stretch="UniformToFill" Height="250" Source="Assets/economy.jpg"/>
+                        <TextBlock 
+                           Grid.Row="1" Margin="0,10,0,0" TextWrapping="Wrap" 
+                           Text="Lorem ipsum dolor sit nonumy sed consectetuer ising elit, sed diam"/>
+                        <TextBlock  Grid.Row="2" Margin="0,10,0,0"
+                           Text="Description text:"/>
+                        <TextBlock   Grid.Row="3" 
+                           Text="Lorem ipsum dolor sit amet, consectetuer ising elit... "/>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+        </Hub>
+    </Grid>
+</Page>
