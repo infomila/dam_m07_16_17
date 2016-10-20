@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="ExempleFrameHub.HubPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ExempleFrameHub"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+
+    <Grid  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Hub Orientation="Horizontal" Header="CAPÇALERA"
+             SectionHeaderClick="Hub_SectionHeaderClick"
+             >
+            <HubSection 
+                x:Name="pokemon"
+                IsHeaderInteractive="True"
+                Header="Secció 1" Style="{StaticResource estilHS}">
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="Assets/pikipek.png"/>
+                        <TextBlock Grid.Row="1" FontSize="50">PikiPek</TextBlock>
+                        <TextBlock Grid.Row="2" VerticalAlignment="Stretch"
+                                   TextWrapping="Wrap" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed dolor a eros laoreet ullamcorper nec elementum mauris. Curabitur sodales dolor at ante laoreet interdum. Vivamus suscipit pulvinar lorem. In nec odio facilisis turpis dignissim vestibulum. Curabitur commodo, arcu vitae sodales fringilla, dui dui vestibulum turpis, vitae blandit leo metus at tortor. Duis non cursus est, eu varius arcu. Nulla ullamcorper tellus quam, eu consequat magna rhoncus ac. Sed magna ipsum, maximus vel turpis id, semper consequat risus.</TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+            <HubSection x:Name="nadeitor" Header="Secció 2" IsHeaderInteractive="True">
+                
+            </HubSection>
+            <HubSection x:Name="copsecalesquerra" Header="Secció 3"></HubSection>
+        </Hub>
+    </Grid>
+</Page>
