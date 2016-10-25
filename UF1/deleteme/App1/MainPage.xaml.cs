@@ -13,13 +13,16 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
+// La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace ControlsPersonalitzatsNumericTextBox
+namespace App1
 {
-    public sealed partial class NumericTextBox : UserControl
+    /// <summary>
+    /// Página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
+    /// </summary>
+    public sealed partial class MainPage : Page
     {
-        public NumericTextBox()
+        public MainPage()
         {
             this.InitializeComponent();
         }

@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="0e5433ae-fcd4-46de-99a8-a8999e1f18e9"
-    Publisher="CN=BERNAT"
+    Name="e93e5512-63ad-400a-a738-1e0fc9c14677"
+    Publisher="CN=Nil"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="0e5433ae-fcd4-46de-99a8-a8999e1f18e9" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="e93e5512-63ad-400a-a738-1e0fc9c14677" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>ControlsPersonalitzatsNumericTextBox</DisplayName>
-    <PublisherDisplayName>BERNAT</PublisherDisplayName>
+    <DisplayName>161020_1_ControlsPersonalitzats</DisplayName>
+    <PublisherDisplayName>Nil</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="ControlsPersonalitzatsNumericTextBox.App">
+      EntryPoint="_161020_1_ControlsPersonalitzats.App">
       <uap:VisualElements
-        DisplayName="ControlsPersonalitzatsNumericTextBox"
+        DisplayName="161020_1_ControlsPersonalitzats"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="ControlsPersonalitzatsNumericTextBox"
+        Description="161020_1_ControlsPersonalitzats"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

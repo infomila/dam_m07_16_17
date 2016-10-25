@@ -1,0 +1,32 @@
+﻿<UserControl
+    x:Class="App1.Gauge"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="600"
+    d:DesignWidth="400">
+
+    <Grid>
+        <Ellipse HorizontalAlignment="Left" 
+                 VerticalAlignment="Top" 
+            Fill="SteelBlue" Height="240" Width="240" />
+
+        <Canvas x:Name="canvasAgulla" HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Width="120" Height="30"
+                Margin="120,105,0,0">
+            <Polygon Fill="red"
+            Points="100,4,115,15,100,26"  />
+            <Rectangle  Width="100" Height="10" Fill="Red" Margin=" 0,10,0,0"></Rectangle>
+            <Canvas.RenderTransform>
+                <RotateTransform Angle="0" CenterX="0" CenterY="15" />
+            </Canvas.RenderTransform>
+            
+        </Canvas>
+
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="65,443,0,0" VerticalAlignment="Top" Click="button_Click"/>
+    </Grid>
+</UserControl>
