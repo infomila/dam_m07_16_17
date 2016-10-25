@@ -75,29 +75,6 @@ Arxius proporcionats:
 			// ..... YOUR CODE HERE ...........
         }
 		
-		
-
-        /// <summary>
-        /// Read the storage file in text mode, returning it as string.
-        /// Carriage return and line feed are supressed, and replaced by spaces.
-        /// </summary>
-        /// <param name="sf"></param>
-        /// <returns></returns>
-        private async Task<string> readTextFile(StorageFile sf)
-        {
-            StringWriter sw = new StringWriter();
-            IRandomAccessStream stream = await sf.OpenAsync(FileAccessMode.Read);
-            using (StreamReader streamReader = new StreamReader(stream.AsStream()))
-            {
-                string line;
-                while ((line = streamReader.ReadLine()) != null)
-                {
-                    //txt += line + Environment.NewLine;
-                    sw.Write(line + " ");
-                }
-
-                return sw.ToString();
-            }
-        }
+	
 		
 ```		
