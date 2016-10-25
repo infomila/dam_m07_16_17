@@ -10,13 +10,13 @@ __OBJECTIU:__ Es desitja construir una aplicació per editar/mantenir els mapes d
 
 
 ### Menú
-Per fer el menú, usarem un SplitView. Teniu un tutorial fantastic on explica, entre moltes altres coses, com muntar un menú semblant al que des demana.
+Per fer el menú, usarem un SplitView. Aquest tipus d'estructura té un panell que conté el menú, i que es plega al fer click sobre un botó. Aquest tipus de menú que es solen anomenar _Hamburguer menu_
 
 ![Menú desplegat](resources/Screenshot_2.png "Captura de pantalla")
 ![Menú plegat](resources/Screenshot_3.png "Captura de pantalla")
 
-L'SplitView contindrà un panell on estarà el menú, i com a contingut principal tindrà un Frame on anirem carregant les pàgines. 
-Podeu trobar molts tutorials per muntar aquest tipus de menú que es solen anomenar [Hamburguer menu](https://maximelabelle.wordpress.com/2016/02/02/building-a-hamburger-menu-for-your-universal-app/)
+L'SplitView tindrà com a contingut principal un _Frame_ on anirem carregant les pàgines. 
+Podeu trobar molts tutorials per muntar aquest tipus de menú que es solen anomenar , podeu provar [aquest](https://maximelabelle.wordpress.com/2016/02/02/building-a-hamburger-menu-for-your-universal-app/)
 
 ### Pàgina Ítems
 Podem donar d'alta, esborrar o modificar els camps d'un ítem. Vegeu captures anteriors per saber quin ha de ser l'aspecte de la pàgina.
