@@ -23,6 +23,7 @@ namespace _161020_1_ControlsPersonalitzats
         {
             this.InitializeComponent();
         }
+
         //event que es llença quan hi ha canvis
         public event EventHandler ValorCanviat; 
 
@@ -30,7 +31,9 @@ namespace _161020_1_ControlsPersonalitzats
 
         public int Valor
         {
-            get { return int.Parse(txbNum.Text); }
+            get {                
+                return int.Parse(txbNum.Text);
+            }
             set { txbNum.Text = value.ToString(); }
         }
 
@@ -47,6 +50,13 @@ namespace _161020_1_ControlsPersonalitzats
 
         private void txbNum_TextChanged(object sender, TextChangedEventArgs e)
         {
+            int valor;
+            if( !int.TryParse(txbNum.Text, out valor))
+            {
+                valor = 0;
+            }
+            txbNum.Text = valor.ToString();
+
             //cada cop que canvia el textBox. Cridem a l'event ValorCanviat
             //el this és el propi NumericTextBox
             ValorCanviat(this, null);
