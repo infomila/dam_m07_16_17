@@ -25,9 +25,47 @@ namespace _161020_1_ControlsPersonalitzats
         }
 
         //event que es llença quan hi ha canvis
-        public event EventHandler ValorCanviat; 
+        public event EventHandler ValorCanviat;
 
-        
+
+        private int mMax=100;
+
+        public int Max
+        {
+            get { return mMax; }
+            set { mMax = value;
+                validarValor();
+            }
+        }
+
+        private int mMin=0;
+
+        public int Min
+        {
+            get { return mMin; }
+            set { mMin = value;
+                validarValor();
+            }
+        }
+
+
+        private void validarValor( )
+        {
+            int valorActual;
+            if (!int.TryParse(txbNum.Text, out valorActual))
+            {
+                valorActual = 0;
+            }
+    
+            if (valorActual > Max)  valorActual=Max;
+            if (valorActual < Min)  valorActual=Min;
+
+
+            txbNum.Text = valorActual.ToString();            
+
+        }
+
+
 
         public int Valor
         {
@@ -50,16 +88,23 @@ namespace _161020_1_ControlsPersonalitzats
 
         private void txbNum_TextChanged(object sender, TextChangedEventArgs e)
         {
-            int valor;
-            if( !int.TryParse(txbNum.Text, out valor))
-            {
-                valor = 0;
-            }
-            txbNum.Text = valor.ToString();
+            validarValor();
 
             //cada cop que canvia el textBox. Cridem a l'event ValorCanviat
             //el this és el propi NumericTextBox
-            ValorCanviat(this, null);
+            ValorCanviat?.Invoke(this, null);
+        }
+
+     
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Valor++;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Valor--;
         }
     }
 }

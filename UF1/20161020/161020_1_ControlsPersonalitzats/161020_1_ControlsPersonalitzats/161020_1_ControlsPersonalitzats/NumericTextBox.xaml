@@ -12,8 +12,8 @@
     <Grid>
         <RelativePanel>
             <TextBox x:Name="txbNum" TextChanged="txbNum_TextChanged" KeyDown="txbNum_KeyDown" Paste="txbNum_Paste"></TextBox>
-            <Button RelativePanel.AlignRightWith="txbNum" Width="15" Height="10" Content="▲" Padding="0" Margin="0,2,2,0" FontSize="5"></Button>
-            <Button RelativePanel.AlignRightWith="txbNum" RelativePanel.AlignBottomWith="txbNum" Width="15" Height="10" Content="▼" Padding="0" Margin="0,0,2,2" FontSize="5"></Button>
+            <Button RelativePanel.AlignRightWith="txbNum" Click="Button_Click_1" Width="15" Height="10" Content="▲" Padding="0" Margin="0,2,2,0" FontSize="5"></Button>
+            <Button RelativePanel.AlignRightWith="txbNum" Click="Button_Click_2" RelativePanel.AlignBottomWith="txbNum" Width="15" Height="10" Content="▼" Padding="0" Margin="0,0,2,2" FontSize="5"></Button>
         </RelativePanel>
     </Grid>
 </UserControl>
