@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -25,6 +26,22 @@ namespace EmployeeCardCustomControl
         public MainPage()
         {
             this.InitializeComponent();
+            /*
+            <local:EmployeeCard HorizontalAlignment="Left"
+                            VerticalAlignment="Top" 
+                            Nom="Paco"
+                            Desc="Oh my goodness !!"
+                            Foto="Assets/putin.png"/>   
+
+    */
+            EmployeeCard ec = new EmployeeCard();
+            ec.Nom = "Paco";
+            ec.Desc = "Oh my goodness !!";
+            ec.Foto = new BitmapImage( new Uri("ms-appx:///Assets/putin.png"));
+            ec.HorizontalAlignment = HorizontalAlignment.Left;
+            ec.Margin = new Thickness(20,-20,0,0);
+            pnlEmployees.Children.Add(ec);
+
         }
     }
 }

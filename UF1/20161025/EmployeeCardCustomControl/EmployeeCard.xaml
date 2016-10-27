@@ -20,7 +20,10 @@
         </Grid.RowDefinitions>
 
 
-        <Image x:Name="imgPhoto" Source="/Assets/obama.png" 
+        <Image x:Name="imgPhoto" Source="{Binding Foto, 
+                        ElementName=userControl, 
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=PropertyChanged}" 
                 Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
         </Image>
         <TextBox x:Name="txbName"                   
@@ -29,8 +32,13 @@
                         ElementName=userControl, 
                         Mode=TwoWay, 
                         UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <TextBox x:Name="txbDesc" Text="Blah Blah Blah Blah Blah Blah Blah" 
-                 Grid.Row="1" Grid.Column="1" ></TextBox>
+        <TextBox x:Name="txbDesc" 
+                 Grid.Row="1" Grid.Column="1" 
+                 Text="{Binding Desc, 
+                        ElementName=userControl, 
+                        Mode=TwoWay, 
+                        UpdateSourceTrigger=PropertyChanged}"
+                 ></TextBox>
 
     </Grid>
 

@@ -7,16 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,-211,0">
-        <local:EmployeeCard x:Name="employeeCard" Nom="OBAMEITOR"  
+    <StackPanel x:Name="pnlEmployees" Orientation="Vertical" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,-211,0">
+        <local:EmployeeCard x:Name="employeeCard" Nom="Putin"  
                             Desc="For president :-)" 
-                            Foto="Assets/putin.png" HorizontalAlignment="Left" Margin="99,114,0,0" VerticalAlignment="Top"/>
+                            Opacity="1"
+                            Foto="Assets/putin.png" 
+                            HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <local:EmployeeCard HorizontalAlignment="Left"
-                            Margin="99,392,0,0" 
                             VerticalAlignment="Top" 
-                            Nom="{Binding Nom, 
-                                ElementName=employeeCard, 
-                            Mode=TwoWay  , UpdateSourceTrigger=PropertyChanged}"/>     
+                            Nom="Obama"
+                            Opacity="1"
+                            Desc="sfdkja sdkjfn akjsdfjk asdf"
+                            Foto="Assets/obama.png"/>     
 
-    </Grid>
+    </StackPanel>
 </Page>

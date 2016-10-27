@@ -60,7 +60,8 @@ namespace EmployeeCardCustomControl
 
         // Using a DependencyProperty as the backing store for Desc.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty DescProperty =
-            DependencyProperty.Register("Desc", typeof(string), typeof(EmployeeCard), new PropertyMetadata(""));
+            DependencyProperty.Register("Desc", typeof(string), typeof(EmployeeCard), 
+                new PropertyMetadata(""));
 
         //----------------------------------------------
 
