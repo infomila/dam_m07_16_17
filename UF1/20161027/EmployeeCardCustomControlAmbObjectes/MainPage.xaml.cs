@@ -34,13 +34,24 @@ namespace EmployeeCardCustomControl
 
             ObservableCollection<Empleat> empleats = new ObservableCollection<Empleat>();
             empleats.Add(new Empleat("Paco", "Super Paco Strikes Back", new BitmapImage(new Uri("ms-appx:///Assets/putin.png"))));
-            empleats.Add(new Empleat("Paco1", "1Super Paco Strikes Back", new BitmapImage(new Uri("ms-appx:///Assets/cubix.png"))));
-            empleats.Add(new Empleat("Paco2", "2Super Paco Strikes Back", new BitmapImage(new Uri("ms-appx:///Assets/face.png"))));
+            empleats.Add(new Empleat("Paco1", "1Super Paco Strikes Back", new BitmapImage(new Uri("ms-appx:///Assets/cubix.jpg"))));
+            empleats.Add(new Empleat("Paco2", "2Super Paco Strikes Back", new BitmapImage(new Uri("ms-appx:///Assets/face.jpg"))));
             empleats.Add(new Empleat("Paco3", "3Super Paco Strikes Back", new BitmapImage(new Uri("ms-appx:///Assets/obama.png"))));
             empleats.Add(new Empleat("Paco4", "4Super Paco Strikes Back", new BitmapImage(new Uri("ms-appx:///Assets/putin.png"))));
-            empleats.Add(new Empleat("Paco5", "5Super Paco Strikes Back", new BitmapImage(new Uri("ms-appx:///Assets/cubix.png"))));
- 
+            empleats.Add(new Empleat("Paco5", "5Super Paco Strikes Back", new BitmapImage(new Uri("ms-appx:///Assets/cubix.jpg"))));
 
+            int x = 0;
+            foreach(Empleat e in empleats)
+            {
+                EmployeeCard ec = new EmployeeCard();
+                ec.Emp = e;
+                ec.HorizontalAlignment = HorizontalAlignment.Left;
+               
+                pnlEmployees.Children.Add(ec);
+                ec.Margin = new Thickness(x,-70, 0, 0);
+                x += 20;
+            }
+            empleats[0].Nom = "CANVIASSOO!!!!!!!!!!";
 
         }
     }

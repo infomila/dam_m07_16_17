@@ -7,8 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400">
-    <Border BorderBrush="Black" BorderThickness="2" Background="BurlyWood" Padding="10">
+    d:DesignWidth="400" 
+             PointerEntered="userControl_PointerEntered"
+             PointerExited="userControl_PointerExited"
+             >
+    <Border x:Name="border" BorderBrush="Black" BorderThickness="2" Background="BurlyWood" Padding="10">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"></ColumnDefinition>

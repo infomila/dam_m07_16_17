@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -62,6 +63,14 @@ namespace EmployeeCardCustomControl
                 typeof(EmployeeCard), 
                 new PropertyMetadata(null));
 
+        private void userControl_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            border.Background = new SolidColorBrush(Colors.Blue);
+        }
 
+        private void userControl_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            border.Background = new SolidColorBrush(Colors.BurlyWood);   
+        }
     }
 }
