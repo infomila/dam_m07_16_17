@@ -1,6 +1,7 @@
 ﻿using Cinema.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -24,9 +25,35 @@ namespace Cinema
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        private List<TipusButaca> llistaTipusButaca = new List<TipusButaca>();
+  
+
+
         public MainPage()
         {
             this.InitializeComponent();
+
+
+            // inicialitzar llista de butaques
+            llistaTipusButaca.Add(new TipusButaca(0, "Platea", (decimal)60.45, Colors.Azure));
+            llistaTipusButaca.Add(new TipusButaca(1, "Primer pis", (decimal)40.45, Colors.Chocolate));
+            llistaTipusButaca.Add(new TipusButaca(2, "Lateral", (decimal)20.3, Colors.DeepPink));
+
+
+
+
+
+            ObservableCollection<Butaca> butaques = new ObservableCollection<Butaca>();
+
+
+
+            butaques.Add( new Butaca("Test 1", TipusOcupacio.LLIURE, llistaTipusButaca[0]) );
+            butaques.Add(new Butaca("Test 2", TipusOcupacio.LLIURE, llistaTipusButaca[1]));
+            butaques.Add(new Butaca("Test 3", TipusOcupacio.LLIURE, llistaTipusButaca[2]));
+
+            lsvButaques.ItemsSource = butaques;
+            //lsvButaques.DisplayMemberPath = "DescExtraSuperDuper";
             crearCine();
         }
 
@@ -58,18 +85,14 @@ namespace Cinema
 
 
 
-                    List<TipusButaca> llistaTipusButaca = new List<TipusButaca>();
-            llistaTipusButaca.Add(new TipusButaca(0, "Platea", (decimal)60.45, Colors.Azure));
-            llistaTipusButaca.Add(new TipusButaca(1, "Primer pis", (decimal)40.45, Colors.Chocolate));
-            llistaTipusButaca.Add(new TipusButaca(2, "Lateral", (decimal)20.3, Colors.DeepPink));
 
             // Laterals
             for(int f=0;f<4;f++)
             {
-                cine[0 , f] = new Butaca("LAT F"+f+"-1", false, 2);
-                cine[1 , f] = new Butaca("LAT F"+f+"-2", false, 2);
-                cine[13, f] = new Butaca("LAT F"+f+"-3", false, 2);
-                cine[14, f] = new Butaca("LAT F"+f+"-4", false, 2);
+                cine[0 , f] = new Butaca("LAT F"+f+"-1", TipusOcupacio.LLIURE, llistaTipusButaca[2]);
+                cine[1 , f] = new Butaca("LAT F"+f+"-2", TipusOcupacio.LLIURE, llistaTipusButaca[2]);
+                cine[13, f] = new Butaca("LAT F"+f+"-3", TipusOcupacio.LLIURE, llistaTipusButaca[2]);
+                cine[14, f] = new Butaca("LAT F"+f+"-4", TipusOcupacio.LLIURE, llistaTipusButaca[2]);
             }
 
             // Platea
@@ -80,7 +103,7 @@ namespace Cinema
                 {
                     if (col != 7)
                     {
-                        cine[col, f] = new Butaca("PLAT F" + (f+1) + "-" + c, false, 0);
+                        cine[col, f] = new Butaca("PLAT F" + (f+1) + "-" + c, TipusOcupacio.LLIURE, llistaTipusButaca[0]);
                     }
                     c++;
                 }
@@ -93,16 +116,16 @@ namespace Cinema
                 {
                     if (col != 7)
                     {
-                        cine[col, f] = new Butaca("PRIMER PIS F" + (f-1) + "-" + c, false, 1);
+                        cine[col, f] = new Butaca("PRIMER PIS F" + (f-1) + "-" + c, TipusOcupacio.LLIURE, llistaTipusButaca[1]);
                     }
                     c++;
                 }
             }
 
             // Ocupem 3 seients.
-            cine[5, 2].Ocupada = true;
-            cine[8, 0].Ocupada = true;
-            cine[9, 0].Ocupada = true;
+            cine[5, 2].Ocupada = TipusOcupacio.OCUPADA;
+            cine[8, 0].Ocupada = TipusOcupacio.OCUPADA;
+            cine[9, 0].Ocupada = TipusOcupacio.OCUPADA;
             
         }
        

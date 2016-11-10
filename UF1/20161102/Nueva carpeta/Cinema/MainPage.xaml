@@ -6,8 +6,19 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="DataTemplate1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Desc}" />
+                <TextBlock Text="{Binding Tipus.Preu}" />
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+ 
+        <ListView x:Name="lsvButaques" HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch" 
+                  ItemTemplate="{StaticResource DataTemplate1}"></ListView>
     </Grid>
 </Page>

@@ -1,18 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Cinema.Model
 {
-    class Butaca
+    public enum TipusOcupacio
     {
-        public Butaca( string pDesc, bool pOcupada, int pCodiTipusButaca)
+        OCUPADA,
+        LLIURE,
+        SELECCIONADA
+    }
+    public class Butaca : INotifyPropertyChanged
+    {
+        public Butaca( string pDesc, TipusOcupacio pOcupada, TipusButaca pTipusButaca)
         {
             Desc = pDesc;
             Ocupada = pOcupada;
-            Tipus = pCodiTipusButaca;
+            Tipus = pTipusButaca;
         }
         #region Propietats
         private string mDesc;
@@ -25,22 +32,39 @@ namespace Cinema.Model
             get { return mDesc; }
             set { mDesc = value; }
         }
-        //------------------------------------
-        private bool mOcupada;
 
-        public bool Ocupada
+
+        public string DescExtraSuperDuper
+        {
+            get { return mDesc + " - " + Tipus.Preu; }
+        }
+
+
+        //------------------------------------
+        private TipusOcupacio mOcupada;
+
+        public TipusOcupacio Ocupada
         {
             get { return mOcupada; }
-            set { mOcupada = value; }
+            set { mOcupada = value;
+                OnPropertyChanged("Ocupada");
+            }
         }
         //------------------------------------
-        private int mCodiTipus;
+        private TipusButaca mCodiTipus;
 
-        public int Tipus
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public TipusButaca Tipus
         {
             get { return mCodiTipus; }
             set { mCodiTipus = value; }
         }
         #endregion
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
     }
 }

@@ -7,7 +7,7 @@ using Windows.UI;
 
 namespace Cinema.Model
 {
-    class TipusButaca
+    public class TipusButaca
     {
 
         public TipusButaca( int pCodi, string pDesc, decimal pPreu, Color pColor)
