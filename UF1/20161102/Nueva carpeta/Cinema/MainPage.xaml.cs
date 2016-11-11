@@ -55,6 +55,12 @@ namespace Cinema
             lsvButaques.ItemsSource = butaques;
             //lsvButaques.DisplayMemberPath = "DescExtraSuperDuper";
             crearCine();
+
+            Butaca bc = new Butaca("Test 1", TipusOcupacio.LLIURE, llistaTipusButaca[0]);
+            laButaca.MyButaca = bc;
+
+
+            bc.Ocupada = TipusOcupacio.SELECCIONADA;
         }
 
 

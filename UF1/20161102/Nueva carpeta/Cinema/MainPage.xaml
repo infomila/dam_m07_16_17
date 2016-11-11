@@ -20,5 +20,10 @@
         <ListView x:Name="lsvButaques" HorizontalAlignment="Stretch"
                   VerticalAlignment="Stretch" 
                   ItemTemplate="{StaticResource DataTemplate1}"></ListView>
+        <local:ControlButaca 
+            x:Name="laButaca"
+            HorizontalAlignment="Left" 
+            Margin="10,10,0,0" 
+            VerticalAlignment="Top"/>
     </Grid>
 </Page>
