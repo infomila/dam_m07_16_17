@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="ControlPersonalitzatTextboxAutocompletat.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ControlPersonalitzatTextboxAutocompletat"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <local:TextAutocompletat 
+            TextCanviat="txtAuto_TextCanviat"
+            x:Name="txtAuto"
+            Valor="OLLLLE"
+            HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnTest" Click="btnTest_Click" Content="Es valid?" HorizontalAlignment="Left" Margin="87,62,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtOk" HorizontalAlignment="Left" Margin="168,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>
