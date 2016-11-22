@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EseQLite.Db;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -36,7 +37,7 @@ namespace EseQLite
 
         async void initDB()
         {
-            string bdName = "empresa.db";
+            string bdName = HotelContext.DBFileName;
 
             var dbFile = await ApplicationData.Current.LocalFolder.TryGetItemAsync(bdName) as StorageFile;
 

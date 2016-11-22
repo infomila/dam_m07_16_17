@@ -90,14 +90,15 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <Content Include="Assets\empresa.db" />
+    <Content Include="Assets\hotel.db" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Db\EmpleatDB.cs" />
-    <Compile Include="Db\EmpresaContext.cs" />
+    <Compile Include="Db\HotelDB.cs" />
+    <Compile Include="Db\HotelContext.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

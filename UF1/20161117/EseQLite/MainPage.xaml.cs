@@ -31,13 +31,13 @@ namespace EseQLite
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            EmpleatDB edb = new EmpleatDB();
-            txtResult.Text = edb.getNumeroEmpleats()+"";
+            HotelDB edb = new HotelDB();
+            txtResult.Text = edb.getNumeroHotels()+"";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            txtResult.Text += EmpleatDB.consulta("");
+            txtResult.Text += HotelDB.getHotels();
         }
     }
 }
