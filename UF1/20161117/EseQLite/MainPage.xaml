@@ -8,6 +8,15 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <TextBox Height="200" x:Name="txtSQL" Grid.Column="0"></TextBox>
+            <Button Content="GO" Click="Button_Click"/>
+        </StackPanel>
+        <TextBox AcceptsReturn="True" x:Name="txtResult" Grid.Column="1"></TextBox>
+        
     </Grid>
 </Page>

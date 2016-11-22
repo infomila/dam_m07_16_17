@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EseQLite.Db;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,18 @@ namespace EseQLite
         public MainPage()
         {
             this.InitializeComponent();
+            this.Loaded += MainPage_Loaded;
+        }
+
+        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            EmpleatDB edb = new EmpleatDB();
+            txtResult.Text = edb.getNumeroEmpleats()+"";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            txtResult.Text += EmpleatDB.consulta("");
         }
     }
 }
