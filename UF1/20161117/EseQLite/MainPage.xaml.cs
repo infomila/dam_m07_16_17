@@ -1,4 +1,5 @@
 ﻿using EseQLite.Db;
+using EseQLite.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,7 +38,13 @@ namespace EseQLite
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            txtResult.Text += HotelDB.getHotels();
+            //HotelDB.getHotels().ForEach(h => txtResult.Text += h.ToString());
+
+            foreach( Hotel h in HotelDB.getHotels())
+            {
+                txtResult.Text += h.ToString() ;
+            }
+            
         }
     }
 }

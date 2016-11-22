@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EseQLite.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -11,8 +12,9 @@ namespace EseQLite.Db
     class HotelDB
     {
 
-        public static string getHotels()
+        public static List<Hotel> getHotels()
         {
+            List<Hotel> hotels = new List<Hotel>();
 
             using (HotelContext ctx = new HotelContext())
             {
@@ -25,20 +27,19 @@ namespace EseQLite.Db
                     {
                         command.CommandText = "select * from hotel";
                         DbDataReader reader = command.ExecuteReader();
-                        string res = "";
+
                         while (reader.Read())
                         {
                             Int64 id = reader.GetInt64(reader.GetOrdinal("htl_codi"));
-                            string nom = reader.GetString(reader.GetOrdinal("htl_nom"));
-                            res += ("id:" + id + ", nom:" + nom + "\n");
-
+                            string nom = reader.GetString(reader.GetOrdinal("htl_nom"));                            
+                            string poblacio = reader.GetString(reader.GetOrdinal("htl_poblacio"));
+                            Hotel h = new Hotel(id, nom, poblacio);
+                            hotels.Add(h);                            
                         }
-
-                        return res;
-
                     }
                 }
             }
+            return hotels;
         }
 
 
