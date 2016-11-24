@@ -36,6 +36,32 @@ namespace EseQLite
             lsvHotels.ItemsSource = HotelDB.getHotels();
         }
 
-  
+        private void lsvHotels_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListView lsv = (ListView)sender;
+            Hotel h = (Hotel) lsv.SelectedItem;
+            if (h != null)
+            {
+                txtCodi.Text = h.Codi.ToString();
+                txtName.Text = h.Nom;
+                txtPoblacio.Text = h.Poblacio;
+            }
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            //Hotel hActualitzar = new Hotel(Int32.Parse(txtCodi.Text), txtName.Text, txtPoblacio.Text);
+
+            HotelDB.updateData(Int32.Parse(txtCodi.Text), txtName.Text, txtPoblacio.Text);
+
+            Hotel h = (Hotel)lsvHotels.SelectedItem;
+            h.Nom = txtName.Text;
+            h.Poblacio = txtPoblacio.Text;
+
+            //lsvHotels.ItemsSource = null;
+            lsvHotels.ItemsSource = HotelDB.getHotels();
+
+
+        }
     }
 }

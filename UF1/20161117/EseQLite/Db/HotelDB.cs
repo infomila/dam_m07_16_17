@@ -12,6 +12,46 @@ namespace EseQLite.Db
     class HotelDB
     {
 
+
+
+
+        public static void updateData(int pCodi, string pNom, string pPoblacio)
+        {             
+            using (HotelContext ctx = new HotelContext())
+            {
+
+                using (var connection = ctx.Database.GetDbConnection())
+                {
+                    connection.Open();
+                    DbTransaction trans = connection.BeginTransaction();
+                    using (var command = connection.CreateCommand())
+                    {
+                        try
+                        {
+                            command.CommandText = $"update hotel set htl_nom='{pNom}', htl_poblacio='{pPoblacio}' where htl_codi={pCodi}";
+                            command.Transaction = trans;
+                            int filesUpdatades = command.ExecuteNonQuery();
+                            if (filesUpdatades != 1)
+                            {
+                                throw new Exception("Error !");
+                            }
+                            trans.Commit();
+
+                        }catch(Exception ex)
+                        {
+                            trans.Rollback();
+                            throw new Exception("Error !");
+                        }
+                         
+                    }
+                }
+            }
+
+        }
+
+
+
+
         public static List<Hotel> getHotels()
         {
             List<Hotel> hotels = new List<Hotel>();

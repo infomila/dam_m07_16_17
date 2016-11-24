@@ -31,6 +31,7 @@ namespace EseQLite
         public App()
         {
             this.InitializeComponent();
+            initDB();
             this.Suspending += OnSuspending;
         }
 
@@ -103,8 +104,7 @@ namespace EseQLite
                 Window.Current.Activate();
             }
 
-            // Copiem l'arxiu de BD
-            initDB();
+
         }
 
         /// <summary>

@@ -71,9 +71,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Margin="20">
-            <ListView x:Name="lsvHotels"
-                      ItemsSource="{Binding Hotels}"
-                      SelectedItem="{Binding SelectedHotel, Mode=TwoWay}"
+            <ListView SelectionChanged="lsvHotels_SelectionChanged"   x:Name="lsvHotels"
                       ItemTemplate="{StaticResource DataTemplate1}"
                       HeaderTemplate="{StaticResource DataTemplate2}"
                       ItemContainerStyle="{StaticResource ListViewItemStyle1}">
@@ -96,9 +94,9 @@
             <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Text="Nom:" ></TextBlock>
             <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Text="Població:" ></TextBlock>
             
-            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding SelectedHotel.Codi}" IsEnabled="False" ></TextBox>
-            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding SelectedHotel.Nom}" PlaceholderText="-Nom del hotel -" ></TextBox>
-            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding SelectedHotel.Poblacio}" PlaceholderText="- Població del hotel -" ></TextBox>
+            <TextBox x:Name="txtCodi" Grid.Column="1" Grid.Row="0"   IsEnabled="False" ></TextBox>
+            <TextBox x:Name="txtName" Grid.Column="1" Grid.Row="1"  PlaceholderText="-Nom del hotel -" ></TextBox>
+            <TextBox x:Name="txtPoblacio" Grid.Column="1" Grid.Row="2"   PlaceholderText="- Població del hotel -" ></TextBox>
 
 
 
@@ -109,7 +107,7 @@
                          Orientation="Horizontal"
                          VerticalAlignment="Top"
                          HorizontalAlignment="Center">
-                <Button x:Name="btnSave" Content="Save" Margin="10"></Button>
+                <Button x:Name="btnSave" Content="Save" Margin="10" Click="btnSave_Click"></Button>
                 <Button x:Name="btnCancel" Content="Cancel" Margin="10"></Button>
                 <Button x:Name="btnNew" Content="New" Margin="10"></Button>
                 <Button x:Name="btnDelete" Content="Delete" Margin="10"></Button>
