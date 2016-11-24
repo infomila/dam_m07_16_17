@@ -6,17 +6,116 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="DataTemplate1">
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Column="0">
+                    <TextBlock Text="{Binding Codi}"></TextBlock>
+                </Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Column="1">
+                    <TextBlock Text="{Binding Nom}"></TextBlock>
+                </Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Column="2">
+                    <TextBlock Text="{Binding Poblacio}"></TextBlock>
+                </Border>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DataTemplate2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="1" BorderBrush="Black"  Grid.Column="0" Background="Gray">
+                    <TextBlock Text="Codi"></TextBlock>
+                </Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Column="1" Background="Gray">
+                    <TextBlock Text="Nom"></TextBlock>
+                </Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Column="2" Background="Gray">
+                    <TextBlock Text="Poblacio"></TextBlock>
+                </Border>
+            </Grid>
+        </DataTemplate>
+        <Style x:Key="ListViewItemStyle1" TargetType="ListViewItem">
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+            <Setter Property="TabNavigation" Value="Local"/>
+            <Setter Property="IsHoldingEnabled" Value="True"/>
+            <Setter Property="Padding" Value="0,0,0,0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="MinWidth" Value="{ThemeResource ListViewItemMinWidth}"/>
+            <Setter Property="MinHeight" Value="{ThemeResource ListViewItemMinHeight}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <ListViewItemPresenter CheckBrush="{ThemeResource SystemControlForegroundBaseMediumHighBrush}" ContentMargin="{TemplateBinding Padding}" CheckMode="Inline" ContentTransitions="{TemplateBinding ContentTransitions}" CheckBoxBrush="{ThemeResource SystemControlForegroundBaseMediumHighBrush}" DragForeground="{ThemeResource ListViewItemDragForegroundThemeBrush}" DragOpacity="{ThemeResource ListViewItemDragThemeOpacity}" DragBackground="{ThemeResource ListViewItemDragBackgroundThemeBrush}" DisabledOpacity="{ThemeResource ListViewItemDisabledThemeOpacity}" FocusBorderBrush="{ThemeResource SystemControlForegroundAltHighBrush}" FocusSecondaryBorderBrush="{ThemeResource SystemControlForegroundBaseHighBrush}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" PointerOverForeground="{ThemeResource SystemControlHighlightAltBaseHighBrush}" PressedBackground="{ThemeResource SystemControlHighlightListMediumBrush}" PlaceholderBackground="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" PointerOverBackground="{ThemeResource SystemControlHighlightListLowBrush}" ReorderHintOffset="{ThemeResource ListViewItemReorderHintThemeOffset}" SelectedPressedBackground="{ThemeResource SystemControlHighlightListAccentHighBrush}" SelectionCheckMarkVisualEnabled="True" SelectedForeground="{ThemeResource SystemControlHighlightAltBaseHighBrush}" SelectedPointerOverBackground="{ThemeResource SystemControlHighlightListAccentMediumBrush}" SelectedBackground="{ThemeResource SystemControlHighlightListAccentLowBrush}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel>
-            <TextBox Height="200" x:Name="txtSQL" Grid.Column="0"></TextBox>
-            <Button Content="GO" Click="Button_Click"/>
-        </StackPanel>
-        <TextBox AcceptsReturn="True" x:Name="txtResult" Grid.Column="1"></TextBox>
-        
+        <StackPanel Grid.Column="0" Margin="20">
+            <ListView x:Name="lsvHotels"
+                      ItemsSource="{Binding Hotels}"
+                      SelectedItem="{Binding SelectedHotel, Mode=TwoWay}"
+                      ItemTemplate="{StaticResource DataTemplate1}"
+                      HeaderTemplate="{StaticResource DataTemplate2}"
+                      ItemContainerStyle="{StaticResource ListViewItemStyle1}">
+            </ListView>
+         </StackPanel>
+        <Grid Grid.Column="1" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" ></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Text="Codi:" ></TextBlock>
+            <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Text="Nom:" ></TextBlock>
+            <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Text="Població:" ></TextBlock>
+            
+            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding SelectedHotel.Codi}" IsEnabled="False" ></TextBox>
+            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding SelectedHotel.Nom}" PlaceholderText="-Nom del hotel -" ></TextBox>
+            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding SelectedHotel.Poblacio}" PlaceholderText="- Població del hotel -" ></TextBox>
+
+
+
+            <TextBlock Foreground="red" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" Grid.Row="1" Text="Error nom" ></TextBlock>
+            <TextBlock Foreground="red" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" Grid.Row="2" Text="Error poblacio" ></TextBlock>
+
+            <StackPanel  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"
+                         Orientation="Horizontal"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Center">
+                <Button x:Name="btnSave" Content="Save" Margin="10"></Button>
+                <Button x:Name="btnCancel" Content="Cancel" Margin="10"></Button>
+                <Button x:Name="btnNew" Content="New" Margin="10"></Button>
+                <Button x:Name="btnDelete" Content="Delete" Margin="10"></Button>
+            </StackPanel>
+
+        </Grid>
+
     </Grid>
 </Page>
