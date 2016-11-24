@@ -33,18 +33,9 @@ namespace EseQLite
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             HotelDB edb = new HotelDB();
-            txtResult.Text = edb.getNumeroHotels()+"";
+            lsvHotels.ItemsSource = HotelDB.getHotels();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //HotelDB.getHotels().ForEach(h => txtResult.Text += h.ToString());
-
-            foreach( Hotel h in HotelDB.getHotels())
-            {
-                txtResult.Text += h.ToString() ;
-            }
-            
-        }
+  
     }
 }
