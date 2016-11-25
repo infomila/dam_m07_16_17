@@ -94,9 +94,9 @@
             <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Text="Nom:" ></TextBlock>
             <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Text="Població:" ></TextBlock>
             
-            <TextBox x:Name="txtCodi" Grid.Column="1" Grid.Row="0"   IsEnabled="False" ></TextBox>
-            <TextBox x:Name="txtName" Grid.Column="1" Grid.Row="1"  PlaceholderText="-Nom del hotel -" ></TextBox>
-            <TextBox x:Name="txtPoblacio" Grid.Column="1" Grid.Row="2"   PlaceholderText="- Població del hotel -" ></TextBox>
+            <TextBox x:Name="txtCodi"  Grid.Column="1" Grid.Row="0"   IsEnabled="False" ></TextBox>
+            <TextBox x:Name="txtName" TextChanged="common_TextChanged" Grid.Column="1" Grid.Row="1"  PlaceholderText="-Nom del hotel -" ></TextBox>
+            <TextBox x:Name="txtPoblacio" TextChanged="common_TextChanged" Grid.Column="1" Grid.Row="2"   PlaceholderText="- Població del hotel -" ></TextBox>
 
 
 
@@ -109,8 +109,8 @@
                          HorizontalAlignment="Center">
                 <Button x:Name="btnSave" Content="Save" Margin="10" Click="btnSave_Click"></Button>
                 <Button x:Name="btnCancel" Content="Cancel" Margin="10"></Button>
-                <Button x:Name="btnNew" Content="New" Margin="10"></Button>
-                <Button x:Name="btnDelete" Content="Delete" Margin="10"></Button>
+                <Button x:Name="btnNew" Content="New" Margin="10" Click="btnNew_Click"></Button>
+                <Button x:Name="btnDelete" Click="btnDelete_Click" Content="Delete" Margin="10"></Button>
             </StackPanel>
 
         </Grid>

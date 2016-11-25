@@ -14,6 +14,77 @@ namespace EseQLite.Db
 
 
 
+        public static void deleteData(Int64 pCodi)
+        {
+            using (HotelContext ctx = new HotelContext())
+            {
+
+                using (var connection = ctx.Database.GetDbConnection())
+                {
+                    connection.Open();
+                    DbTransaction trans = connection.BeginTransaction();
+                    using (var command = connection.CreateCommand())
+                    {
+                        try
+                        {
+                            command.CommandText = $"delete from hotel where htl_codi={pCodi} ";
+                            command.Transaction = trans;
+                            int filesUpdatades = command.ExecuteNonQuery();
+                            if (filesUpdatades != 1)
+                            {
+                                throw new Exception("Error !");
+                            }
+                            trans.Commit();
+
+                        }
+                        catch (Exception ex)
+                        {
+                            trans.Rollback();
+                            throw new Exception("Error !");
+                        }
+
+                    }
+                }
+            }
+
+        }
+
+
+        public static void insertData( string pNom, string pPoblacio)
+        {
+            using (HotelContext ctx = new HotelContext())
+            {
+
+                using (var connection = ctx.Database.GetDbConnection())
+                {
+                    connection.Open();
+                    DbTransaction trans = connection.BeginTransaction();
+                    using (var command = connection.CreateCommand())
+                    {
+                        try
+                        {
+                            command.CommandText = $"insert into hotel (htl_codi, htl_nom , htl_poblacio) values((select max(htl_codi)+1 from hotel), '{pNom}','{pPoblacio}') ";
+                            command.Transaction = trans;
+                            int filesUpdatades = command.ExecuteNonQuery();
+                            if (filesUpdatades != 1)
+                            {
+                                throw new Exception("Error !");
+                            }
+                            trans.Commit();
+
+                        }
+                        catch (Exception ex)
+                        {
+                            trans.Rollback();
+                            throw new Exception("Error !");
+                        }
+
+                    }
+                }
+            }
+
+        }
+
 
         public static void updateData(int pCodi, string pNom, string pPoblacio)
         {             
