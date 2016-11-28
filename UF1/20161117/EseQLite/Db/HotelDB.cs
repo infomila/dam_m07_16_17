@@ -85,7 +85,7 @@ namespace EseQLite.Db
 
         }
 
-
+        /*
         public static void updateData(int pCodi, string pNom, string pPoblacio)
         {             
             using (HotelContext ctx = new HotelContext())
@@ -119,10 +119,61 @@ namespace EseQLite.Db
             }
 
         }
+        */
+        public static void updateData(int pCodi, string pNom, string pPoblacio)
+        {
+            using (HotelContext ctx = new HotelContext())
+            {
+
+                using (var connection = ctx.Database.GetDbConnection())
+                {
+
+                    connection.Open();
+                    DbTransaction trans = connection.BeginTransaction();
+                    using (var command = connection.CreateCommand())
+                    {
+                         
+                        try
+                        {
+                            command.CommandText = $"update hotel set htl_nom= :nom, htl_poblacio=:poblacio where htl_codi=:codi";
+                            command.Transaction = trans;
+
+                            addParameter(command, "nom", pNom);
+                            addParameter(command, "poblacio", pPoblacio);
+                            addParameter(command, "codi", pCodi);
 
 
+                            int filesUpdatades = command.ExecuteNonQuery();
+                            if (filesUpdatades != 1)
+                            {
+                                throw new Exception("Error !");
+                            }
+                            trans.Commit();
+
+                        }
+                        catch (Exception ex)
+                        {
+                            trans.Rollback();
+                            throw new Exception("Error !");
+                        }
+
+                    }
+                }
+            }
+
+        }
+
+        private static void addParameter<T>(DbCommand command, string name, T valor)
+        {
+            DbParameter param = command.CreateParameter();
+            param.ParameterName = name;
+            param.Value = valor;
+
+            command.Parameters.Add(param);
+        }
 
 
+  
         public static List<Hotel> getHotels()
         {
             List<Hotel> hotels = new List<Hotel>();

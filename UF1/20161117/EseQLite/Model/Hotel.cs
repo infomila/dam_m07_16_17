@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -42,10 +43,12 @@ namespace EseQLite.Model
         {
             get { return mNom; }
             set {
-                if (value==null || value.Length<2 || value.Length > 20) throw new Exception("Nom erroni");
+                string errMsg;
+                if(!valida( value, out errMsg)) throw new Exception(errMsg);
                 mNom = value; }
         }
 
+ 
 
         private string mPoblacio;
 
@@ -53,8 +56,36 @@ namespace EseQLite.Model
         {
             get { return mPoblacio; }
             set {
-                if (value == null || value.Length < 2 || value.Length > 100) throw new Exception("Població erronia");
+                string errMsg;
+                if (!valida(value, out errMsg)) throw new Exception(errMsg);
                 mPoblacio = value; }
+        }
+
+
+
+
+        public static bool valida(string value, out string missatgeError,
+                                    [CallerMemberName] string parameterName = null)
+        {
+            bool ok = false;
+            missatgeError = "";
+            if (parameterName.Equals("Nom"))
+            {
+                ok = !(value == null || value.Length < 2 || value.Length > 20);
+                if (!ok)
+                {
+                    missatgeError = "El nom és obligatori i ha de tenir entre 2 i 20 caràcters.";
+                }
+            }
+            else if (parameterName.Equals("Poblacio"))
+            {
+                ok = !(value == null || value.Length < 2 || value.Length > 100);
+                if (!ok)
+                {
+                    missatgeError = "La població és obligatoria i ha de tenir entre 2 i 100 caràcters.";
+                }
+            }
+            return ok;
         }
 
 

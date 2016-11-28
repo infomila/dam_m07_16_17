@@ -10,36 +10,36 @@
         <DataTemplate x:Key="DataTemplate1">
             <Grid HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Border BorderThickness="1" BorderBrush="Black" Grid.Column="0">
-                    <TextBlock Text="{Binding Codi}"></TextBlock>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Column="0" >
+                    <TextBlock  Text="{Binding Codi}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                 </Border>
                 <Border BorderThickness="1" BorderBrush="Black" Grid.Column="1">
-                    <TextBlock Text="{Binding Nom}"></TextBlock>
+                    <TextBlock Text="{Binding Nom}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                 </Border>
                 <Border BorderThickness="1" BorderBrush="Black" Grid.Column="2">
-                    <TextBlock Text="{Binding Poblacio}"></TextBlock>
+                    <TextBlock Text="{Binding Poblacio}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                 </Border>
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="DataTemplate2">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Border BorderThickness="1" BorderBrush="Black"  Grid.Column="0" Background="Gray">
-                    <TextBlock Text="Codi"></TextBlock>
+                <Border BorderThickness="1" BorderBrush="Black" Height="40"  Grid.Column="0" Background="Gray">
+                    <TextBlock Text="Codi" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                 </Border>
                 <Border BorderThickness="1" BorderBrush="Black" Grid.Column="1" Background="Gray">
-                    <TextBlock Text="Nom"></TextBlock>
+                    <TextBlock Text="Nom" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                 </Border>
                 <Border BorderThickness="1" BorderBrush="Black" Grid.Column="2" Background="Gray">
-                    <TextBlock Text="Poblacio"></TextBlock>
+                    <TextBlock Text="Poblacio" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                 </Border>
             </Grid>
         </DataTemplate>
@@ -68,9 +68,13 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Margin="20" Grid.RowSpan="2">
             <ListView SelectionChanged="lsvHotels_SelectionChanged"   x:Name="lsvHotels"
                       ItemTemplate="{StaticResource DataTemplate1}"
                       HeaderTemplate="{StaticResource DataTemplate2}"
@@ -95,25 +99,63 @@
             <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Text="Població:" ></TextBlock>
             
             <TextBox x:Name="txtCodi"  Grid.Column="1" Grid.Row="0"   IsEnabled="False" ></TextBox>
-            <TextBox x:Name="txtName" TextChanged="common_TextChanged" Grid.Column="1" Grid.Row="1"  PlaceholderText="-Nom del hotel -" ></TextBox>
-            <TextBox x:Name="txtPoblacio" TextChanged="common_TextChanged" Grid.Column="1" Grid.Row="2"   PlaceholderText="- Població del hotel -" ></TextBox>
+            <TextBox x:Name="txtName"   Grid.Column="1" Grid.Row="1"  PlaceholderText="-Nom del hotel -" ></TextBox>
+            <TextBox x:Name="txtPoblacio" Grid.Column="1" Grid.Row="2"   PlaceholderText="- Població del hotel -" ></TextBox>
 
 
 
-            <TextBlock Foreground="red" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" Grid.Row="1" Text="Error nom" ></TextBlock>
-            <TextBlock Foreground="red" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" Grid.Row="2" Text="Error poblacio" ></TextBlock>
-
+            <TextBlock x:Name="txbErrNom" Foreground="red" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" Grid.Row="1" Text="Error nom" ></TextBlock>
+            <TextBlock x:Name="txbErrPob" Foreground="red" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" Grid.Row="2" Text="Error poblacio" ></TextBlock>
+            <TextBlock x:Name="txbErrGeneric" Foreground="red" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" Grid.Row="3" Text="Error general" ></TextBlock>
+            
             <StackPanel  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"
                          Orientation="Horizontal"
                          VerticalAlignment="Top"
                          HorizontalAlignment="Center">
                 <Button x:Name="btnSave" Content="Save" Margin="10" Click="btnSave_Click"></Button>
-                <Button x:Name="btnCancel" Content="Cancel" Margin="10"></Button>
+                <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Margin="10"></Button>
                 <Button x:Name="btnNew" Content="New" Margin="10" Click="btnNew_Click"></Button>
                 <Button x:Name="btnDelete" Click="btnDelete_Click" Content="Delete" Margin="10"></Button>
             </StackPanel>
 
         </Grid>
+
+
+        <Grid Grid.Column="1" Grid.Row="1" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" TextAlignment="Center" FontFamily="Arial Black" FontSize="22">Entrades</TextBlock>
+            <TextBlock Grid.Row="2" Grid.ColumnSpan="2" TextAlignment="Center" FontFamily="Arial Black" FontSize="22">Sortides</TextBlock>
+            <StackPanel  Grid.Row="0"  Grid.Column="0">
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock VerticalAlignment="Center">Capacitat:</TextBlock>
+                    <ComboBox VerticalAlignment="Center">
+                        <ComboBoxItem>1</ComboBoxItem>
+                        <ComboBoxItem>2</ComboBoxItem>
+                        <ComboBoxItem>3</ComboBoxItem>
+                        <ComboBoxItem>4+</ComboBoxItem>
+                    </ComboBox>
+                    <Button FontFamily="Segoe MDL2 Assets" Height="45" FontSize="30" Margin="10" HorizontalAlignment="Center"></Button>
+                </StackPanel>
+                <TextBlock >NIF:</TextBlock>
+                <TextBox></TextBox>
+                <Button FontFamily="Segoe MDL2 Assets" Height="45" FontSize="30" Margin="10" HorizontalAlignment="Center"></Button>
+            </StackPanel>
+            <StackPanel  Grid.Row="2"  Grid.Column="0">
+                <TextBlock>Marcar sortida:</TextBlock>
+                <CalendarDatePicker></CalendarDatePicker>
+                <Button FontFamily="Segoe MDL2 Assets" Height="45" FontSize="30" Margin="10" HorizontalAlignment="Center"></Button>
+            </StackPanel>
+        </Grid>
+
 
     </Grid>
 </Page>

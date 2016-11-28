@@ -15,12 +15,10 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
 namespace EseQLite
 {
     /// <summary>
-    /// Página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
+    /// Pàgina de gestió d'hotels
     /// </summary>
     public sealed partial class MainPage : Page
     {
@@ -34,19 +32,44 @@ namespace EseQLite
         {
             HotelDB edb = new HotelDB();
             lsvHotels.ItemsSource = HotelDB.getHotels();
-            Mode = ModeEnum.EDIT;
+            Mode = ModeEnum.VIEW;
+            seleccionaPrimerHotel();
+
         }
 
         private void lsvHotels_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-            ListView lsv = (ListView)sender;
-            Hotel h = (Hotel)lsv.SelectedItem;
+            mostraSeleccio();
+        }
+
+        private void mostraSeleccio()
+        {
+
+            Hotel h = (Hotel)lsvHotels.SelectedItem;
             if (h != null)
             {
+                enableTextChanged(false);
                 txtCodi.Text = h.Codi.ToString();
                 txtName.Text = h.Nom;
                 txtPoblacio.Text = h.Poblacio;
+                enableTextChanged(true);
+                Mode = ModeEnum.VIEW;
+            }
+        }
+
+        private void enableTextChanged(bool enable)
+        {
+            if(enable)
+            {
+                txtName.TextChanged += common_TextChanged;
+                txtPoblacio.TextChanged += common_TextChanged;
+
+                valida();
+            }
+            else
+            {
+                txtName.TextChanged -= common_TextChanged;
+                txtPoblacio.TextChanged -= common_TextChanged;
             }
         }
 
@@ -83,7 +106,7 @@ namespace EseQLite
                 Hotel hotelSeleccionat = ((List<Hotel>)lsvHotels.ItemsSource).Find(ht => (ht.Codi == h.Codi));
                 lsvHotels.SelectedItem = hotelSeleccionat;
             }
-            Mode = ModeEnum.EDIT;
+            Mode = ModeEnum.VIEW;
         }
 
 
@@ -96,7 +119,7 @@ namespace EseQLite
 
         enum ModeEnum
         {
-            EDIT, MODIFIED, NEW
+            VIEW, MODIFIED, NEW
         }
 
         ModeEnum mMode;
@@ -110,7 +133,7 @@ namespace EseQLite
             {
                 mMode = value;
                 btnSave.IsEnabled = btnCancel.IsEnabled = (Mode== ModeEnum.NEW || Mode== ModeEnum.MODIFIED);
-                btnNew.IsEnabled = btnDelete.IsEnabled = (Mode == ModeEnum.EDIT  );
+                btnNew.IsEnabled = btnDelete.IsEnabled = (Mode == ModeEnum.VIEW  );
                  
             }
         }
@@ -118,19 +141,73 @@ namespace EseQLite
         private void btnNew_Click(object sender, RoutedEventArgs e)
         {
             Mode = ModeEnum.NEW;
+            enableTextChanged(false);
             txtCodi.Text = "<new>";
             txtName.Text = "";
             txtPoblacio.Text = "";
+            enableTextChanged(true);
         }
 
         private void common_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (Mode == ModeEnum.EDIT)
+            if (Mode == ModeEnum.VIEW)
             {
                 Mode = ModeEnum.MODIFIED;
             }
+            valida();
         }
 
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            if (Mode == ModeEnum.NEW)
+            {
+                seleccionaPrimerHotel();
+            }
+            else
+            {
+                // refresca les dades amb les originals.
+                mostraSeleccio();
+            }
+            
+            
+        }
 
+        private void seleccionaPrimerHotel()
+        {
+            lsvHotels.SelectedItem = ((List<Hotel>)lsvHotels.ItemsSource).First<Hotel>();
+            mostraSeleccio();
+        }
+
+        private void valida()
+        {
+            bool hiHaErrors=false;
+
+            hiHaErrors = validaCamp(hiHaErrors, txtName.Text, "Nom", txbErrNom);
+            hiHaErrors = validaCamp(hiHaErrors, txtPoblacio.Text, "Poblacio", txbErrPob);
+ 
+            btnSave.IsEnabled = !hiHaErrors;
+
+        }
+
+        private bool validaCamp(bool hiHaErrors, string textField, string propertyName, TextBlock errorTextBlock)
+        {
+            bool isOk;
+            string errMsg;
+
+            isOk = Hotel.valida(textField, out errMsg, propertyName);
+            if (!isOk)
+            {
+                errorTextBlock.Text = errMsg;
+
+                return true;
+            }
+            else
+            {
+                errorTextBlock.Text = "";
+                return hiHaErrors;
+            }
+        }
     }
+
+
 }
