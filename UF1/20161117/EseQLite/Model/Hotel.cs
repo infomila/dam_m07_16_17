@@ -57,9 +57,10 @@ namespace EseQLite.Model
             get { return mPoblacio; }
             set {
                 string errMsg;
-                if (!valida(value, out errMsg)) throw new Exception(errMsg);
+                if (!valida(value, out errMsg )) throw new Exception(errMsg);
                 mPoblacio = value; }
         }
+
 
 
 
@@ -67,6 +68,7 @@ namespace EseQLite.Model
         public static bool valida(string value, out string missatgeError,
                                     [CallerMemberName] string parameterName = null)
         {
+
             bool ok = false;
             missatgeError = "";
             if (parameterName.Equals("Nom"))

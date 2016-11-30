@@ -60,7 +60,7 @@ namespace Cinema
             laButaca.MyButaca = bc;
 
 
-            bc.Ocupada = TipusOcupacio.SELECCIONADA;
+            bc.Ocupada = TipusOcupacio.OCUPADA;
         }
 
 

@@ -184,11 +184,8 @@ namespace EseQLite
 
             hiHaErrors = validaCamp(hiHaErrors, txtName.Text, "Nom", txbErrNom);
             hiHaErrors = validaCamp(hiHaErrors, txtPoblacio.Text, "Poblacio", txbErrPob);
- 
             btnSave.IsEnabled = !hiHaErrors;
-
         }
-
         private bool validaCamp(bool hiHaErrors, string textField, string propertyName, TextBlock errorTextBlock)
         {
             bool isOk;
@@ -198,7 +195,6 @@ namespace EseQLite
             if (!isOk)
             {
                 errorTextBlock.Text = errMsg;
-
                 return true;
             }
             else
