@@ -13,7 +13,6 @@ namespace EseQLite.Db
     {
 
 
-
         public static void deleteData(Int64 pCodi)
         {
             using (HotelContext ctx = new HotelContext())
@@ -27,7 +26,8 @@ namespace EseQLite.Db
                     {
                         try
                         {
-                            command.CommandText = $"delete from hotel where htl_codi={pCodi} ";
+                            command.CommandText = $"delete from hotel where htl_codi=:codi ";
+                            DBUtil.addParameter(command, "codi", pCodi);
                             command.Transaction = trans;
                             int filesUpdatades = command.ExecuteNonQuery();
                             if (filesUpdatades != 1)
@@ -63,8 +63,12 @@ namespace EseQLite.Db
                     {
                         try
                         {
-                            command.CommandText = $"insert into hotel (htl_codi, htl_nom , htl_poblacio) values((select max(htl_codi)+1 from hotel), '{pNom}','{pPoblacio}') ";
+                            command.CommandText = $"insert into hotel (htl_codi, htl_nom , htl_poblacio) values((select max(htl_codi)+1 from hotel), :nom,:poblacio') ";
                             command.Transaction = trans;
+
+                            DBUtil.addParameter(command, "nom", pNom);
+                            DBUtil.addParameter(command, "poblacio", pPoblacio);
+
                             int filesUpdatades = command.ExecuteNonQuery();
                             if (filesUpdatades != 1)
                             {
@@ -138,9 +142,9 @@ namespace EseQLite.Db
                             command.CommandText = $"update hotel set htl_nom= :nom, htl_poblacio=:poblacio where htl_codi=:codi";
                             command.Transaction = trans;
 
-                            addParameter(command, "nom", pNom);
-                            addParameter(command, "poblacio", pPoblacio);
-                            addParameter(command, "codi", pCodi);
+                            DBUtil.addParameter(command, "nom", pNom);
+                            DBUtil.addParameter(command, "poblacio", pPoblacio);
+                            DBUtil.addParameter(command, "codi", pCodi);
 
 
                             int filesUpdatades = command.ExecuteNonQuery();
@@ -163,14 +167,6 @@ namespace EseQLite.Db
 
         }
 
-        private static void addParameter<T>(DbCommand command, string name, T valor)
-        {
-            DbParameter param = command.CreateParameter();
-            param.ParameterName = name;
-            param.Value = valor;
-
-            command.Parameters.Add(param);
-        }
 
 
   
@@ -205,9 +201,8 @@ namespace EseQLite.Db
         }
 
 
-        public Int64 getNumeroHotels()
+        public static Int64 getNumeroHotels(long? pCodi, string pNom , string pPoblacio)
         {
-
             using (HotelContext ctx = new HotelContext())
             {
                 //Get student name of string type
@@ -217,13 +212,21 @@ namespace EseQLite.Db
 
                     using (var command = connection.CreateCommand())
                     {
-                        command.CommandText = "select count(*) from hotel";
+                        command.CommandText = "select count(*) from hotel where htl_nom=:nom and htl_poblacio=:poblacio";
+                        DBUtil.addParameter(command, "nom", pNom);
+                        DBUtil.addParameter(command, "poblacio", pPoblacio);
+                        if (pCodi.HasValue)
+                        {
+                            command.CommandText += " and htl_codi <> :codi";
+                                DBUtil.addParameter(command, "codi", pCodi);
+                        }
+
+
                         var count = command.ExecuteScalar();
                         return (Int64)count;
                     }
                 }
             }
-            return 0;
         }
     }
 }

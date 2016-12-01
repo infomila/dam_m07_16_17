@@ -42,7 +42,7 @@ namespace EseQLite
 
             var dbFile = await ApplicationData.Current.LocalFolder.TryGetItemAsync(bdName) as StorageFile;
 
-            if (null == dbFile)
+            //if (null == dbFile)
             {
                 // first time ... copy the .db file from assets to local  folder
                 var localFolder = ApplicationData.Current.LocalFolder;

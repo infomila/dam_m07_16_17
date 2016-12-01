@@ -1,5 +1,6 @@
 ﻿using EseQLite.Db;
 using EseQLite.Model;
+using EseQLite.View;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,6 +23,11 @@ namespace EseQLite
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+
+
+         
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -32,9 +38,10 @@ namespace EseQLite
         {
             HotelDB edb = new HotelDB();
             lsvHotels.ItemsSource = HotelDB.getHotels();
+
             Mode = ModeEnum.VIEW;
             seleccionaPrimerHotel();
-
+            updateBotoSortida();
         }
 
         private void lsvHotels_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -54,6 +61,19 @@ namespace EseQLite
                 txtPoblacio.Text = h.Poblacio;
                 enableTextChanged(true);
                 Mode = ModeEnum.VIEW;
+                dgvEntrades.HiddenProps = new List<string> {"NIF","NomClient", "DataEntrada" ,"Codi"};
+                dgvSortides.HiddenProps = new List<string> { "Capacitat", "Codi" };
+                dgvEntrades.ColumnNames = new Dictionary<string, string> {
+                    { "Num", "Número"} };
+                dgvSortides.ColumnNames = new Dictionary<string, string> {
+                    { "Num", "Número"} ,
+                    { "DataEntrada", "Data d'entrada"} ,
+                    { "NomClient", "Client"}
+                };
+                dgvSortides.ColumnOrder = new List<string> { "Num", "Planta"};
+                dgvEntrades.ItemSource = HabitacioDB.getHabitacions(h.Codi, true);
+                dgvSortides.ItemSource = HabitacioDB.getHabitacions(h.Codi, false);
+
             }
         }
 
@@ -184,8 +204,27 @@ namespace EseQLite
 
             hiHaErrors = validaCamp(hiHaErrors, txtName.Text, "Nom", txbErrNom);
             hiHaErrors = validaCamp(hiHaErrors, txtPoblacio.Text, "Poblacio", txbErrPob);
+            // Només fem les validacions generals quan no hi ha errors individuals....no tindria sentit.
+            if(!hiHaErrors)
+            {
+                string missatgeError;
+                long? pCodiHotel = null;
+                if (lsvHotels.SelectedItem != null)
+                {
+                    pCodiHotel = ((Hotel)lsvHotels.SelectedItem).Codi;
+                }
+                if (!Hotel.validaGeneral(pCodiHotel, txtName.Text, txtPoblacio.Text, out missatgeError))
+                {
+                    txbErrGeneric.Text = missatgeError;
+                    hiHaErrors = true;
+                } else
+                {
+                    txbErrGeneric.Text = "";
+                }
+            }
             btnSave.IsEnabled = !hiHaErrors;
         }
+
         private bool validaCamp(bool hiHaErrors, string textField, string propertyName, TextBlock errorTextBlock)
         {
             bool isOk;
@@ -202,6 +241,27 @@ namespace EseQLite
                 errorTextBlock.Text = "";
                 return hiHaErrors;
             }
+        }
+
+        private void txbClientNIF_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            updateBotoSortida();
+        }
+
+        private void updateBotoSortida()
+        {
+            Client c = ClientDB.getClient(txbClientNIF.Text);
+            if(c!=null)
+            {
+                txbClientName.Text = c.Nom;
+            }
+            bool potFerSortida = ( c!=null && dgvEntrades.SelectedItem!=null);
+            btnSortida.IsEnabled = potFerSortida;
+        }
+
+        private void dgvEntrades_SelectionChanged(object sender, EventArgs e)
+        {
+            updateBotoSortida();
         }
     }
 

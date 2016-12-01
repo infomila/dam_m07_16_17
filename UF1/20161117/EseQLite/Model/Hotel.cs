@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EseQLite.Db;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -63,6 +64,19 @@ namespace EseQLite.Model
 
 
 
+
+        public static bool validaGeneral(long? pCodiHotel, string pNom, string pPoblacio, out string missatgeError)
+        {
+            bool ok =( HotelDB.getNumeroHotels(pCodiHotel, pNom, pPoblacio)==0);
+            if(!ok)
+            {
+                missatgeError = "El nom i la població de l'hotel ja existeixen.";
+            } else
+            {
+                missatgeError = "";
+            }
+            return ok;
+        }
 
 
         public static bool valida(string value, out string missatgeError,
