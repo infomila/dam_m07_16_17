@@ -80,7 +80,7 @@ namespace EseQLite.View
                 sb.AppendLine("<Grid>");
             sb.AppendLine(" <Grid.ColumnDefinitions>");
             for (int i = 0; i < myPropertyInfo.Length; i++){
-                if (!HiddenProps.Contains(myPropertyInfo[i].Name))
+                if (HiddenProps==null || !HiddenProps.Contains(myPropertyInfo[i].Name))
                 {
                     sb.AppendLine("       <ColumnDefinition Width=\"*\" ></ColumnDefinition >");
                 }
@@ -88,7 +88,7 @@ namespace EseQLite.View
             sb.AppendLine(" </Grid.ColumnDefinitions >");
             int col = 0;
             for (int i = 0; i < myPropertyInfo.Length; i++) {
-                if (!HiddenProps.Contains(myPropertyInfo[i].Name))
+                if (HiddenProps == null || !HiddenProps.Contains(myPropertyInfo[i].Name))
                 {
                     text = "";
                     if (pIsHeader)
