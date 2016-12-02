@@ -39,11 +39,12 @@ namespace EseQLite.Db
                          
                         DateTime dataNaix = reader.GetDateTime(reader.GetOrdinal("cli_data_naix"));
 
-
+                        reader.Read();
 
                         return new Client(NIF, nomClient, poblacio, dataNaix);
 
                         }
+                    
                     }
                 }
             }

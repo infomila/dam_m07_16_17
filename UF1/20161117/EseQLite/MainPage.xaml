@@ -154,11 +154,11 @@
                          TextChanged="txbClientNIF_TextChanged"></TextBox>
                 <TextBox IsEnabled="False" x:Name="txbClientName"></TextBox>
 
-                <Button x:Name="btnSortida" FontFamily="Segoe MDL2 Assets" Height="30" FontSize="20" Margin="10" HorizontalAlignment="Center"></Button>
+                <Button x:Name="btnEntrada" Click="btnEntrada_Click" FontFamily="Segoe MDL2 Assets" Height="30" FontSize="20" Margin="10" HorizontalAlignment="Center"></Button>
             </StackPanel>
             <StackPanel  Grid.Row="3"  Grid.Column="0">
                 <TextBlock>Marcar sortida:</TextBlock>
-                <Button x:Name="btnEntrada" FontFamily="Segoe MDL2 Assets" Height="30" FontSize="20" Margin="10" HorizontalAlignment="Center"></Button>
+                <Button x:Name="btnSortida" Click="btnSortida_Click" FontFamily="Segoe MDL2 Assets" Height="30" FontSize="20" Margin="10" HorizontalAlignment="Center"></Button>
             </StackPanel>
         </Grid>
 

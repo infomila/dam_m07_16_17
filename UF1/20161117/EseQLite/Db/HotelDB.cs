@@ -63,7 +63,7 @@ namespace EseQLite.Db
                     {
                         try
                         {
-                            command.CommandText = $"insert into hotel (htl_codi, htl_nom , htl_poblacio) values((select max(htl_codi)+1 from hotel), :nom,:poblacio') ";
+                            command.CommandText = "insert into hotel (htl_codi, htl_nom , htl_poblacio) values((select max(htl_codi)+1 from hotel), :nom,:poblacio) ";
                             command.Transaction = trans;
 
                             DBUtil.addParameter(command, "nom", pNom);

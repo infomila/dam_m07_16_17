@@ -28,7 +28,8 @@ create table habitacio
 	hab_data_entrada date,
 	hab_max_persones decimal(1),
 	hab_planta decimal(2),
-	constraint PK_HABITACIO  primary key (hab_htl_codi, hab_numero),
+	constraint PK_HABITACIO  primary key 
+	(hab_htl_codi, hab_numero),
 	constraint FK_HAB_HOT foreign key  (hab_htl_codi) references hotel(htl_codi),
 	constraint FK_HAB_OCU foreign key  (hab_cli_NIF) references client(cli_NIF)
 );

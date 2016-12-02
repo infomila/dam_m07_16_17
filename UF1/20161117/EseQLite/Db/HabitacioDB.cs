@@ -13,8 +13,63 @@ namespace EseQLite.Db
     {
 
 
+        public static void alliberaHabitacio(Int64 pCodiHotel, Int64 pNumHab )
+        {
+            marcaHabitacio(pCodiHotel, pNumHab, null, DateTime.Now);
+        }
 
-        public static List<Habitacio> getHabitacions(long pCodiHotel, bool lliures)
+        public static void ocupaHabitacio(Int64 pCodiHotel, Int64 pNumHab, string pNIF, DateTime pDataEntrada)
+        {
+            marcaHabitacio(pCodiHotel, pNumHab, pNIF, pDataEntrada);
+        }
+
+        private static void marcaHabitacio(Int64 pCodiHotel, Int64 pNumHab, string pNIF, DateTime pDataEntrada) { 
+
+            using (HotelContext ctx = new HotelContext())
+            {
+                using (var connection = ctx.Database.GetDbConnection())
+                {
+                    connection.Open();
+                    //DbTransaction trans = connection.BeginTransaction();           
+                    using (var command = connection.CreateCommand())
+                    {                        
+                        try
+                        {                            
+                            string sql = "update habitacio set hab_cli_NIF=:NIF , hab_data_entrada=:data_entrada where hab_htl_codi=:codiHotel and hab_numero=:numHabitacio";
+                            command.CommandText = sql;
+
+                            if (pNIF == null)
+                            {
+                                DBUtil.addParameter(command, "NIF", DBNull.Value);
+                                DBUtil.addParameter(command, "data_entrada", DBNull.Value);
+                            }
+                            else
+                            {
+                                DBUtil.addParameter(command, "NIF", pNIF);
+                                DBUtil.addParameter(command, "data_entrada", pDataEntrada);
+                            }
+                            DBUtil.addParameter(command, "codiHotel", pCodiHotel);
+                            DBUtil.addParameter(command, "numHabitacio", pNumHab);
+
+                            //command.Transaction = trans;
+
+                            int filesModificades = command.ExecuteNonQuery();
+                            if (filesModificades != 1) throw new Exception("Error ocupant habitació");
+
+                            //trans.Commit();
+                        }
+                        catch(Exception ex)
+                        {
+                            //if(trans!=null) trans.Rollback();
+                            throw new Exception("Error ocupant habitació");
+                        }
+                    }
+                }
+            }
+
+        }
+
+        public static List<Habitacio> getHabitacions(Int64 pCodiHotel, bool lliures)
         {
             List<Habitacio> habitacions = new List<Habitacio>();
 

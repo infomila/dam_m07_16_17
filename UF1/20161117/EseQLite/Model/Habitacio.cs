@@ -67,7 +67,7 @@ namespace EseQLite.Model
 
         private string mNomClient;
 
-        public string NomClient
+        public string   NomClient
         {
             get { return mNomClient; }
             set { mNomClient = value; }

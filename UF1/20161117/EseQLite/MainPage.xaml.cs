@@ -41,7 +41,7 @@ namespace EseQLite
 
             Mode = ModeEnum.VIEW;
             seleccionaPrimerHotel();
-            updateBotoSortida();
+            updateBotoEntrada();
         }
 
         private void lsvHotels_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -245,10 +245,10 @@ namespace EseQLite
 
         private void txbClientNIF_TextChanged(object sender, TextChangedEventArgs e)
         {
-            updateBotoSortida();
+            updateBotoEntrada();
         }
 
-        private void updateBotoSortida()
+        private void updateBotoEntrada()
         {
             Client c = ClientDB.getClient(txbClientNIF.Text);
             if(c!=null)
@@ -256,12 +256,28 @@ namespace EseQLite
                 txbClientName.Text = c.Nom;
             }
             bool potFerSortida = ( c!=null && dgvEntrades.SelectedItem!=null);
-            btnSortida.IsEnabled = potFerSortida;
+            btnEntrada.IsEnabled = true;// potFerSortida;
         }
 
         private void dgvEntrades_SelectionChanged(object sender, EventArgs e)
+        {            
+            updateBotoEntrada();
+        }
+
+        private void btnEntrada_Click(object sender, RoutedEventArgs e)
         {
-            updateBotoSortida();
+            Habitacio h = ((Habitacio)dgvEntrades.SelectedItem);
+            HabitacioDB.ocupaHabitacio(h.Codi, h.Num, txbClientNIF.Text, DateTime.Now);
+            dgvEntrades.ItemSource = HabitacioDB.getHabitacions(h.Codi, true);
+            dgvSortides.ItemSource = HabitacioDB.getHabitacions(h.Codi, false);
+        }
+
+        private void btnSortida_Click(object sender, RoutedEventArgs e)
+        {
+            Habitacio h = ((Habitacio)dgvSortides.SelectedItem);
+            HabitacioDB.alliberaHabitacio(h.Codi, h.Num);
+            dgvEntrades.ItemSource = HabitacioDB.getHabitacions(h.Codi, true);
+            dgvSortides.ItemSource = HabitacioDB.getHabitacions(h.Codi, false);
         }
     }
 
