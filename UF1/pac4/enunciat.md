@@ -45,6 +45,6 @@ La taula _color_ és feble de _producte_, mentre que _foto_ és feble de _color_. 
 
 L'arbre de categories es munta de forma reflexiva, on cada categoria apunta a una categoria pare. La categoria arrel no apunta a cap (NULL)
 
-![Captura de pantalla](imatges/base_de_dades.png.png "Model de base de dadse'")
+![Captura de pantalla](imatges/base_de_dades.png "Model de base de dadse'")
 
 
