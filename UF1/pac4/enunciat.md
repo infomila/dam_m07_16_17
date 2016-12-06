@@ -14,60 +14,37 @@ Per facilitar-nos la feina, l'analista també ens proporciona  un esquema relacio
 ## Pantalles
 Caldrà construir tres pantalles, dues es corresponen al Backoffice, que seria la gestió de catàleg que fa el propietari de la botiga, i l'altre al front-office, que equivaldria a la App que veuria el client.
 
-### Backoffice > Gestió del catàleg
+### Pàgina 1.0 / Backoffice > Gestió del catàleg
 ![Captura de pantalla](imatges/1.0_Backoffice_Gestio_de_cataleg.png "Maqueta de 'Backoffice > Gestió del catàleg'")
+En aquesta pantalla l'administrador pot llistar els productes, fer cerques, esborrar, crear i editar nous productes. L'edició i la inserció es fan la pàgina 1.1
 
-### Backoffice > Edició i alta de productes
+### Pàgina 1.1 / Backoffice > Edició i alta de productes
 ![Captura de pantalla](imatges/1.1_Backoffice_Edició_Alta_de_producte.png "Maqueta de 'Backoffice > Edició i alta de productes'")
+La pantalla permet editar i donar d'alta productes. Cada producte té múltiples camps, i cal assegurar la integritat de les dades abans de poder desar els canvis. L'aplicació marcarà en tot moment els camps que resten per completar o que tenen dades incorrectes ( mostreu un missatge o una icona al costat del camp erroni, i useu un color de fons al control per indicar que és erroni/incomplet )
+Per tal que un producte sigui correcte cal que:
+* tots els camps obligatoris estiguin degudament complimentats
+* que hi hagi com a mínim un color
+* que hi hagi com a mínim una foto per a cada color.
 
-### Frontoffice > Catàleg de productes
+### Pàgina 2.0 / Frontoffice > Catàleg de productes
 ![Captura de pantalla](imatges/2_Front Office_ Cataleg.png "Maqueta de 'Frontoffice > Catàleg de productes'")
 
 
 
-## Codi proporcionat 
+## Model de base de dades
+A continuació es mostra la base de dades que caldrà fer servir per l'aplicació.
+Tingueu especial cura amb:
+* els tipus de dades
+* els camps obligatoris/opcionals
+* les claus primàries (PK)
+* les claus foranes  (FK)
+* les claus alternatives (AK) 
 
-Es proporciona el codi que permet obrir un selector d'arxius, llegir-lo i desar-lo
-en un string.
+Tingueu en compte que la taula de productes haurà de tenir el camp prod_id autonumèric per facilitar l'inserció de registres.
+La taula _color_ és feble de _producte_, mentre que _foto_ és feble de _color_. Els camps *_num són ordinals que han de comptar les ocurrències.
 
-```c#
-		/// How to program a File Picker, and read the selected file
-		/// into a string.
-        private async void btnFile1_Click(object sender, RoutedEventArgs e)
-        {
-            FileOpenPicker fp = new FileOpenPicker();
-            fp.FileTypeFilter.Add(".txt");
-            fp.FileTypeFilter.Add(".rtf");
+L'arbre de categories es munta de forma reflexiva, on cada categoria apunta a una categoria pare. La categoria arrel no apunta a cap (NULL)
 
-            StorageFile sf = await fp.PickSingleFileAsync();
-            string textReadFromFile = await readTextFile(sf);
-            
-			// ..... YOUR CODE HERE ...........
-        }
-		
-		
+![Captura de pantalla](imatges/base_de_dades.png.png "Model de base de dadse'")
 
-        /// <summary>
-        /// Read the storage file in text mode, returning it as string.
-        /// Carriage return and line feed are supressed, and replaced by spaces.
-        /// </summary>
-        /// <param name="sf"></param>
-        /// <returns></returns>
-        private async Task<string> readTextFile(StorageFile sf)
-        {
-            StringWriter sw = new StringWriter();
-            IRandomAccessStream stream = await sf.OpenAsync(FileAccessMode.Read);
-            using (StreamReader streamReader = new StreamReader(stream.AsStream()))
-            {
-                string line;
-                while ((line = streamReader.ReadLine()) != null)
-                {
-                    //txt += line + Environment.NewLine;
-                    sw.Write(line + " ");
-                }
 
-                return sw.ToString();
-            }
-        }
-		
-```		
