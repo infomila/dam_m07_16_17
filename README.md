@@ -8,7 +8,7 @@
 *  [Llistes Dinàmiques] (./UF1/00_02_llistes_dinamiques.md)
 *  [PAC1] (./UF1/pac1/pac1_enunciat.md)
 *  [PAC2] (./UF1/pac2/pac2_enunciat.md)
-*  [PAC2] (./UF1/pac3/enunciat.md)
+*  [PAC3] (./UF1/pac3/enunciat.md)
 
 ### UF 2: Preparació i distribució d’aplicacions
 
