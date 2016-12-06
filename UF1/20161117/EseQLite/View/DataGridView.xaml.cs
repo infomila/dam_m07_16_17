@@ -73,7 +73,8 @@ namespace EseQLite.View
 
             StringBuilder sb = new StringBuilder();
             string text;
-            sb.AppendLine("<DataTemplate xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\">");
+            sb.AppendLine("<DataTemplate xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\" ");
+            sb.AppendLine("xmlns:local=\"using:EseQLite.View\"  >");
             if (pIsHeader)
                 sb.AppendLine("<Grid Height=\"30\">");
             else
@@ -90,7 +91,8 @@ namespace EseQLite.View
             for (int i = 0; i < myPropertyInfo.Length; i++) {
                 if (HiddenProps == null || !HiddenProps.Contains(myPropertyInfo[i].Name))
                 {
-                    text = "";
+                    string text1, text2;
+                    text1 = text2 = text = "";
                     if (pIsHeader)
                     {
                         text = " Background=\"" + HeaderColor.ToString() + "\" ";
@@ -100,16 +102,34 @@ namespace EseQLite.View
                     {
                         if (ColumnNames == null || !ColumnNames.ContainsKey(myPropertyInfo[i].Name))
                         {
-                            text = myPropertyInfo[i].Name;
+                            text1 = " Text = \"" + myPropertyInfo[i].Name + "\" ";
                         } else {
-                            text = ColumnNames[myPropertyInfo[i].Name];
+                            text1= " Text = \""+ColumnNames[myPropertyInfo[i].Name]+"\" ";
                         }
                     }
                     else
                     {
-                        text = "{Binding " + myPropertyInfo[i].Name + "}";
+                        string extraBinding = "";
+                        if(myPropertyInfo[i].PropertyType.Equals(typeof(DateTime?)))
+                        {
+                            extraBinding = @"
+                                <Binding.Converter>
+                                        <local:DateConverter></local:DateConverter>
+                               </Binding.Converter> ";
+                        }
+                        text2 = @"
+                        <TextBlock.Text>
+                            <Binding>
+                                <Binding.Path>
+                                    " + myPropertyInfo[i].Name + @"
+                                </Binding.Path>
+                                <Binding.Mode>OneWay</Binding.Mode>
+                               "+ extraBinding + @"
+                            </Binding> 
+                        </TextBlock.Text>
+                           ";
                     }
-                    sb.AppendLine("<TextBlock  Text = \"" + text + "\" VerticalAlignment=\"Center\" HorizontalAlignment =\"Left\" ></TextBlock >");
+                    sb.AppendLine("<TextBlock "+ text1 +  " VerticalAlignment=\"Center\" HorizontalAlignment =\"Left\" >"+text2+"</TextBlock >");
                     sb.AppendLine("</Border>");
                     col++;
                 }
@@ -119,7 +139,6 @@ namespace EseQLite.View
 
 
             string xaml = sb.ToString();
-
 
             return XamlReader.Load(xaml) as DataTemplate;
         }

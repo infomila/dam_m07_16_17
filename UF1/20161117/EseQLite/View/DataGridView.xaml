@@ -9,6 +9,9 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
     <UserControl.Resources>
+        
+        
+        
         <local:AlternateStyleSelector x:Key="AlternateStyleSelectorObj" 
 	    OddStyle="{StaticResource ListViewItemStyleOdd}"
 	    EvenStyle="{StaticResource ListViewItemStyleEven}"
