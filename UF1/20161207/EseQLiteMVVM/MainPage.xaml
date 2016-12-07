@@ -1,0 +1,196 @@
+﻿<Page xmlns:my="using:EseQLite.View" 
+    x:Class="EseQLite.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EseQLite"
+    xmlns:localView="using:EseQLite.View"
+    xmlns:viewModels="using:ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="DataTemplate1">
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Column="0" >
+                    <TextBlock  Text="{Binding Codi}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                </Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Column="1">
+                    <TextBlock Text="{Binding Nom}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                </Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Column="2">
+                    <TextBlock Text="{Binding Poblacio}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                </Border>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DataTemplate2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="1" BorderBrush="Black" Height="40"  Grid.Column="0" Background="Gray">
+                    <TextBlock Text="Codi" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                </Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Column="1" Background="Gray">
+                    <TextBlock Text="Nom" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                </Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Column="2" Background="Gray">
+                    <TextBlock Text="Poblacio" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                </Border>
+            </Grid>
+        </DataTemplate>
+        <Style x:Key="ListViewItemStyle1" TargetType="ListViewItem">
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+            <Setter Property="TabNavigation" Value="Local"/>
+            <Setter Property="IsHoldingEnabled" Value="True"/>
+            <Setter Property="Padding" Value="0,0,0,0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="MinWidth" Value="{ThemeResource ListViewItemMinWidth}"/>
+            <Setter Property="MinHeight" Value="{ThemeResource ListViewItemMinHeight}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <ListViewItemPresenter CheckBrush="{ThemeResource SystemControlForegroundBaseMediumHighBrush}" ContentMargin="{TemplateBinding Padding}" CheckMode="Inline" ContentTransitions="{TemplateBinding ContentTransitions}" CheckBoxBrush="{ThemeResource SystemControlForegroundBaseMediumHighBrush}" DragForeground="{ThemeResource ListViewItemDragForegroundThemeBrush}" DragOpacity="{ThemeResource ListViewItemDragThemeOpacity}" DragBackground="{ThemeResource ListViewItemDragBackgroundThemeBrush}" DisabledOpacity="{ThemeResource ListViewItemDisabledThemeOpacity}" FocusBorderBrush="{ThemeResource SystemControlForegroundAltHighBrush}" FocusSecondaryBorderBrush="{ThemeResource SystemControlForegroundBaseHighBrush}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" PointerOverForeground="{ThemeResource SystemControlHighlightAltBaseHighBrush}" PressedBackground="{ThemeResource SystemControlHighlightListMediumBrush}" PlaceholderBackground="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" PointerOverBackground="{ThemeResource SystemControlHighlightListLowBrush}" ReorderHintOffset="{ThemeResource ListViewItemReorderHintThemeOffset}" SelectedPressedBackground="{ThemeResource SystemControlHighlightListAccentHighBrush}" SelectionCheckMarkVisualEnabled="True" SelectedForeground="{ThemeResource SystemControlHighlightAltBaseHighBrush}" SelectedPointerOverBackground="{ThemeResource SystemControlHighlightListAccentMediumBrush}" SelectedBackground="{ThemeResource SystemControlHighlightListAccentLowBrush}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <localView:DateConverter x:Key="DateConverter"></localView:DateConverter>
+        <localView:ErrorText2BackgroundConverter x:Key="ErrorText2BackgroundConverter"></localView:ErrorText2BackgroundConverter>
+
+        
+
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+    
+            <ListView Grid.Column="0" Margin="20" Grid.Row="0" x:Name="lsvHotels"
+                      ItemTemplate="{StaticResource DataTemplate1}"
+                      HeaderTemplate="{StaticResource DataTemplate2}"
+                      SelectedItem="{Binding CurrentHotel, Mode=TwoWay}"
+                      ItemsSource="{Binding Hotels}"
+                      ItemContainerStyle="{StaticResource ListViewItemStyle1}">
+            </ListView>
+     
+        <Grid Grid.Column="1" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" ></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Text="Codi:" ></TextBlock>
+            <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Text="Nom:" ></TextBlock>
+            <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Text="Població:" ></TextBlock>
+
+            <TextBox Margin="10,0,0,0" x:Name="txtCodi"  
+                     Text="{Binding CurrentHotel.Codi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Grid.Column="1" Grid.Row="0"   IsEnabled="False" ></TextBox>
+            <TextBox Margin="10,0,0,0" x:Name="txtName"  
+                     Text="{Binding CurrentHotel.Nom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  
+                     Background="{Binding CurrentHotel.ErrorNomHotel,Converter={StaticResource ErrorText2BackgroundConverter}}"
+                     Grid.Column="1" Grid.Row="1"  PlaceholderText="-Nom del hotel -" ></TextBox>
+            <TextBox Margin="10,0,0,0" x:Name="txtPoblacio" 
+                     Text="{Binding CurrentHotel.Poblacio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Background="{Binding CurrentHotel.ErrorPoblacioHotel,Converter={StaticResource ErrorText2BackgroundConverter}}"
+                     Grid.Column="1" Grid.Row="2"   PlaceholderText="- Població del hotel -" ></TextBox>
+
+
+
+            <TextBlock x:Name="txbErrNom"     Text="{Binding CurrentHotel.ErrorNomHotel, Mode=TwoWay}" Foreground="red" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" Grid.Row="1"></TextBlock>
+            <TextBlock x:Name="txbErrPob"     Text="{Binding CurrentHotel.ErrorPoblacioHotel, Mode=TwoWay}" Foreground="red" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="3" Grid.Row="2"></TextBlock>
+            <TextBlock x:Name="txbErrGeneric" Text="{Binding CurrentHotel.ErrorGeneral, Mode=TwoWay}" Foreground="red" VerticalAlignment="Stretch" TextWrapping="WrapWholeWords" Margin="10,0,0,0" Grid.Column="3" Grid.Row="3"></TextBlock>
+            
+            <StackPanel  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"
+                         Orientation="Horizontal"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Center">
+                <Button x:Name="btnSave"    Content="Save"   Margin="10" IsEnabled="{Binding CanSave}" Click="{x:Bind ViewModel.btnSave_Click}"></Button>
+                <Button x:Name="btnCancel"  Content="Cancel" Margin="10" IsEnabled="{Binding CanCancel}"  Click="{x:Bind ViewModel.btnCancel_Click}"></Button>
+                <Button x:Name="btnNew"     Content="New"    Margin="10" IsEnabled="{Binding CanNew}" Click="{x:Bind ViewModel.btnNew_Click}"></Button>
+                <Button x:Name="btnDelete"  Content="Delete" Margin="10" IsEnabled="{Binding CanDelete}" Click="{x:Bind ViewModel.btnDelete_Click}"></Button>
+            </StackPanel>
+
+        </Grid>
+
+
+        <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" TextAlignment="Center" FontFamily="Arial Black" FontWeight="Bold" FontSize="15">Entrades</TextBlock>
+            <my:DataGridView Margin="5" x:Name="dgvEntrades" 
+                             Grid.Row="1" Grid.Column="1" />
+            <TextBlock Grid.Row="2" Grid.ColumnSpan="2" TextAlignment="Center" FontFamily="Arial Black" FontWeight="Bold" FontSize="15">Sortides</TextBlock>
+            <my:DataGridView Margin="5"  x:Name="dgvSortides" Grid.Row="3" Grid.Column="1"/>
+            <StackPanel  Grid.Row="1"  Grid.Column="0">
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock VerticalAlignment="Center">Capacitat:</TextBlock>
+                    <ComboBox VerticalAlignment="Center">
+                        <ComboBoxItem>1</ComboBoxItem>
+                        <ComboBoxItem>2</ComboBoxItem>
+                        <ComboBoxItem>3</ComboBoxItem>
+                        <ComboBoxItem>4+</ComboBoxItem>
+                    </ComboBox>
+                    <Button FontFamily="Segoe MDL2 Assets" Height="30" FontSize="20" Margin="10" HorizontalAlignment="Center"></Button>
+                </StackPanel>
+                <TextBlock >NIF:</TextBlock>
+                <TextBox x:Name="txbClientNIF"></TextBox>
+                <TextBox IsEnabled="False" x:Name="txbClientName"></TextBox>
+
+                <Button x:Name="btnEntrada" FontFamily="Segoe MDL2 Assets" Height="30" FontSize="20" Margin="10" HorizontalAlignment="Center"></Button>
+            </StackPanel>
+            <StackPanel  Grid.Row="3"  Grid.Column="0">
+                <TextBlock>Marcar sortida:</TextBlock>
+                <Button x:Name="btnSortida" FontFamily="Segoe MDL2 Assets" Height="30" FontSize="20" Margin="10" HorizontalAlignment="Center"></Button>
+                <TextBox ><!--="{Binding SelectedItem.DataEntrada, ElementName=dgvSortides, Mode=OneWay, Converter={StaticResource DateConverter} , ConverterParameter='yyyy/MMM/dd'}" >-->
+                <TextBox.Text>
+                        <Binding>
+                            <Binding.Path>
+                                SelectedItem.DataEntrada
+                            </Binding.Path>
+                            <Binding.ElementName>dgvSortides</Binding.ElementName>
+                            <Binding.Mode>OneWay</Binding.Mode>
+                            <Binding.Converter>
+                                <localView:DateConverter></localView:DateConverter>
+                            </Binding.Converter>
+                        </Binding>
+                </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+        </Grid>
+
+
+    </Grid>
+</Page>
