@@ -1,0 +1,94 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EditorArticles"
+    xmlns:localView="using:EditorArticles.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModel="using:EditorArticles.ViewModel" x:Name="DateContext"
+    x:Class="EditorArticles.MainPage"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <localView:RadioButtonIconaConverter x:Key="RadioButtonIconaConverter"></localView:RadioButtonIconaConverter>
+    </Page.Resources>
+
+    <Page.DataContext>
+        <ViewModel:EditorArticlesViewModel/>
+    </Page.DataContext>
+
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="35*"/>            
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="lsv_articles" 
+                  ItemsSource="{Binding Articles}"
+                  SelectedItem="{Binding ArticleSelected, Mode=TwoWay}"
+                  />
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Nom:" VerticalAlignment="Center" Margin="50,0,0,0" />
+                <TextBox x:Name="txtb_nom" 
+                         Text="{Binding ArticleSelected.Nom}"
+                         Width="150" Height="25" Margin="20,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <TextBlock Text="Descripció:" VerticalAlignment="Center" Margin="15,0,0,0" />
+                <TextBox x:Name="txtb_desc" 
+                         Text="{Binding ArticleSelected.Descripcio}"
+                         Width="150" Height="60" Margin="20,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="2">
+                <TextBlock Text="Color:" VerticalAlignment="Center" Margin="45,0,0,0" />
+                <TextBox x:Name="txtb_color" 
+                         Background="{Binding ArticleSelected.ColorErroniBackground}"
+                         Text="{Binding ArticleSelected.Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Width="75" Height="25" Margin="40,0,0,0"/>
+                <Rectangle x:Name="rect_color" 
+                           Fill="{Binding ArticleSelected.ColorBackground}" Width="25" Height="25" Margin="20,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="3">
+                <RadioButton GroupName="rb_icon"
+                             IsChecked="{Binding ArticleSelected.Icona,
+                                            Converter={StaticResource RadioButtonIconaConverter},
+                                            ConverterParameter=1}"/>
+                <RadioButton GroupName="rb_icon"
+                             IsChecked="{Binding ArticleSelected.Icona,
+                                            Converter={StaticResource RadioButtonIconaConverter},
+                                            ConverterParameter=2}"/>
+                <RadioButton GroupName="rb_icon" 
+                             IsChecked="{Binding ArticleSelected.Icona,
+                                            Converter={StaticResource RadioButtonIconaConverter},
+                                            ConverterParameter=3}"/>
+                <RadioButton GroupName="rb_icon" 
+                             IsChecked="{Binding ArticleSelected.Icona,
+                                            Converter={StaticResource RadioButtonIconaConverter},
+                                            ConverterParameter=4}"/>
+                <RadioButton GroupName="rb_icon"
+                             IsChecked="{Binding ArticleSelected.Icona,
+                                            Converter={StaticResource RadioButtonIconaConverter},
+                                            ConverterParameter=5}"/>
+            </StackPanel>
+            
+            <Grid Grid.Row="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+            </Grid>
+            <Button Grid.Row="5" Content="GO!" Click="{x:Bind ViewModel.Button_Click}">
+            </Button>
+        </Grid>
+    </Grid>
+</Page>
