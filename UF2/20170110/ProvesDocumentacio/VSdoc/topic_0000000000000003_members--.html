@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
+	<title>ProvesDocumentacio.Model Members</title>
+
+	<link rel="stylesheet" type="text/css" href="msdn10_lightweight/msdn10_lightweight.css"></link>
+	<script src="msdn10_lightweight/msdn10_lightweight.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shCore_helixoft.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushVb.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushCSharp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushCpp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
+	<link href="SyntaxHighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+	<link href="SyntaxHighlighter/styles/shThemeMsdnLW.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+		SyntaxHighlighter.all();
+	</script>				
+
+	<script type="text/javascript">
+<!--
+if (self.name != "vbdocright") {
+	if (location.search != "?toc=no") {
+		var filename = location.pathname.replace(/\\/g, "/");
+		filename = filename.substring(filename.lastIndexOf('/')+1);
+		location.replace("index.html#" + filename);
+	} 
+}
+
+function replaceTitleAndUrl(win, title, url) {
+	if(history.replaceState) {
+		win.history.replaceState(null, title, url);
+	} else {
+		win.document.title = document.title;
+		win.location.replace(url);
+	}
+}
+//-->
+	</script>	
+</head>
+
+<body style="direction: ltr;">
+	<script type="text/javascript">
+		try {
+			if (location.search != "?toc=no") {
+				parent.document.title = document.title;
+				var filename = location.pathname.replace(/\\/g, "/");
+				filename = filename.substring(filename.lastIndexOf('/')+1);
+				if (window.parent.location.search == null || window.parent.location.search != "?" + filename) {
+					if (window.parent.location.hash == null || window.parent.location.hash != "#" + filename) {
+						replaceTitleAndUrl(window.parent, document.title, "index.html#" + filename);
+					}
+				}
+			}
+		} catch (ex) {}
+	</script>
+	<div id="topic">
+<!--HEADER START-->
+  <div id="header">
+  	<div id="runningHeaderText">ProvesDocumentacio Reference</div>
+  	<h1 class="title">ProvesDocumentacio.Model Members</h1>
+  	<div id="headerLinks">
+              <a href="topic_0000000000000003.html">ProvesDocumentacio.Model Namespace</a>
+
+
+              
+							
+
+            &nbsp;<a href="#seeAlsoSection">See Also</a>
+		</div>
+		<hr />
+	</div>
+<!--HEADER END-->
+    
+		<div id="mainSection">
+      <div id="mainBody">
+        <p />
+        <p>Aquest <span style="color: #00FF40;">namespace</span> conté les classes principals
+del Model</p>
+<p> <div class="class-diagram"><script type="text/javascript">
+//<!-- VSDOCMAN SCRIPT the script cannot contain the following text (without dots): -.-.> or -.-
+// To navigate any kind of link, we need to call click() method on the element.
+// It's because of <MSHelp:link links in Help2 format (only used in IE). 
+// Default click event in FF doesn't trigger the link (in IE it does).
+// Fix it. 
+function performClick(element) {
+	if (document.createEventObject){
+		// IE
+		return element.click();
+	}
+	else{
+		// dispatch for firefox + others
+		var evt = element.ownerDocument.createEvent('MouseEvents');
+		evt.initMouseEvent('click', true, true, element.ownerDocument.defaultView, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
+		element.dispatchEvent(evt);
+	}
+	
+	while (element) {
+		if (element.tagName == "A" && element.href != "") {
+			if (element.target != "") {
+				window.open(element.href, element.target);
+			} else {
+				document.location = element.href;
+			}
+			element = null;
+		}	else {
+			element = element.parentElement;
+		}
+	}
+}
+
+function clickElement(callerElement) {
+	try {
+		var elementHTML;
+		var tagName;
+		var innerCode;
+		var attributes;
+		var clickActionGuid;
+		
+		// get HTML source code of element to be clicked 
+		clickActionGuid = callerElement.getAttribute("click-cref-guid");
+		elementHTML = document.getElementById(clickActionGuid).innerHTML;
+		
+		// parse HTML element code
+		var elementPattern = /<(.+?)\s+(.*)>(.*)<.+?>/igm;
+		elementPattern.lastIndex = 0;
+		var match = elementPattern.exec(elementHTML);
+		tagName = match[1];
+		attributes = match[2];
+		innerCode = match[3];
+		
+		//get array of "attr=value" strings 
+		attributes = unescapeHTML(attributes);	
+		attributes = attributes.match(/\s*(.*?)\s*=\s*(["'])(.*?)\2/igm);
+		
+		// create element with attributes
+		var el = document.createElement(tagName);
+		//el.innerHTML = innerCode;
+		var i;
+		var attrPattern = /\s*(.*?)\s*=\s*(["'])(.*?)\2/igm;
+		for (i=0; i<attributes.length; i++) {
+			attrPattern.lastIndex = 0;
+			match = attrPattern.exec(attributes[i]);
+			el.setAttribute(match[1], match[3]);
+		}
+
+		document.body.appendChild(el);
+		performClick(el);
+	} catch (ex) {
+	}
+	return false;
+}
+function unescapeHTML (str) {
+	return str.replace(/&/g,"&").
+		replace(/>/g,">").
+		replace(/</g,"<");//. 
+		//the following doesn't work for some reason: replace(/"/g,""");                                         
+}
+
+// -->
+</script>
+
+<img src="cdiag_610f60416b2bf6a4aa6562539e4e503d.png" usemap="#cdiag_610f60416b2bf6a4aa6562539e4e503d" />
+<map name="cdiag_610f60416b2bf6a4aa6562539e4e503d">
+  <area shape="rect" coords="394,87,536,106" alt="Altres" title="Altres" href="#" click-cref-guid='8a0efc9a17cb460398701cc1ef6ed68e' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="394,106,536,124" alt="Numero" title="Numero" href="#" click-cref-guid='6340802dfbae4fcda84637716ec3bdbf' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="394,124,536,143" alt="Pis_porta" title="Pis_porta" href="#" click-cref-guid='fa5bb3ccf40d4ed4af26a3b4165b91d0' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="394,143,536,161" alt="TipusVia" title="TipusVia" href="#" click-cref-guid='3d89028931d34a5da8c607fb4c561640' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="394,161,536,180" alt="Via" title="Via" href="#" click-cref-guid='e43cb1b590a549408ff6620e4e9d0ead' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="394,204,536,223" alt="Adreca(System.String, System.String, System.String, System.String, System.String)" title="Adreca(System.String, System.String, System.String, System.String, System.String)" href="#" click-cref-guid='834deb2ac8f04b50924098793be3aeb0' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="393,10,537,232" alt="ProvesDocumentacio.Model.Adreca" title="ProvesDocumentacio.Model.Adreca" href="#" click-cref-guid='52992a67484246c7a44630756d4922f3' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="538,327,680,345" alt="Codi" title="Codi" href="#" click-cref-guid='42eb6790e3e24987bb97daf3fa305e1a' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="538,345,680,364" alt="Nom" title="Nom" href="#" click-cref-guid='54eedc7e45f64515af004fa79530c4bf' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="538,389,680,407" alt="Departament(System.Int32, System.String)" title="Departament(System.Int32, System.String)" href="#" click-cref-guid='8187c877d65e4e908c31d1d80dcf1ab9' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="537,249,681,417" alt="ProvesDocumentacio.Model.Departament" title="ProvesDocumentacio.Model.Departament" href="#" click-cref-guid='45340b9ac2394cc28d1d27f8fec6723f' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="11,435,153,454" alt="Codi" title="Codi" href="#" click-cref-guid='042372e1a1f245e0b8ff33d44c05f286' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="11,454,153,472" alt="Dept" title="Dept" href="#" click-cref-guid='8f84ca22fd364c02894609d2de51bcd1' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="11,472,153,491" alt="Salari" title="Salari" href="#" click-cref-guid='2465cb1e0a7a4aee8989fbf15e79975a' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="11,515,153,534" alt="Empleat(System.Int32, System.Decimal, System.String, System.String, System.String, System.DateTime)" title="Empleat(System.Int32, System.Decimal, System.String, System.String, System.String, System.DateTime)" href="#" click-cref-guid='ace4046f7cde4ec4a67a846e55afee84' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="10,345,154,543" alt="ProvesDocumentacio.Model.Empleat" title="ProvesDocumentacio.Model.Empleat" href="#" click-cref-guid='d967624130e2401a89b7b8b02cf1bad2' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="322,435,464,454" alt="Empresa" title="Empresa" href="#" click-cref-guid='fe41c6e0b6fa47cc979210ae132625c1' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="322,479,464,497" alt="Extern(System.String, System.String, System.String, System.String, System.DateTime)" title="Extern(System.String, System.String, System.String, System.String, System.DateTime)" href="#" click-cref-guid='5100dbc9df874f40955270b154ebd5ea' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="321,345,465,507" alt="ProvesDocumentacio.Model.Extern" title="ProvesDocumentacio.Model.Extern" href="#" click-cref-guid='0e5ed505865c4fa0b9f1da3ef48da24e' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="130,87,272,106" alt="mAdreces" title="mAdreces" href="#" click-cref-guid='c1e7259bcca144d593c77a763308344c' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="130,131,272,149" alt="Cognoms" title="Cognoms" href="#" click-cref-guid='610812583e0040fd9cb0246d02a62b13' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="130,149,272,167" alt="DataNaix" title="DataNaix" href="#" click-cref-guid='d58847795a8d4e27aad8699d7014c94c' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="130,167,272,186" alt="NIF" title="NIF" href="#" click-cref-guid='0d52f06565624ce694cd4c19b106b250' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="130,186,272,204" alt="Nom" title="Nom" href="#" click-cref-guid='428988d117644fc7bd814a577a3bb1e3' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="130,229,272,248" alt="addAdreca(ProvesDocumentacio.Model.Adreca)" title="addAdreca(ProvesDocumentacio.Model.Adreca)" href="#" click-cref-guid='080cb98d00bc40b3bbe4fbf10e634bb5' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="130,248,272,266" alt="getAdreca(System.Int32)" title="getAdreca(System.Int32)" href="#" click-cref-guid='0eb16ea3f2bf4ec8b9bb969d39ba5923' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="130,266,272,285" alt="getNumAdreces()" title="getNumAdreces()" href="#" click-cref-guid='8aa212c50d04400eb6c2636fe759a652' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="130,285,272,303" alt="Persona(System.String, System.String, System.String, System.DateTime)" title="Persona(System.String, System.String, System.String, System.DateTime)" href="#" click-cref-guid='9d65c34d68a64e098704a62325bcf178' onclick="clickElement(this);return false;" />
+  <area shape="rect" coords="130,10,273,313" alt="ProvesDocumentacio.Model.Persona" title="ProvesDocumentacio.Model.Persona" href="#" click-cref-guid='b5d59258a5034e639ff01abe650a7020' onclick="clickElement(this);return false;" />
+</map>
+<span id="invisible_imagemap_links_cdiag_610f60416b2bf6a4aa6562539e4e503d" style="display:none;">
+<span id="8a0efc9a17cb460398701cc1ef6ed68e"><a target="_top" href="topic_000000000000000A.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="6340802dfbae4fcda84637716ec3bdbf"><a target="_top" href="topic_0000000000000008.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="fa5bb3ccf40d4ed4af26a3b4165b91d0"><a target="_top" href="topic_0000000000000009.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="3d89028931d34a5da8c607fb4c561640"><a target="_top" href="topic_0000000000000006.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="e43cb1b590a549408ff6620e4e9d0ead"><a target="_top" href="topic_0000000000000007.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="834deb2ac8f04b50924098793be3aeb0"><a target="_top" href="topic_0000000000000005.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="52992a67484246c7a44630756d4922f3"><a target="_top" href="topic_0000000000000004.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="42eb6790e3e24987bb97daf3fa305e1a"><a target="_top" href="topic_000000000000000D.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="54eedc7e45f64515af004fa79530c4bf"><a target="_top" href="topic_000000000000000E.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="8187c877d65e4e908c31d1d80dcf1ab9"><a target="_top" href="topic_000000000000000C.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="45340b9ac2394cc28d1d27f8fec6723f"><a target="_top" href="topic_000000000000000B.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="042372e1a1f245e0b8ff33d44c05f286"><a target="_top" href="topic_0000000000000011.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="8f84ca22fd364c02894609d2de51bcd1"><a target="_top" href="topic_0000000000000013.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="2465cb1e0a7a4aee8989fbf15e79975a"><a target="_top" href="topic_0000000000000012.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="ace4046f7cde4ec4a67a846e55afee84"><a target="_top" href="topic_0000000000000010.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="d967624130e2401a89b7b8b02cf1bad2"><a target="_top" href="topic_000000000000000F.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="fe41c6e0b6fa47cc979210ae132625c1"><a target="_top" href="topic_0000000000000016.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="5100dbc9df874f40955270b154ebd5ea"><a target="_top" href="topic_0000000000000015.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="0e5ed505865c4fa0b9f1da3ef48da24e"><a target="_top" href="topic_0000000000000014.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="c1e7259bcca144d593c77a763308344c"><a target="_top" href=".html" onclick="this.target='';return true;">xyz</a></span>
+<span id="610812583e0040fd9cb0246d02a62b13"><a target="_top" href="topic_000000000000001F.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="d58847795a8d4e27aad8699d7014c94c"><a target="_top" href="topic_0000000000000020.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="0d52f06565624ce694cd4c19b106b250"><a target="_top" href="topic_000000000000001D.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="428988d117644fc7bd814a577a3bb1e3"><a target="_top" href="topic_000000000000001E.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="080cb98d00bc40b3bbe4fbf10e634bb5"><a target="_top" href="topic_000000000000001A.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="0eb16ea3f2bf4ec8b9bb969d39ba5923"><a target="_top" href="topic_000000000000001B.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="8aa212c50d04400eb6c2636fe759a652"><a target="_top" href="topic_000000000000001C.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="9d65c34d68a64e098704a62325bcf178"><a target="_top" href="topic_0000000000000019.html" onclick="this.target='';return true;">xyz</a></span>
+<span id="b5d59258a5034e639ff01abe650a7020"><a target="_top" href="topic_0000000000000018.html" onclick="this.target='';return true;">xyz</a></span>
+</span>
+</div> </p>
+<p></p>
+
+        <p>
+          The following tables list the members exposed by the  
+              <a href="topic_0000000000000003.html">ProvesDocumentacio.Model</a>
+             type.
+        </p>
+
+
+
+
+
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Classes</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="ClassSection" class="section">	
+  <table class="memberListTable">
+    <tr>
+      <th></th>
+      <th>
+        Name
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+
+
+<!-- Classes -->
+	<tr class="
+	
+	
+	">
+	  <td>
+    <img alt="Public class" src="msdn10_lightweight/pubclass.gif"></img>
+    
+
+    
+	  </td>
+	  <td>
+	    <a href="topic_0000000000000004.html">Adreca</a>
+	  </td>
+	  <td>
+
+
+
+		</td>
+	</tr>
+	<tr class="
+	
+	
+	">
+	  <td>
+    <img alt="Public class" src="msdn10_lightweight/pubclass.gif"></img>
+    
+
+    
+	  </td>
+	  <td>
+	    <a href="topic_000000000000000B.html">Departament</a>
+	  </td>
+	  <td>
+
+
+
+		</td>
+	</tr>
+	<tr class="
+	
+	
+	">
+	  <td>
+    <img alt="Public class" src="msdn10_lightweight/pubclass.gif"></img>
+    
+
+    
+	  </td>
+	  <td>
+	    <a href="topic_000000000000000F.html">Empleat</a>
+	  </td>
+	  <td>
+
+
+
+		</td>
+	</tr>
+	<tr class="
+	
+	
+	">
+	  <td>
+    <img alt="Public class" src="msdn10_lightweight/pubclass.gif"></img>
+    
+
+    
+	  </td>
+	  <td>
+	    <a href="topic_0000000000000014.html">Extern</a>
+	  </td>
+	  <td>
+
+
+
+		</td>
+	</tr>
+	<tr class="
+	
+	
+	">
+	  <td>
+    <img alt="Public class" src="msdn10_lightweight/pubclass.gif"></img>
+    
+
+    
+	  </td>
+	  <td>
+	    <a href="topic_0000000000000017.html">NIFInvalidException</a>
+	  </td>
+	  <td>
+
+
+
+		</td>
+	</tr>
+	<tr class="
+	
+	
+	">
+	  <td>
+    <img alt="Public class" src="msdn10_lightweight/pubclass.gif"></img>
+    
+
+    
+	  </td>
+	  <td>
+	    <a href="topic_0000000000000018.html">Persona</a>
+	  </td>
+	  <td>
+
+La classe persona conté les dades personals de tots els empleats,
+ treballadors externs i d'altres entitats personals del món mundial.
+
+		</td>
+	</tr>
+
+<!-- Classes End -->
+
+<!-- Standard Modules -->
+
+<!-- Standard Modules End -->
+
+  </table>
+
+  <a href="#mainBody">
+    Top
+  </a>
+
+	</div>					
+</div>
+
+
+
+
+
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">See Also</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="seeAlsoSection" class="section">	
+		<div>
+			<h4 class="subHeading">
+				Reference</h4>
+			<a href="topic_0000000000000003.html">ProvesDocumentacio.Model Namespace</a><br />
+
+			
+
+		</div>
+	</div>					
+</div>
+			</div>
+			</div>
+      <div id="footer">
+      	<p><span style="color: #FF0000;">Generated with unregistered version of <a target="_top" href="http://www.helixoft.com/vsdocman/overview.html">VSdocman</a></span>&nbsp;<br />Your own footer text will only be shown in registered version.</p>
+      </div>
+    </div>
+  	<script type="text/javascript">
+<!--
+	try {
+		parent.frames["vbdocswitch"].expandLinkInToc(location.href);
+	} catch (ex) {}
+//-->
+		</script>	
+  </body>
+</html>

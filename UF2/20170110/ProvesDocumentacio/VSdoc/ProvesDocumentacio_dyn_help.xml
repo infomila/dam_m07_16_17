@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DynamicHelp xmlns="http://msdn.microsoft.com/vsdata/xsd/vsdh.xsd" xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance" xsi:schemaLocation="http://msdn.microsoft.com/vsdata/xsd/vsdh.xsd">	
+   <LINKGROUP ID="ProvesDocumentacio" Title="ProvesDocumentacio Reference Help" Priority="2100">
+      <GLYPH Expanded="vs:/ctxhelp_show.gif" Collapsed="vs:/ctxhelp_hide.gif"/>
+   </LINKGROUP>
+
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Adreca" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000004.html" LinkGroup="ProvesDocumentacio">Adreca Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Adreca.Adreca" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000005.html" LinkGroup="ProvesDocumentacio">Adreca Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Adreca.Altres" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_000000000000000A.html" LinkGroup="ProvesDocumentacio">Altres Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Departament.Codi" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_000000000000000D.html" LinkGroup="ProvesDocumentacio">Codi Property {ProvesDocumentacio.Model.Departament}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Empleat.Codi" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000011.html" LinkGroup="ProvesDocumentacio">Codi Property {ProvesDocumentacio.Model.Empleat}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Persona.Cognoms" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_000000000000001F.html" LinkGroup="ProvesDocumentacio">Cognoms Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Persona.DataNaix" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000020.html" LinkGroup="ProvesDocumentacio">DataNaix Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Departament" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_000000000000000B.html" LinkGroup="ProvesDocumentacio">Departament Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Departament.Departament" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_000000000000000C.html" LinkGroup="ProvesDocumentacio">Departament Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Empleat.Dept" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000013.html" LinkGroup="ProvesDocumentacio">Dept Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Empleat" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_000000000000000F.html" LinkGroup="ProvesDocumentacio">Empleat Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Empleat.Empleat" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000010.html" LinkGroup="ProvesDocumentacio">Empleat Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Extern.Empresa" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000016.html" LinkGroup="ProvesDocumentacio">Empresa Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Extern" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000014.html" LinkGroup="ProvesDocumentacio">Extern Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Extern.Extern" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000015.html" LinkGroup="ProvesDocumentacio">Extern Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.MainPage" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000001.html" LinkGroup="ProvesDocumentacio">MainPage Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.MainPage.MainPage" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000002.html" LinkGroup="ProvesDocumentacio">MainPage Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Persona.NIF" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_000000000000001D.html" LinkGroup="ProvesDocumentacio">NIF Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.NIFInvalidException" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000017.html" LinkGroup="ProvesDocumentacio">NIFInvalidException Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Departament.Nom" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_000000000000000E.html" LinkGroup="ProvesDocumentacio">Nom Property {ProvesDocumentacio.Model.Departament}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Persona.Nom" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_000000000000001E.html" LinkGroup="ProvesDocumentacio">Nom Property {ProvesDocumentacio.Model.Persona}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Adreca.Numero" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000008.html" LinkGroup="ProvesDocumentacio">Numero Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Persona" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000018.html" LinkGroup="ProvesDocumentacio">Persona Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Persona.Persona" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000019.html" LinkGroup="ProvesDocumentacio">Persona Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Adreca.Pis_porta" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000009.html" LinkGroup="ProvesDocumentacio">Pis_porta Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000000.html" LinkGroup="ProvesDocumentacio">ProvesDocumentacio Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio Reference" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000021.html" LinkGroup="ProvesDocumentacio">ProvesDocumentacio Reference</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000003.html" LinkGroup="ProvesDocumentacio">ProvesDocumentacio.Model Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Empleat.Salari" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000012.html" LinkGroup="ProvesDocumentacio">Salari Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Adreca.TipusVia" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000006.html" LinkGroup="ProvesDocumentacio">TipusVia Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Adreca.Via" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_0000000000000007.html" LinkGroup="ProvesDocumentacio">Via Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Persona.addAdreca" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_000000000000001A.html" LinkGroup="ProvesDocumentacio">addAdreca Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Persona.getAdreca" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_000000000000001B.html" LinkGroup="ProvesDocumentacio">getAdreca Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="ProvesDocumentacio.Model.Persona.getNumAdreces" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:ProvesDocumentacio.chm::/topic_000000000000001C.html" LinkGroup="ProvesDocumentacio">getNumAdreces Method</LItem>
+      </Links>
+   </Context>
+   
+
+</DynamicHelp>
+

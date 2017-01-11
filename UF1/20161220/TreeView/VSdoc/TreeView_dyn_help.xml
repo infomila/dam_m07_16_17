@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DynamicHelp xmlns="http://msdn.microsoft.com/vsdata/xsd/vsdh.xsd" xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance" xsi:schemaLocation="http://msdn.microsoft.com/vsdata/xsd/vsdh.xsd">	
+   <LINKGROUP ID="TreeView" Title="TreeView Reference Help" Priority="2100">
+      <GLYPH Expanded="vs:/ctxhelp_show.gif" Collapsed="vs:/ctxhelp_hide.gif"/>
+   </LINKGROUP>
+
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.ItemTreeView.Arbre" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_000000000000000A.html" LinkGroup="TreeView">Arbre Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.ArbreView" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000001.html" LinkGroup="TreeView">ArbreView Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.ArbreView.ArbreView" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000003.html" LinkGroup="TreeView">ArbreView Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.ArbreView.Arrel" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000004.html" LinkGroup="TreeView">Arrel Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.ArbreView.ArrelProperty" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000005.html" LinkGroup="TreeView">ArrelProperty Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.Node.Desplegat" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000013.html" LinkGroup="TreeView">Desplegat Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.Node.EsFulla" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000019.html" LinkGroup="TreeView">EsFulla Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.Node.EspaisPerNivell" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_000000000000001B.html" LinkGroup="TreeView">EspaisPerNivell Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.Node.Fills" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000012.html" LinkGroup="TreeView">Fills Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.Node.Id" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000010.html" LinkGroup="TreeView">Id Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.ItemTreeView" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000008.html" LinkGroup="TreeView">ItemTreeView Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.ItemTreeView.ItemTreeView" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000009.html" LinkGroup="TreeView">ItemTreeView Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.MainPage" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_000000000000000D.html" LinkGroup="TreeView">MainPage Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.MainPage.MainPage" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_000000000000000E.html" LinkGroup="TreeView">MainPage Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.Node.Nivell" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000014.html" LinkGroup="TreeView">Nivell Property</LItem>
+      </Links>
+   </Context>
+   
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.Node.Node" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000017_overloads--.html" LinkGroup="TreeView">Node </LItem>
+      </Links>
+   </Context>
+   
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.Node.Node" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000018_overloads--.html" LinkGroup="TreeView">Node </LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.Node" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_000000000000000F.html" LinkGroup="TreeView">Node Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.Node.Selected" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000015.html" LinkGroup="TreeView">Selected Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.ArbreView.SelectedItem" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000006.html" LinkGroup="TreeView">SelectedItem Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.ArbreView.SelectedItemProperty" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000007.html" LinkGroup="TreeView">SelectedItemProperty Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.ArbreView.SelectionChanged" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000002.html" LinkGroup="TreeView">SelectionChanged Event</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.Node.SelectionColor" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000016.html" LinkGroup="TreeView">SelectionColor Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.Node.ToString" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_000000000000001A.html" LinkGroup="TreeView">ToString Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000000.html" LinkGroup="TreeView">TreeView Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView Reference" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_000000000000001C.html" LinkGroup="TreeView">TreeView Reference</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.ItemTreeView.UnNode" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_000000000000000B.html" LinkGroup="TreeView">UnNode Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.ItemTreeView.UnNodeProperty" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_000000000000000C.html" LinkGroup="TreeView">UnNodeProperty Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="TreeView.Node.Valor" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:TreeView.chm::/topic_0000000000000011.html" LinkGroup="TreeView">Valor Property</LItem>
+      </Links>
+   </Context>
+   
+
+</DynamicHelp>
+

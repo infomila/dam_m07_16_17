@@ -13,10 +13,39 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
-
+/// <summary>
+/// <para></para>
+/// <code lang="C#"><![CDATA[TreeView t = new TreeView();]]></code>
+/// <list type="number">
+///  <item>
+///   <description>Primer</description>
+///  </item>
+///  <item>
+///   <description>Segon</description>
+///  </item>
+///  <item>
+///   <description>Tercer</description>
+///  </item>
+///  <item>
+///   <description>Quart</description>
+///  </item>
+/// </list>
+/// <para></para>
+/// </summary>
+/// <example>
+/// <para></para>
+/// <code lang="C#"><![CDATA[]]></code>
+/// </example>
 namespace TreeView
 {
+    /// <example>
+    ///   <para />
+    ///   <code lang="C#" source="../ArbreView.xaml.cs" region="prop" />
+    /// </example>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <remarks></remarks>
     public sealed partial class ArbreView : UserControl
     {
 
@@ -31,10 +60,12 @@ namespace TreeView
 
 
 
+ 
         public Node Arrel
         {
             get { return (Node)GetValue(ArrelProperty); }
-            set {
+            set
+            {
                 SetValue(ArrelProperty, value);
                 stkContenidorPrincipal.Children.Clear();
                 mostrarNodeIDescendentsRecursiu(Arrel);
@@ -52,12 +83,11 @@ namespace TreeView
             stkContenidorPrincipal.Children.Add(itv);
         }
 
-  
-
-        private void seleccionaActualNodeRecursiu(Node actual )
+ 
+        private void seleccionaActualNodeRecursiu(Node actual)
         {
             actual.Selected = (actual == SelectedItem);
-            foreach(Node n in actual.Fills)
+            foreach (Node n in actual.Fills)
             {
                 seleccionaActualNodeRecursiu(n);
             }
@@ -97,7 +127,7 @@ namespace TreeView
         private void BtnDesplega_Click(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;
-            Node n = (Node) b.Tag;
+            Node n = (Node)b.Tag;
             n.Desplegat = !n.Desplegat;
             stkContenidorPrincipal.Children.Clear();
             mostrarNodeIDescendents(Arrel);
@@ -109,21 +139,22 @@ namespace TreeView
         public Node SelectedItem
         {
             get { return (Node)GetValue(SelectedItemProperty); }
-            set {
+            set
+            {
                 if (value != SelectedItem)
                 {
                     SetValue(SelectedItemProperty, value);
                     SelectionChanged?.Invoke(this, new EventArgs());
-                }                
+                }
                 seleccionaActualNodeRecursiu(Arrel);
             }
         }
-
+        #region prop
         // Using a DependencyProperty as the backing store for SelectedItem.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty SelectedItemProperty =
             DependencyProperty.Register("SelectedItem", typeof(Node), typeof(ArbreView), new PropertyMetadata(null));
 
-
+        #endregion
 
     }
 }
