@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  
+	<Product Id="*" Name="SetupProject"
+           Language="1033" 
+           Version="1.0.0.0" 
+           Manufacturer="IES Mila Enterprises" 
+           UpgradeCode="ffceac58-07bf-40fb-9a9d-42bcaeaed41b">
+    
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="SetupProject" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+    
+    <!-- Activar interfície gràfica-->
+    <UIRef Id="WixUI_Mondo"/>
+    <UIRef Id="WixUI_ErrorProgressText"/>
+    <Property Id="WIXUI_INSTALLDIR"
+              Value="INSTALLDIR"
+              />
+    
+    
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="TarifesApp" >
+          <Directory Id="FOLDER_TMP" Name="tmp" />
+        </Directory>
+    </Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="CMP_TarifesApp_exe" 
+                 Guid="{A897EE5F-44F7-4FF8-9CC5-C64489CB194C}"  >
+        <File Id="FILE_TarifesApp_exe"
+              Source="$(var.TarifesApp.TargetDir)TarifesApp.exe"
+              KeyPath="yes"/>
+      </Component>
+      <Component Id="CMP_TarifesApp_dll"
+                 Guid="{AA47541C-2907-41A3-9955-4DC54EDF08CF}"  >
+        <File Id="FILE_TarifesApp_dll"
+              Source="$(var.TarifesApp.TargetDir)LibGestorTarifes.dll"
+              KeyPath="yes"/>
+      </Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>
