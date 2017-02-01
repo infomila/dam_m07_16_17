@@ -12,17 +12,25 @@
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 		<MediaTemplate />
 
-		<Feature Id="ProductFeature" Title="SetupProject" Level="1">
+		<Feature Id="ProductFeature" Title="Tarifes App" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
 		</Feature>
+
+    <Feature Id="DocFeature" Title="Documentacio" Level="4"> 
+      <ComponentGroupRef Id="DocComponents" />
+    </Feature>
     
     <!-- Activar interfície gràfica-->
-    <UIRef Id="WixUI_Mondo"/>
-    <UIRef Id="WixUI_ErrorProgressText"/>
-    <Property Id="WIXUI_INSTALLDIR"
-              Value="INSTALLDIR"
-              />
+
     
+ <!--   OPCIÓ PER TREBALLAR SELECCIONANT CARPETA D'INSTAL·LACIÓ
+    <Property Id="WIXUI_INSTALLDIR"
+              Value="INSTALLFOLDER"
+              />
+    <UIRef Id="WixUI_InstallDir"/>
+    -->
+    <UIRef Id="WixUI_Mondo"/>   
+    <UIRef Id="WixUI_ErrorProgressText"/>
     
 	</Product>
 
@@ -31,12 +39,23 @@
 			<Directory Id="ProgramFilesFolder">
         <Directory Id="INSTALLFOLDER" Name="TarifesApp" >
           <Directory Id="FOLDER_TMP" Name="tmp" />
+          <Directory Id="DOCFOLDER" Name="doc" />
         </Directory>
     </Directory>
 		</Directory>
 	</Fragment>
 
 	<Fragment>
+    <ComponentGroup Id="DocComponents" Directory="DOCFOLDER">
+      <Component Id="CMP_doc_html"
+                 Guid="{DE912D4C-32FA-425D-9BDC-B5532E3198F0}">
+        <File Id="FILE_doc_html"
+              Source="$(var.TarifesApp.ProjectDir)doc\doc.htm"
+              KeyPath="yes"/>
+      
+      </Component>
+    </ComponentGroup>
+
 		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
       <Component Id="CMP_TarifesApp_exe" 
                  Guid="{A897EE5F-44F7-4FF8-9CC5-C64489CB194C}"  >
