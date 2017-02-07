@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TarifesApp", "TarifesApp\Ta
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "SetupProject", "SetupProject\SetupProject.wixproj", "{A6465D63-32EA-4EC0-81B8-55E33B76205E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomActions", "CustomActions\CustomActions.csproj", "{CB254BB7-16EA-4938-8FDD-DDC4AEF7CC86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,12 @@ Global
 		{A6465D63-32EA-4EC0-81B8-55E33B76205E}.Release|Any CPU.ActiveCfg = Release|x86
 		{A6465D63-32EA-4EC0-81B8-55E33B76205E}.Release|x86.ActiveCfg = Release|x86
 		{A6465D63-32EA-4EC0-81B8-55E33B76205E}.Release|x86.Build.0 = Release|x86
+		{CB254BB7-16EA-4938-8FDD-DDC4AEF7CC86}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{CB254BB7-16EA-4938-8FDD-DDC4AEF7CC86}.Debug|x86.ActiveCfg = Debug|x86
+		{CB254BB7-16EA-4938-8FDD-DDC4AEF7CC86}.Debug|x86.Build.0 = Debug|x86
+		{CB254BB7-16EA-4938-8FDD-DDC4AEF7CC86}.Release|Any CPU.ActiveCfg = Release|x86
+		{CB254BB7-16EA-4938-8FDD-DDC4AEF7CC86}.Release|x86.ActiveCfg = Release|x86
+		{CB254BB7-16EA-4938-8FDD-DDC4AEF7CC86}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="DOCFOLDER">
+            <Directory Id="dir60CA2C65738C5FEA54022E2DF495B86E" Name="XAMPP Installers and Downloads for Apache Friends_files" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="CPG_DOCS">
+            <Component Id="cmp3759B468B33617BF7B63BD45A81D0556" Directory="DOCFOLDER" Guid="A75B4850-8CF2-4DB0-8C2C-3A2C3B77370F">
+                <File Id="filA2D6ACF53C4EA0CA8E5FAAAB25E73733" KeyPath="yes" Source="$(var.PathDocumentacio)\doc.htm" />
+            </Component>
+            <Component Id="cmp8A2C610D5112941061E3DE2E89FF57A9" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="AC0A6CFC-4608-4B9B-BEF3-3FCC3BD9ABDE">
+                <File Id="fil0FCAA1F159E7C5703FDEF8CB8E70A168" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\all-3624fde4.js" />
+            </Component>
+            <Component Id="cmpBE5BACAEF9C8B696A6F5BE06418EF34C" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="6A278918-7759-4E80-925F-0AFC505F0794">
+                <File Id="fil1290BA0EF961EF480CD650DB050682BE" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\all-5fb5d354.css" />
+            </Component>
+            <Component Id="cmp22E8FA6E85A4E9CFFB67E0A5D81E992C" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="56C15DE5-7177-4742-BE9A-FCC1C6246E91">
+                <File Id="fil36CCEA532648102D7CD0C8C33D486854" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\all.js" />
+            </Component>
+            <Component Id="cmpBBED9633044EE712FC3FBB4B24169E6E" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="966940BC-E61A-4788-A479-2BAAA3F941E4">
+                <File Id="filA48B41BA414F9C17FFFCF70C9F8E5151" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\analytics.js" />
+            </Component>
+            <Component Id="cmp78774EE7B57BE88ED40625BE31A2FA00" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="3F7F294C-65A1-48F5-9063-8CC6F188C540">
+                <File Id="fil36158A4CE9ADA1FAB3D8FA205AD65AE9" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\apple-logo-f4325ff1.png" />
+            </Component>
+            <Component Id="cmpEE5C315397F2B6C6CD91A45EC1F9BF1F" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="0447D260-3C2E-4708-97C9-7E5180FC1A6C">
+                <File Id="filB71AA0DC4DF2F46EA59A38E366EE71E5" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\de-1daf2d67.png" />
+            </Component>
+            <Component Id="cmpC73B8C93DC4ED888C0EE3AEB6A631104" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="C0D760B5-0DDE-40B7-9BAF-85A29D469454">
+                <File Id="filED0BF3CD0556DB986C5496E2BA11FD5B" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\en-dd9e149e.png" />
+            </Component>
+            <Component Id="cmp60362B43F898AFBCB22374BA6E860739" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="FD534C03-4F25-442E-9D72-D56153AE1E51">
+                <File Id="fil755340C2C42EEEAB90984856108CB3C8" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\es-a88880bf.png" />
+            </Component>
+            <Component Id="cmp91E29EA343C89D538E25BA9C128FF035" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="F73705D2-6E7A-41A1-A85B-4D62BCD757F3">
+                <File Id="filB25EB84FC74CC265B0F69263C72EBE0E" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\fastly-logo2x-dad6aac3.png" />
+            </Component>
+            <Component Id="cmpCC29FFBE5C0C616B588F80C655973F59" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="9740D7ED-9611-4FA5-986F-9ABA7E0394A7">
+                <File Id="fil2A53403E8A0B06E18DC5117E664EB2C1" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\font-awesome.css" />
+            </Component>
+            <Component Id="cmp128F302C3DE9A37245E1B734CA30B65F" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="D771F098-2336-424F-87DD-C3DA5A907712">
+                <File Id="filF5B0DD6CDA3BBC061E7B871B4A70CE90" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\fr-0f67f12d.png" />
+            </Component>
+            <Component Id="cmpB62BFE64E774DE2D272556FC89304332" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="F752A4F4-0356-4843-A7A5-95B768E745A2">
+                <File Id="fil301B3CCD1C805163412BCDB31DD44257" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\h6DEDm7C37A.htm" />
+            </Component>
+            <Component Id="cmpB343F6EF24739C421513F72E01EF886B" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="67372FD8-F15F-4571-9183-DAD6DCE6B1E5">
+                <File Id="fil28B600E78E75471CD8743B57E0E37651" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\hu-9a189d12.png" />
+            </Component>
+            <Component Id="cmp5D42352BCA775F9664E91F323EDBFAA0" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="5B922CD9-FC89-4804-9F7A-5BC265C7E300">
+                <File Id="fil88283F027D02D12AC905A313EBD74FD8" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\it-c786c15b.png" />
+            </Component>
+            <Component Id="cmp7CD8E78504B13DEC9A3E9C9E69707987" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="379D373C-9355-49E4-BBFF-48184A1823CB">
+                <File Id="filF09B155F0CAF1F66A78F185C95CA5EEE" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\jp-3c5b1754.png" />
+            </Component>
+            <Component Id="cmp047AA89FDD6B4DA6EAFCDAD353F2A093" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="0E77DF12-7C06-4666-AD94-3D18F812A55A">
+                <File Id="filD60F9E2EC8F5A4B37D287F5243DB00B4" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\jquery-1.js" />
+            </Component>
+            <Component Id="cmp413FE2A9492594FE496D2CDD729B9D76" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="E19E187E-20E4-437E-B554-19598425BE3E">
+                <File Id="fil3BD30C3D02CDCF5B5BC0F0A6E460EF58" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\linux-logo-f6a47353.png" />
+            </Component>
+            <Component Id="cmpD80C0CEC155202D771F2339ABAB80E11" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="F0B7FBD1-D972-4B75-8EC4-C1981605A5AC">
+                <File Id="filA268B97F2651AE994291BB2E045D49AF" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\mixpanel-2-latest.js" />
+            </Component>
+            <Component Id="cmpF65438C5E023B368B2EF52B2BFEFA728" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="6EE26472-0CAE-49D2-8CE1-6015924E3695">
+                <File Id="fil9E73BD7877BD8BA509E374E48BABF634" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\modernizr-6bfc3ff0.js" />
+            </Component>
+            <Component Id="cmp98747E7A6952CDE4D1A4DFF512CE1C87" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="6C8FB816-A94E-42E4-BA6E-ABCB16E79F44">
+                <File Id="fil3E87986212B610B8686AA0FF101FFA61" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\normalize-ef7858ef.css" />
+            </Component>
+            <Component Id="cmp6CA28A2824CE6F5CA91FBDDEB1AC3422" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="B080C46A-15AF-4E67-84F7-D8EC8DF262E1">
+                <File Id="fil702E1BF9A8AA94BA79CE1F5A6FA9C876" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\pl-e383eba9.png" />
+            </Component>
+            <Component Id="cmp1ACB1ACA167D11936B2C157AA7C35DBD" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="06BBF268-68D2-4059-A6F4-284DA31EB58E">
+                <File Id="filB3EFCD8DB656186BC511F04FABC48F90" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\pt_br-e39a2058.png" />
+            </Component>
+            <Component Id="cmp3DC9B92D27E3B04CB5CF84F3AB7DF8D4" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="A2E36917-52C9-4660-9BD3-271EE38F959C">
+                <File Id="fil7F6CAFD54DCD6B8182CC43274CD22847" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\ro-f141b663.png" />
+            </Component>
+            <Component Id="cmpD7666CAEC7C822376D82629EC402604A" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="B1477CCC-AE12-43FD-97DA-65C5CD2D036B">
+                <File Id="fil77F38401ECD26A068FEEFD55DBF783D7" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\ru-24b172c5.png" />
+            </Component>
+            <Component Id="cmp789D478786DFCD9CEBA5D8D84DB0E475" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="2D202509-7331-4ED3-91EE-5AB225D5598B">
+                <File Id="fil179368586065F13B0910B043F029C8BD" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\Sh-3BhStODe.htm" />
+            </Component>
+            <Component Id="cmp590456D686A926FCB5B56DFF1B347E6A" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="5EA1F8E2-8C99-44F5-BF80-EE1D9DDCD576">
+                <File Id="fil8301F30AEBEC4341506DE9FF296DDB7C" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\tr-e1821d04.png" />
+            </Component>
+            <Component Id="cmp69F1D451916FC797B2A94A234AF5D2BF" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="6E4C468C-F685-4524-85BE-C3B96A524461">
+                <File Id="filAF5A7954AE494EE118FBBE92233BE200" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\ur-952dd97a.png" />
+            </Component>
+            <Component Id="cmp726874504B83115417E1C61D282DBAA5" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="991E9068-CBBD-41E5-B036-0EBF73C663E7">
+                <File Id="filACEECB0584E43C872398FD984A9863DD" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\windows-logo-e7e0c87e.png" />
+            </Component>
+            <Component Id="cmp46D32C19D62D08B4E4C05C4E317D7AB5" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="FF0AA7C5-A45A-4BCA-A6C3-37228F56B17C">
+                <File Id="filB24DD4B4C8D7BE03FD061630B389970D" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\xampp-logo-ac950edf.svg" />
+            </Component>
+            <Component Id="cmpEB26680354C5F7429F9A0994977FF110" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="59F5FF1E-E66A-44E4-BDF4-D7ACA0A2705D">
+                <File Id="filD604954B434C271EEC7BCAEEF8DE52D9" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\zh_cn-9c7185e0.png" />
+            </Component>
+            <Component Id="cmpA0F404549B7A328401B598F7BDB91F1F" Directory="dir60CA2C65738C5FEA54022E2DF495B86E" Guid="56840CF0-E16C-430D-BCA4-4EF9A3AF1A91">
+                <File Id="fil2EF9C0FAD1662FADD1972173C62F6B3F" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\zh_tw-92fe4f80.png" />
+            </Component>
+            <Component Id="cmp5C8786EE110B4BF16DE2FC8451B09F4A" Directory="dir0B3E25244CEF951D0BE26E8F89C35775" Guid="B2CBA12C-45C0-4D98-82C7-680DDFCDA615">
+                <File Id="filC178AD43B4DCE960FB0235AE1D62F19F" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\h6DEDm7C37A_data\www-embed-lightweight.js" />
+            </Component>
+            <Component Id="cmp95F48F0A0E5433F54E1645257CDF7408" Directory="dir0B3E25244CEF951D0BE26E8F89C35775" Guid="83F44084-0A42-414B-B62D-40451B956F5F">
+                <File Id="filCDF088DF6E3A14D86BE82D5D328C096D" KeyPath="yes" Source="$(var.PathDocumentacio)\XAMPP Installers and Downloads for Apache Friends_files\h6DEDm7C37A_data\www-embed-player-vfl702554.css" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir60CA2C65738C5FEA54022E2DF495B86E">
+            <Directory Id="dir0B3E25244CEF951D0BE26E8F89C35775" Name="h6DEDm7C37A_data" />
+        </DirectoryRef>
+    </Fragment>
+</Wix>

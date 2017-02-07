@@ -14,17 +14,26 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
-    <DefineConstants>Debug</DefineConstants>
+    <DefineConstants>Debug;PathDocumentacio=..\TarifesApp\doc</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ComponentsDocumentacio.wxs" />
     <Compile Include="Product.wxs" />
     <Compile Include="MondoCustom.wxs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CustomActions\CustomActions.csproj">
+      <Name>CustomActions</Name>
+      <Project>{cb254bb7-16ea-4938-8fdd-ddc4aef7cc86}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
     <ProjectReference Include="..\TarifesApp\TarifesApp.csproj">
       <Name>TarifesApp</Name>
       <Project>{57e5285e-20cc-4077-88b8-beefdede802b}</Project>

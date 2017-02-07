@@ -14,10 +14,12 @@
 
 		<Feature Id="ProductFeature" Title="Tarifes App" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
+      <ComponentGroupRef Id="CPG_MENU_INICI" /> 
+      <ComponentGroupRef Id="CPG_DESKTOP" />     
 		</Feature>
 
     <Feature Id="DocFeature" Title="Documentacio" Level="4"> 
-      <ComponentGroupRef Id="DocComponents" />
+      <ComponentGroupRef Id="CPG_DOCS" />
     </Feature>
     
     <!-- Activar interfície gràfica-->
@@ -31,22 +33,100 @@
     -->
     <UIRef Id="WixUI_Mondo"/>   
     <UIRef Id="WixUI_ErrorProgressText"/>
-    
+
+    <Icon Id="IconaPrincipal" SourceFile="$(var.TarifesApp.TargetDir)TarifesApp.exe"/>
+  <!-- ********************************************************** -->
+  <!-- Custom Actions -->
+  <Binary Id="CustomActionDLL" SourceFile="$(var.CustomActions.TargetDir)CustomActions.CA.dll"></Binary>
+  <CustomAction Id="CA_CustomAction" 
+                BinaryKey="CustomActionDLL"
+                DllEntry="MostrarPantalla"
+                Execute="deferred"
+                Return="check"/>
+  <InstallExecuteSequence>
+    <Custom Action="CA_CustomAction" After="InstallInitialize"></Custom>
+  </InstallExecuteSequence>
+  <!-- ********************************************************** -->
+   <!-- Customització de la llicència i les icones -->
+   <WixVariable Id="WixUILicenseRtf" Value="llicencia.rtf"/>
+   <WixVariable Id="WixUIBannerBmp" Value="kraken.bmp"/>
+   <WixVariable Id="WixUIDialogBmp" Value="dialog.bmp"/>
+  
 	</Product>
 
 	<Fragment>
-		<Directory Id="TARGETDIR" Name="SourceDir">
+		<Directory Id="TARGETDIR" Name="SourceDir"><!-- AQUESTA LÍNIA   SEMPRE IGUAL: NO TOCAR -->
 			<Directory Id="ProgramFilesFolder">
         <Directory Id="INSTALLFOLDER" Name="TarifesApp" >
           <Directory Id="FOLDER_TMP" Name="tmp" />
           <Directory Id="DOCFOLDER" Name="doc" />
         </Directory>
+     </Directory>		
+      <Directory Id="ProgramMenuFolder">
+      <Directory Id="FOLDER_MENU_INICI"
+                  Name="TarifesApp"/>
     </Directory>
-		</Directory>
+      <Directory Id="DesktopFolder"></Directory>                
+    </Directory>
 	</Fragment>
 
 	<Fragment>
-    <ComponentGroup Id="DocComponents" Directory="DOCFOLDER">
+    
+    <!-- Component pel shorcut del menú d'inici-->
+    <ComponentGroup Id="CPG_MENU_INICI"
+                   Directory="FOLDER_MENU_INICI">
+      <Component Id="CMP_SHORCUTS_MENU_INICI"
+                 Guid="{57E2B0E0-46C6-4F4D-9A3D-774D80726FAD}">
+        <Shortcut Id="SHR_RUN"
+                  Name="TarifesApp"
+                  Description="Aplicacio Tarifes"
+                  Target="[INSTALLFOLDER]TarifesApp.exe"
+                  Icon="IconaPrincipal"
+        ></Shortcut>
+        <Shortcut Id="SHR_UNINSTALL"
+                  Name="Uninstall"
+                  Description="Desinstalar tot"
+                  Target="[System64Folder]msiexec.exe"
+                  Arguments="/x [ProductCode]"></Shortcut>
+        <RemoveFolder Id="EsborramId"
+                      On="uninstall"/>
+        <RegistryValue
+          Root="HKCU"
+          Key="Software\IESMila\TarifesApp"
+          Name="installed"
+          Type="integer"
+          Value="1"
+          KeyPath="yes"
+          ></RegistryValue>
+      </Component>
+    </ComponentGroup>
+    
+    
+      <ComponentGroup Id="CPG_DESKTOP"
+                   Directory="DesktopFolder">
+      <Component Id="CMP_SHORCUTS_DESKTOP"
+                 Guid="{395A1B21-61D7-4BDE-A0D6-58BF6D196C98}">
+        <Shortcut Id="SHR_RUN_DESKTOP"
+                  Name="TarifesApp"
+                  Description="Aplicacio Tarifes"
+                  Target="[INSTALLFOLDER]TarifesApp.exe"
+                  Icon="IconaPrincipal"
+        ></Shortcut>
+
+        <RegistryValue
+          Root="HKCU"
+          Key="Software\IESMila\TarifesApp"
+          Name="installed"
+          Type="integer"
+          Value="1"
+          KeyPath="yes"
+          ></RegistryValue>
+      
+      </Component>
+    </ComponentGroup>
+  
+    
+    <!--ComponentGroup Id="DocComponents" Directory="DOCFOLDER">
       <Component Id="CMP_doc_html"
                  Guid="{DE912D4C-32FA-425D-9BDC-B5532E3198F0}">
         <File Id="FILE_doc_html"
@@ -54,7 +134,7 @@
               KeyPath="yes"/>
       
       </Component>
-    </ComponentGroup>
+    </ComponentGroup-->
 
 		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
       <Component Id="CMP_TarifesApp_exe" 
@@ -66,6 +146,7 @@
       <Component Id="CMP_TarifesApp_dll"
                  Guid="{AA47541C-2907-41A3-9955-4DC54EDF08CF}"  >
         <File Id="FILE_TarifesApp_dll"
+              Assembly=".net"
               Source="$(var.TarifesApp.TargetDir)LibGestorTarifes.dll"
               KeyPath="yes"/>
       </Component>
