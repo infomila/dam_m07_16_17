@@ -1,5 +1,5 @@
 
-#M07 Disseny d'Interfícies
+# M07 Disseny d'Interfícies
 ## CFGS Desenvolupament d'Aplicacions Multiplataforma
 
 ### UF 1: Disseny i implementació d’interfícies
